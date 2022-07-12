@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+        <link rel="stylesheet" th:href="@{/css/style.css}"/>
+        <title>Spring Quest : JPA (Harry Potter - Schools)</title>
+    </head>
+    <body>
+        <header th:replace="header :: top">Your header here</header>
+        <h2>Spring Quest : JPA (Harry Potter - Schools)</h2>
+        <h3>Schools</h3>
+        <a href="/jpa/school">Add a new School !</a>
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Capacity</th>
+                    <th>Country</th>
+                    <th>Edit</th>
+                    <th>Remove</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="school : ${schools}">
+                    <td th:text="${school.id}">id</td>
+                    <td th:text="${school.name}">name</td>
+                    <td th:text="${school.capacity}">capacity</td>
+                    <td th:text="${school.country}">country</td>
+                    <td><a th:href="@{/jpa/school(id=${school.id})}">Edit</a></td>
+                    <td><a th:href="@{/jpa/school/delete(id=${school.id})}">Remove</a></td>
+                </tr>
+            </tbody>
+        </table>
+        <a href="/">Return to the index</a>
+    </body>
+    <footer th:replace="footer :: bottom">Your footer here</footer>
+</html>

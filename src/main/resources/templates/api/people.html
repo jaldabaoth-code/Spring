@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" th:href="@{/css/style.css}"/>
+        <title>Spring Quest : API (Star Wars - People)</title>
+    </head>
+    <body>
+        <header th:replace="header :: top">Your header here</header>
+        <h2>Spring Quest : API (Star Wars - People)</h2>
+        <h3 th:text="${peopleInfos.name}">$name</h3>
+        <h3 th:text="${peopleInfos.gender}">$gender</h3>
+        <ul>
+            <li th:each="film : ${peopleInfos.films}">
+                <a th:href="${film}" th:text="${film}">$film</a>
+            </li>
+        </ul>
+        <a href="/api/">Go back</a>
+    </body>
+    <footer th:replace="footer :: bottom">Your footer here</footer>
+</html>

@@ -1,0 +1,33 @@
+header, footer {
+    padding: 10px;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+th, td {
+    border-bottom: 1px solid #ddd;
+    padding: 10px 5px;
+    text-align: left;
+}
+
+label, textarea {
+    display: block;
+    margin-top: 15px;
+}
+
+input {
+    margin-top: 10px;
+    width: 500px;
+    height: 20px;
+}

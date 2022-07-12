@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+        <link rel="stylesheet" th:href="@{/css/style.css}"/>
+        <title>Spring Quests : API (Star Wars)</title>
+    </head>
+    <body>
+        <header th:replace="header :: top">Your header here</header>
+        <h2>Spring Quest : API (Star Wars)</h2>
+        <div>
+            <h3>You can search : </h3>
+            <h3>People : </h3>
+            <form action="/api/people" method="get">
+                <label>People id : </label>
+                <input name="id" placeholder="1" required type="number">
+                <input type="submit" value="Send">
+            </form>
+            <h3>Planet : </h3>
+            <form action="/api/planet" method="get">
+                <label>Planet id : </label>
+                <input name="id" placeholder="1" required type="number">
+                <input type="submit" value="Send">
+            </form>
+        </div>
+    </body>
+    <footer th:replace="footer :: bottom">Your footer here</footer>
+</html>

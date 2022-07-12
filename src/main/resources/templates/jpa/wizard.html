@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+        <link rel="stylesheet" th:href="@{/css/style.css}"/>
+        <title>Spring Quest : JPA (Harry Potter - Wizard)</title>
+    </head>
+    <body>
+        <header th:replace="header :: top">Your header here</header>
+        <h2>Spring Quest : JPA (Harry Potter - Wizard)</h2>
+        <h3 th:text="${wizard.id} ? 'Edit Wizard' : 'Create Wizard'">Wizard</h3>
+        <form method="post" th:action="@{wizard}" th:object="${wizard}">
+            <input name="id" th:field="*{id}" type="hidden">
+            <br/>
+            <label for="wizard-first-name">First Name : </label>
+            <input id="wizard-first-name" name="firstName" placeholder="Harry" required th:field="*{firstName}" type="text">
+            <br/>
+            <label for="wizard-last-name">Last Name : </label>
+            <input id="wizard-last-name" name="lastName" placeholder="Potter" required th:field="*{lastName}" type="text">
+            <br/>
+            <label for="wizard-birthday">Birthday : </label>
+            <input id="wizard-birthday" name="birthday" placeholder="1980-07-31" required th:field="*{birthday}" type="date">
+            <br/>
+            <label for="wizard-birth-place">Birth Place : </label>
+            <input id="wizard-birth-place" name="birthPlace" placeholder="London" th:field="*{birthPlace}" type="text">
+            <br/>
+            <label for="wizard-biography">Biography : </label>
+            <textarea id="wizard-biography" name="biography" th:field="*{biography}"></textarea>
+            <br/>
+            <label for="wizard-is-muggle">Is Muggle ? </label>
+            <input id="wizard-is-muggle" name="muggle" th:field="*{muggle}" type="checkbox">
+            <br/>
+            <input type="submit" value="Send">
+        </form>
+        <a href="/jpa/wizards">Return to the list</a>
+    </body>
+    <footer th:replace="footer :: bottom">Your footer here</footer>
+</html>

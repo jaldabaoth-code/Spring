@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+        <link rel="stylesheet" th:href="@{/css/style.css}"/>
+        <title>Spring Quests</title>
+    </head>
+    <body>
+        <header th:replace="header :: top">Your header here</header>
+        <h1>Quests</h1>
+        <h2>Spring Quests</h2>
+        <h3><a href="/doctor">Quest : Root (Doctor)</a></h3>
+        <h3><a href="/jpa">Quest : JPA (Harry Potter)</a></h3>
+        <h3><a href="/api">Quest : API (Star Wars)</a></h3>
+    </body>
+    <footer th:replace="footer :: bottom">Your footer here</footer>
+</html>

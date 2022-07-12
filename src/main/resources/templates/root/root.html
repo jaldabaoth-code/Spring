@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+        <link rel="stylesheet" th:href="@{/css/style.css}"/>
+        <title>Spring Quests : Root (Doctor)</title>
+    </head>
+    <body>
+        <header th:replace="header :: top">Your header here</header>
+        <h2>Spring Quests : Root (Doctor)</h2>
+        <h3>Spring Quest : Root 1 (Doctor)</h3>
+        <ul>
+            <li><a href="root/root1/doctor/1"><b>Doctor 1 ---> (William Hartnell)</b></a></li>
+            <li><a href="root/root1/doctor/10"><b>Doctor 10 ---> (David Tennant)</b></a></li>
+            <li><a href="root/root1/doctor/12"><b>Doctor 12 ---> (Jodie Whittaker)</b></a></li>
+            <li><a href="root/root1/doctor/13"><b>Doctor 13 ---> (Error 404)</b></a></li>
+        </ul>
+        <h3>Spring Quest : Root 2 (Doctor)</h3>
+        <ul>
+            <li><a href="/root/root2/doctor/1"><b>Doctor 1 ---> (Error 303)</b></a></li>
+            <li><a href="/root/root2/doctor/2"><b>Doctor 2 ---> (Error 303)</b></a></li>
+            <li><a href="/root/root2/doctor/3"><b>Doctor 3 ---> (Error 303)</b></a></li>
+            <li><a href="/root/root2/doctor/4"><b>Doctor 4 ---> (Error 303)</b></a></li>
+            <li><a href="/root/root2/doctor/5"><b>Doctor 5 ---> (Error 303)</b></a></li>
+            <li><a href="/root/root2/doctor/6"><b>Doctor 6 ---> (Error 303)</b></a></li>
+            <li><a href="/root/root2/doctor/7"><b>Doctor 7 ---> (Error 303)</b></a></li>
+            <li><a href="/root/root2/doctor/8"><b>Doctor 8 ---> (Error 303)</b></a></li>
+            <li><a href="/root/root2/doctor/9"><b>Doctor 9 ---> (Error 303)</b></a></li>
+            <li><a href="/root/root2/doctor/10"><b>Doctor 10 ---> (Error 303)</b></a></li>
+            <li><a href="/root/root2/doctor/11"><b>Doctor 11 ---> (Error 303)</b></a></li>
+            <li><a href="/root/root2/doctor/12"><b>Doctor 12 ---> (Error 303)</b></a></li>
+            <li><a href="/root/root2/doctor/13"><b>Doctor 13 ---> ({"number":13,"name":"Jodie Whitakker"})</b></a></li>
+            <li><a href="/root/root2/doctor/42"><b>Doctor 42 ---> (Error 404)</b></a></li>
+        </ul>
+        <h3>Spring Quest : Root 3 (Doctor)</h3>
+        <ul class="doctor-list">
+            <li><a href="/root/root3/doctor/?number=1&name=William%20Hartnell"><b>Doctor 1 ---> (1) William Hartnell)</b></a></li>
+            <li><a href="/root/root3/doctor/?number=2&name=Patrick%20Troughton"><b>Doctor 2 ---> (2) Patrick Troughton)</b></a></li>
+            <li><a href="/root/root3/doctor/?number=3&name=Jon%20Pertwee"><b>Doctor 3 ---> (3) Jon Pertwee)</b></a></li>
+            <li><a href="/root/root3/doctor/?number=4&name=Tom%20Baker"><b>Doctor 4 ---> (4) Tom Baker)</b></a></li>
+            <li><a href="/root/root3/doctor/?number=5&name=Peter%20Davison"><b>Doctor 5 ---> (5) Peter Davison)</b></a></li>
+            <li><a href="/root/root3/doctor/?number=6&name=Colin%20Baker"><b>Doctor 6 ---> (6) Colin Baker)</b></a></li>
+            <li><a href="/root/root3/doctor/?number=7&name=Sylvester%20McCoy"><b>Doctor 7 ---> (7) Sylvester McCoy)</b></a></li>
+            <li><a href="/root/root3/doctor/?number=8&name=Paul%20McGann"><b>Doctor 8 ---> (8) Paul McGann)</b></a></li>
+            <li><a href="/root/root3/doctor/?number=9&name=Christopher%20Eccleston"><b>Doctor 9 ---> (9) Christopher Eccleston)</b></a></li>
+            <li><a href="/root/root3/doctor/?number=10&name=David%20Tennant"><b>Doctor 10 ---> (10) David Tennant)</b></a></li>
+            <li><a href="/root/root3/doctor/?number=11&name=Matt%20Smith"><b>Doctor 11 ---> (11) Matt Smith)</b></a></li>
+            <li><a href="/root/root3/doctor/?number=12&name=Peter%20Capaldi"><b>Doctor 12 ---> (12) Peter Capaldi)</b></a></li>
+            <li><a href="/root/root3/doctor/?number=13&name=Jodie%20Whittaker"><b>Doctor 13 ---> (13) Jodie Whittaker)</b></a></li>
+            <li><a href="/root/root3/doctor/"><b>Unknown Doctor ---> (0) John Smith)</b></a></li>
+        </ul>
+    </body>
+    <footer th:replace="footer :: bottom">Your footer here</footer>
+</html>

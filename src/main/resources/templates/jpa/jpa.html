@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+        <link rel="stylesheet" th:href="@{/css/style.css}"/>
+        <title>Spring Quests : JPA (Harry Potter)</title>
+    </head>
+    <body>
+        <header th:replace="header :: top">Your header here</header>
+        <h2>Spring Quests : JPA (Harry Potter)</h2>
+        <h3><a href="jpa/wizards">Browse all Wizards</a></h3>
+        <h3><a href="jpa/schools">Browse all Schools</a></h3>
+        <h3><a href="jpa/wizard">Browse Wizard</a></h3>
+        <h3><a href="jpa/school">Browse School</a></h3>
+    </body>
+    <footer th:replace="footer :: bottom">Your footer here</footer>
+</html>

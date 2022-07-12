@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+        <link rel="stylesheet" th:href="@{/css/style.css}"/>
+        <title>Spring Quest : Root 3 (Doctor)</title>
+    </head>
+    <body>
+        <header th:replace="header :: top">Your header here</header>
+        <h2>Spring Quest : Root 3 (Doctor)</h2>
+        <section>
+            <h3 th:text="| ${number}) ${name} |">$doctornumber $doctorname</h3>
+        </section>
+    </body>
+    <footer th:replace="footer :: bottom">Your footer here</footer>
+</html>
