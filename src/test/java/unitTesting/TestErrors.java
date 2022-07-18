@@ -13,11 +13,9 @@ public class TestErrors {
 		String nom = "Zurabi";
 		String vowels = stringUtils.vowels(nom);
 		assertEquals("uai", vowels);
-
 		String nom2 = "uai";
 		String vowels2 = stringUtils.vowels(nom2);
 		assertEquals("uai", vowels2);
-		
 		String nom3 = "u";
 		String vowels3 = stringUtils.vowels(nom3);
 		assertEquals("u", vowels3);
