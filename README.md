@@ -7,10 +7,12 @@
 
 ### Steps
 
-1. Clone the repo from Github
-2. Create a database and fill all informations in `application.properties`
-3. Run <b>`WildAndWizardApplication`</b>
-4. Go to <b>localhost:8080</b> on your browser
+
+1. Clone the repo from GitHub : git clone git@github.com:jaldabaoth-code/Spring.git
+2. Enter the directory : cd Spring
+3. Create a database and fill all information in `application.properties`
+4. Run <b>`WildAndWizardApplication`</b>
+5. Go to <b>localhost:8080</b> with your favorite browser
 
 ---
 
