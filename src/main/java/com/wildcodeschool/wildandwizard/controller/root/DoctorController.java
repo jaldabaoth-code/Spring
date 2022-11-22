@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.server.ResponseStatusException;
 
-/* Spring Quest : Root (Doctor) */
+/* Spring Quests : Root (Doctor) */
 @Controller
 public class DoctorController {
     @GetMapping("/doctor")

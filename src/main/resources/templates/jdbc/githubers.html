@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+        <link rel="stylesheet" th:href="@{/css/style.css}"/>
+        <title>Spring Quest : JDBC (Githubers)</title>
+    </head>
+    <body>
+        <header th:replace="header :: top">Your header here</header>
+        <h2>Spring Quest : JDBC (Githubers)</h2>
+        <h3>Githubers</h3>
+        <a href="/githuber">Add a new Githuber !</a>
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Github Id</th>
+                    <th>Name</th>
+                    <th>Login</th>
+                    <th>URL</th>
+                    <th>Email</th>
+                    <th>Bio</th>
+                    <th>Location</th>
+                    <th>Avatar Url</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="githuber : ${githubers}">
+                    <td th:text="${githuber.id}">id</td>
+                    <td th:text="${githuber.githubId}">Github Id</td>
+                    <td th:text="${githuber.name}">Name</td>
+                    <td th:text="${githuber.login}">Login</td>
+                    <td th:text="${githuber.url}">URL</td>
+                    <td th:text="${githuber.email}">Email</td>
+                    <td th:text="${githuber.bio}">Bio</td>
+                    <td th:text="${githuber.location}">Location</td>
+                    <td th:text="${githuber.avatarUrl}">Avatar Url</td>
+                    <td><a th:href="@{/githuber(id=${githuber.id})}">Edit</a></td>
+                    <td><a th:href="@{/githuber/delete(id=${githuber.id})}">Remove</a></td>
+                </tr>
+            </tbody>
+        </table>
+        <a href="/">Return to the index</a>
+    </body>
+    <footer th:replace="footer :: bottom">Your footer here</footer>
+</html>

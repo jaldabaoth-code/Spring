@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
 
-/* Spring Quest : API (Star Wars) */
+/* Spring Quests : API (Star Wars) */
 @Controller
 public class SwapiController {
     private static final String SWAPI_URL = "https://swapi.dev";
