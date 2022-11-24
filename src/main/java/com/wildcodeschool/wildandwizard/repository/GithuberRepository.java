@@ -2,18 +2,42 @@ package com.wildcodeschool.wildandwizard.repository;
 
 import com.wildcodeschool.wildandwizard.entity.Githuber;
 import com.wildcodeschool.wildandwizard.util.JdbcUtils;
-import com.wildcodeschool.wildandwizard.util.testService;
+
+import org.springframework.beans.factory.annotation.Value;
+
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.core.env.Environment;
+import org.springframework.stereotype.Component;
+
+@Configuration
 public class GithuberRepository implements JDBCGithuberDAO<Githuber> {
-    private final static String DB_URL = "jdbc:mysql://localhost:3306/githubtracker?serverTimezone=GMT";
-    private final static String DB_USER = "h4rryp0tt3r";
-    private final static String DB_PASSWORD = "Horcrux4life!";
+
+/*    String DB_URL = method();*/
+    @Autowired
+    private Environment env;
+
+    public String method() {
+
+        String DB_URL2 = env.getProperty("spring.datasource.url");
+        return DB_URL2;
+
+    }
+
+
+    @Value("${spring.datasource.url}")
+    private String DB_URL;
+
+/*    private final static String DB_URL = "jdbc:mysql://localhost:3306/githubtracker?serverTimezone=GMT";*/
+    private final static String DB_USER = "";
+    private final static String DB_PASSWORD = "";
     @Override
     public Githuber save(Githuber githuber) {
-
         Connection connection = null;
         PreparedStatement statement = null;
         ResultSet generatedKeys = null;
