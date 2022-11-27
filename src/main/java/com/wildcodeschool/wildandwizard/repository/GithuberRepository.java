@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GithuberRepository implements JDBCGithuberDAO<Githuber> {
-
     private final static String DB_URL = "jdbc:mysql://localhost:3306/githubtracker?serverTimezone=GMT\";";
     private final static String DB_USER = "h4rryp0tt3r";
     private final static String DB_PASSWORD = "Horcrux4life!";
@@ -18,13 +17,8 @@ public class GithuberRepository implements JDBCGithuberDAO<Githuber> {
         PreparedStatement statement = null;
         ResultSet generatedKeys = null;
         try {
-            connection = DriverManager.getConnection(
-                    DB_URL, DB_USER, DB_PASSWORD
-            );
-            statement = connection.prepareStatement(
-                    "INSERT INTO githuber (github_id, name, login, url, email, bio, location, avatar_url) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
-                    Statement.RETURN_GENERATED_KEYS
-            );
+            connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+            statement = connection.prepareStatement("INSERT INTO githuber (github_id, name, login, url, email, bio, location, avatar_url) VALUES (?, ?, ?, ?, ?, ?, ?, ?)", Statement.RETURN_GENERATED_KEYS);
             statement.setLong(1, githuber.getGithubId());
             statement.setString(2, githuber.getName());
             statement.setString(3, githuber.getLogin());
@@ -33,13 +27,10 @@ public class GithuberRepository implements JDBCGithuberDAO<Githuber> {
             statement.setString(6, githuber.getBio());
             statement.setString(7, githuber.getLocation());
             statement.setString(8, githuber.getAvatarUrl());
-
             if (statement.executeUpdate() != 1) {
                 throw new SQLException("failed to insert data");
             }
-
             generatedKeys = statement.getGeneratedKeys();
-
             if (generatedKeys.next()) {
                 Long id = generatedKeys.getLong(1);
                 githuber.setId(id);
@@ -59,20 +50,14 @@ public class GithuberRepository implements JDBCGithuberDAO<Githuber> {
 
     @Override
     public Githuber findById(Long id) {
-
         Connection connection = null;
         PreparedStatement statement = null;
         ResultSet resultSet = null;
         try {
-            connection = DriverManager.getConnection(
-                    DB_URL, DB_USER, DB_PASSWORD
-            );
-            statement = connection.prepareStatement(
-                    "SELECT * FROM githuber WHERE id = ?;"
-            );
+            connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+            statement = connection.prepareStatement("SELECT * FROM githuber WHERE id = ?;");
             statement.setLong(1, id);
             resultSet = statement.executeQuery();
-
             if (resultSet.next()) {
                 Long githubId = resultSet.getLong("github_id");
                 String name = resultSet.getString("name");
@@ -96,21 +81,14 @@ public class GithuberRepository implements JDBCGithuberDAO<Githuber> {
 
     @Override
     public List<Githuber> findAll() {
-
         Connection connection = null;
         PreparedStatement statement = null;
         ResultSet resultSet = null;
         try {
-            connection = DriverManager.getConnection(
-                    DB_URL, DB_USER, DB_PASSWORD
-            );
-            statement = connection.prepareStatement(
-                    "SELECT * FROM githuber;"
-            );
+            connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+            statement = connection.prepareStatement("SELECT * FROM githuber;");
             resultSet = statement.executeQuery();
-
             List<Githuber> githubers = new ArrayList<>();
-
             while (resultSet.next()) {
                 Long id = resultSet.getLong("id");
                 Long githubId = resultSet.getLong("github_id");
@@ -139,12 +117,8 @@ public class GithuberRepository implements JDBCGithuberDAO<Githuber> {
         Connection connection = null;
         PreparedStatement statement = null;
         try {
-            connection = DriverManager.getConnection(
-                    DB_URL, DB_USER, DB_PASSWORD
-            );
-            statement = connection.prepareStatement(
-                    "UPDATE githuber SET github_id=?, name=?, login=?, url=?, email=?, bio=?, location=?, avatar_url=? WHERE id=?"
-            );
+            connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+            statement = connection.prepareStatement("UPDATE githuber SET github_id=?, name=?, login=?, url=?, email=?, bio=?, location=?, avatar_url=? WHERE id=?");
             statement.setLong(1, githuber.getGithubId());
             statement.setString(2, githuber.getName());
             statement.setString(3, githuber.getLogin());
@@ -154,7 +128,6 @@ public class GithuberRepository implements JDBCGithuberDAO<Githuber> {
             statement.setString(7, githuber.getLocation());
             statement.setString(8, githuber.getAvatarUrl());
             statement.setLong(9, githuber.getId());
-
             if (statement.executeUpdate() != 1) {
                 throw new SQLException("failed to update data");
             }
@@ -174,14 +147,9 @@ public class GithuberRepository implements JDBCGithuberDAO<Githuber> {
         Connection connection = null;
         PreparedStatement statement = null;
         try {
-            connection = DriverManager.getConnection(
-                    DB_URL, DB_USER, DB_PASSWORD
-            );
-            statement = connection.prepareStatement(
-                    "DELETE FROM githuber WHERE id=?"
-            );
+            connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+            statement = connection.prepareStatement("DELETE FROM githuber WHERE id=?");
             statement.setLong(1, id);
-
             if (statement.executeUpdate() != 1) {
                 throw new SQLException("failed to delete data");
             }

@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class PersonController {
-
     private PersonRepository repository = new PersonRepository();
 
     @GetMapping("/persons")
@@ -19,7 +18,7 @@ public class PersonController {
 
         model.addAttribute("persons", repository.findAll());
 
-        return "ZZZZZJDBCIntroduction/persons";
+        return "jdbcIntroduction/persons";
     }
 
     @GetMapping("/person")
@@ -32,7 +31,7 @@ public class PersonController {
         }
         model.addAttribute("person", person);
 
-        return "ZZZZZJDBCIntroduction/person";
+        return "jdbcIntroduction/person";
     }
 
     @PostMapping("/person")
@@ -50,7 +49,6 @@ public class PersonController {
     public String deletePerson(@RequestParam Long id) {
 
         repository.deleteById(id);
-
         return "redirect:/persons";
     }
 }
