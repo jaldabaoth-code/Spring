@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Person</title>
-</head>
-<body>
-<h3 th:text="${person.id} ? 'Edit Person' : 'Create Person'">Person</h3>
-<form method="post" th:action="@{/person}" th:object="${person}">
-    <input name="id" th:field="*{id}" type="hidden">
-    <label for="person-firstName">First Name:</label>
-    <input id="person-firstName" name="firstName" placeholder="First Name" required th:field="*{firstName}" type="text">
-    <br><br>
-    <label for="person-lastName">Last Name:</label>
-    <input id="person-lastName" name="lastName" placeholder="Last Name" required th:field="*{lastName}" type="text">
-    <br><br>
-    <label for="person-age">Age:</label>
-    <input id="person-age" name="age" placeholder="40" required th:field="*{age}" type="number">
-    <br><br>
-    <input type="submit" value="Send">
-</form>
-<br>
-<a href="/persons">Return to the list</a>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <title>Person</title>
+    </head>
+    <body>
+        <h3 th:text="${person.id} ? 'Edit Person' : 'Create Person'">Person</h3>
+        <form method="post" th:action="@{/person}" th:object="${person}">
+            <input name="id" th:field="*{id}" type="hidden">
+            <label for="person-firstName">First Name:</label>
+            <input id="person-firstName" name="firstName" placeholder="First Name" required th:field="*{firstName}" type="text">
+            <br><br>
+            <label for="person-lastName">Last Name:</label>
+            <input id="person-lastName" name="lastName" placeholder="Last Name" required th:field="*{lastName}" type="text">
+            <br><br>
+            <label for="person-age">Age:</label>
+            <input id="person-age" name="age" placeholder="40" required th:field="*{age}" type="number">
+            <br><br>
+            <input type="submit" value="Send">
+        </form>
+        <br>
+        <a href="/persons">Return to the list</a>
+    </body>
 </html>
