@@ -1,7 +1,7 @@
 package com.wildcodeschool.wildandwizard.controller.jdbcIntroduction;
 
-import com.wildcodeschool.wildandwizard.ZZZZZJDBCIntroduction.entity.Person;
-import com.wildcodeschool.wildandwizard.ZZZZZJDBCIntroduction.repository.PersonRepository;
+import com.wildcodeschool.wildandwizard.entity.Person;
+import com.wildcodeschool.wildandwizard.repository.PersonRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -1,15 +1,13 @@
-package com.wildcodeschool.wildandwizard.ZZZZZJDBCIntroduction.repository;
+package com.wildcodeschool.wildandwizard.repository;
 
-import com.wildcodeschool.wildandwizard.ZZZZZJDBCIntroduction.entity.Person;
-import com.wildcodeschool.wildandwizard.ZZZZZJDBCIntroduction.util.JdbcUtils;
-
+import com.wildcodeschool.wildandwizard.entity.Person;
+import com.wildcodeschool.wildandwizard.util.JdbcUtils;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class PersonRepository implements CrudDao<Person> {
-
-    private final static String DB_URL = "jdbc:mysql://localhost:3306/JDBCIntro?serverTimezone=GMT";
+    private final static String DB_URL = "jdbc:mysql://localhost:3306/spring5?serverTimezone=GMT";
     private final static String DB_USER = "h4rryp0tt3r";
     private final static String DB_PASSWORD = "Horcrux4life!";
 
@@ -24,7 +22,7 @@ public class PersonRepository implements CrudDao<Person> {
                     DB_URL, DB_USER, DB_PASSWORD
             );
             statement = connection.prepareStatement(
-                    "INSERT INTO person (firstName, lastName, age) VALUES (?, ?, ?)",
+                    "INSERT INTO person (first_name, last_name, age) VALUES (?, ?, ?)",
                     Statement.RETURN_GENERATED_KEYS
             );
             statement.setString(1, person.getFirstName());
@@ -71,8 +69,8 @@ public class PersonRepository implements CrudDao<Person> {
             resultSet = statement.executeQuery();
 
             if (resultSet.next()) {
-                String firstName = resultSet.getString("firstName");
-                String lastName = resultSet.getString("lastName");
+                String firstName = resultSet.getString("first_name");
+                String lastName = resultSet.getString("last_name");
                 int age = resultSet.getInt("age");
                 return new Person(id, firstName, lastName, age);
             }
@@ -105,8 +103,8 @@ public class PersonRepository implements CrudDao<Person> {
 
             while (resultSet.next()) {
                 Long id = resultSet.getLong("id");
-                String firstName = resultSet.getString("firstName");
-                String lastName = resultSet.getString("lastName");
+                String firstName = resultSet.getString("first_name");
+                String lastName = resultSet.getString("last_name");
                 int age = resultSet.getInt("age");
                 persons.add(new Person(id, firstName, lastName, age));
             }
@@ -130,7 +128,7 @@ public class PersonRepository implements CrudDao<Person> {
                     DB_URL, DB_USER, DB_PASSWORD
             );
             statement = connection.prepareStatement(
-                    "UPDATE person SET firstName=?, lastName=?, age=? WHERE id=?"
+                    "UPDATE person SET first_name=?, last_name=?, age=? WHERE id=?"
             );
             statement.setString(1, person.getFirstName());
             statement.setString(2, person.getLastName());
