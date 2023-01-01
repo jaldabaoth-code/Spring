@@ -14,9 +14,7 @@
             <h3 th:text="|${wizard.firstName} ${wizard.lastName}|"></h3>
             <label for="race">Register a race to wizard:</label>
             <select id="race" name="idRace">
-                <option th:each="race : ${allRaces}" th:text="${race.name}"
-                        th:value="${race.id}">wizard name
-                </option>
+                <option th:each="race : ${allRaces}" th:text="${race.name}" th:value="${race.id}">wizard name</option>
             </select>
             <input type="submit" value="Register">
         </form>

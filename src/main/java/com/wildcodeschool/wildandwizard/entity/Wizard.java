@@ -19,6 +19,9 @@ public class Wizard {
     @ManyToMany
     @JoinTable(name = "wizard_race", joinColumns = @JoinColumn(name = "wizard_id"), inverseJoinColumns = @JoinColumn(name = "race_id"))
     private List<Race> races = new ArrayList<>();
+    @ManyToOne
+    @JoinColumn(name = "school_id")
+    private School school;
 
     public Wizard() {
     }
@@ -85,5 +88,13 @@ public class Wizard {
 
     public void setRaces(List<Race> races) {
         this.races = races;
+    }
+
+    public School getSchool() {
+        return school;
+    }
+
+    public void setSchool(School school) {
+        this.school = school;
     }
 }
