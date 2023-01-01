@@ -5,8 +5,6 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class testService {
-
-
     @Value("${spring.datasource.username}")
     private static String username;
 

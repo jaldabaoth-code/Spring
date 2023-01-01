@@ -13,6 +13,11 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
+                .csrf()
+                .disable()
+                .authorizeRequests()
+                .antMatchers("/jpa/**").permitAll()
+                .and()
                 .authorizeRequests()
                 .antMatchers("/welcome")
                 .permitAll()
@@ -32,7 +37,7 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         PasswordEncoder encoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
         auth.inMemoryAuthentication()
-                .withUser("user")
+                .withUser("User")
                 .password(encoder.encode("password"))
                 .roles("")
                 .and()

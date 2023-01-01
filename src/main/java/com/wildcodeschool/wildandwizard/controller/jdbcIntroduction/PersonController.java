@@ -15,28 +15,22 @@ public class PersonController {
 
     @GetMapping("/persons")
     public String getAll(Model model) {
-
         model.addAttribute("persons", repository.findAll());
-
         return "jdbcIntroduction/persons";
     }
 
     @GetMapping("/person")
-    public String getPerson(Model model,
-                            @RequestParam(required = false) Long id) {
-
+    public String getPerson(Model model, @RequestParam(required = false) Long id) {
         Person person = new Person();
         if (id != null) {
             person = repository.findById(id);
         }
         model.addAttribute("person", person);
-
         return "jdbcIntroduction/person";
     }
 
     @PostMapping("/person")
     public String postPerson(@ModelAttribute Person person) {
-
         if (person.getId() != null) {
             repository.update(person);
         } else {
@@ -47,7 +41,6 @@ public class PersonController {
 
     @GetMapping("/person/delete")
     public String deletePerson(@RequestParam Long id) {
-
         repository.deleteById(id);
         return "redirect:/persons";
     }

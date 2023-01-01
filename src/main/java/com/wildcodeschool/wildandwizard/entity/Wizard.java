@@ -2,6 +2,8 @@ package com.wildcodeschool.wildandwizard.entity;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Wizard {
@@ -14,6 +16,9 @@ public class Wizard {
     private String birthPlace;
     private String biography;
     private boolean muggle;
+    @ManyToMany
+    @JoinTable(name = "wizard_race", joinColumns = @JoinColumn(name = "wizard_id"), inverseJoinColumns = @JoinColumn(name = "race_id"))
+    private List<Race> races = new ArrayList<>();
 
     public Wizard() {
     }
@@ -72,5 +77,13 @@ public class Wizard {
 
     public void setMuggle(boolean muggle) {
         this.muggle = muggle;
+    }
+
+    public List<Race> getRaces() {
+        return races;
+    }
+
+    public void setRaces(List<Race> races) {
+        this.races = races;
     }
 }

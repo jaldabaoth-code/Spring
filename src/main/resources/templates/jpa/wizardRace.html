@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+        <link rel="stylesheet" th:href="@{/css/style.css}"/>
+        <title>Spring Quest : JPA Many To Many (Harry Potter - Wizard's Races)</title>
+    </head>
+    <body>
+        <header th:replace="header :: top">Your header here</header>
+        <h2>Spring Quest : JPA Many To Many (Harry Potter - Wizard's Races)</h2>
+        <h3>Wizard's Races</h3>
+        <form action="/jpa/wizard/race/register" method="post">
+            <input name="idWizard" th:value="${wizard.id}" type="hidden">
+            <h3 th:text="|${wizard.firstName} ${wizard.lastName}|"></h3>
+            <label for="race">Register a race to wizard:</label>
+            <select id="race" name="idRace">
+                <option th:each="race : ${allRaces}" th:text="${race.name}"
+                        th:value="${race.id}">wizard name
+                </option>
+            </select>
+            <input type="submit" value="Register">
+        </form>
+        <h3>Wizard races:</h3>
+        <table>
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr th:each="race : ${wizard.races}">
+                    <td th:text="${race.id}">id</td>
+                    <td th:text="${race.name}">name</td>
+                </tr>
+            </tbody>
+        </table>
+        <a href="/">Return to the index</a>
+    </body>
+    <footer th:replace="footer :: bottom">Your footer here</footer>
+</html>

@@ -20,6 +20,8 @@
                     <th>Birth place</th>
                     <th>Biography</th>
                     <th>Muggle</th>
+                    <th>Race</th>
+                    <th></th>
                     <th>Edit</th>
                     <th>Remove</th>
                 </tr>
@@ -33,6 +35,8 @@
                     <td th:text="${wizard.birthPlace}">birth place</td>
                     <td th:text="${wizard.biography}">biography</td>
                     <td th:text="${wizard.muggle}">muggle</td>
+                    <td><div th:each="race : ${wizard.races}" th:text="${race.getName()}">race</div></td>
+                    <td><a th:href="@{/jpa/wizard/races(idWizard=${wizard.id})}">races</a></td>
                     <td><a th:href="@{/jpa/wizard(id=${wizard.id})}">Edit</a></td>
                     <td><a th:href="@{/jpa/wizard/delete(id=${wizard.id})}">Remove</a></td>
                 </tr>
