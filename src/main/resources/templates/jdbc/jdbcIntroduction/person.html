@@ -4,22 +4,29 @@
         <meta charset="UTF-8">
         <title>Person</title>
     </head>
+    <head>
+        <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+        <link rel="stylesheet" th:href="@{/css/style.css}"/>
+        <title>Spring Quest : JDBC Introduction (Person)</title>
+    </head>
     <body>
+        <header th:replace="header :: top">Your header here</header>
+        <h2>Spring Quest : JDBC Introduction (Person)</h2>
         <h3 th:text="${person.id} ? 'Edit Person' : 'Create Person'">Person</h3>
-        <form method="post" th:action="@{/person}" th:object="${person}">
+        <form method="post" th:action="@{/jdbc/person}" th:object="${person}">
             <input name="id" th:field="*{id}" type="hidden">
             <label for="person-firstName">First Name:</label>
             <input id="person-firstName" name="firstName" placeholder="First Name" required th:field="*{firstName}" type="text">
-            <br><br>
+            <br/>
             <label for="person-lastName">Last Name:</label>
             <input id="person-lastName" name="lastName" placeholder="Last Name" required th:field="*{lastName}" type="text">
-            <br><br>
+            <br/>
             <label for="person-age">Age:</label>
             <input id="person-age" name="age" placeholder="40" required th:field="*{age}" type="number">
-            <br><br>
+            <br/>
             <input type="submit" value="Send">
         </form>
-        <a href="/jpa/schools">Return to the list</a>
+        <a href="/jdbc/persons">Return to the list</a>
     </body>
     <footer th:replace="footer :: bottom">Your footer here</footer>
 </html>

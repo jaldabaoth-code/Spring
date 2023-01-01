@@ -9,7 +9,7 @@
         <header th:replace="header :: top">Your header here</header>
         <h2>Spring Quest : JDBC (Githuber)</h2>
         <h3 th:text="${githuber.id} ? 'Edit Githuber' : 'Create Githuber'">Githuber</h3>
-        <form method="post" th:action="@{/githuber}" th:object="${githuber}">
+        <form method="post" th:action="@{githuber}" th:object="${githuber}">
             <input name="id" th:field="*{id}" type="hidden">
             <br/>
             <label for="githuber-githubId">Github Id:</label>
@@ -38,7 +38,7 @@
             <br/>
             <input type="submit" value="Send">
         </form>
-        <a href="/githubers">Return to the list</a>
+        <a href="/jdbc/githubers">Return to the list</a>
     </body>
     <footer th:replace="footer :: bottom">Your footer here</footer>
 </html>

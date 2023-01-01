@@ -16,7 +16,7 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrf()
                 .disable()
                 .authorizeRequests()
-                .antMatchers("/jpa/**").permitAll()
+                .antMatchers("/jpa/**", "/gi").permitAll()
                 .and()
                 .authorizeRequests()
                 .antMatchers("/welcome")

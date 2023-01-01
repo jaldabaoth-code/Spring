@@ -14,35 +14,35 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class GithuberController {
     private GithuberRepository repository = new GithuberRepository();
 
-    @GetMapping("/githubers")
+    @GetMapping("/jdbc/githubers")
     public String getAll(Model model) {
         model.addAttribute("githubers", repository.findAll());
-        return "jdbc/githubers";
+        return "jdbc/githuber/githubers";
     }
 
-    @GetMapping("/githuber")
+    @GetMapping("/jdbc/githuber")
     public String getGithuber(Model model, @RequestParam(required = false) Long id) {
         Githuber githuber = new Githuber();
         if (id != null) {
             githuber = repository.findById(id);
         }
         model.addAttribute("githuber", githuber);
-        return "jdbc/githuber";
+        return "jdbc/githuber/githuber";
     }
 
-    @PostMapping("/githuber")
+    @PostMapping("/jdbc/githuber")
     public String postGithuber(@ModelAttribute Githuber githuber) {
         if (githuber.getId() != null) {
             repository.update(githuber);
         } else {
             repository.save(githuber);
         }
-        return "redirect:/githubers";
+        return "redirect:/jdbc/githubers";
     }
 
-    @GetMapping("/githuber/delete")
+    @GetMapping("/jdbc/githuber/delete")
     public String deleteGithuber(@RequestParam Long id) {
         repository.deleteById(id);
-        return "redirect:/githubers";
+        return "redirect:/jdbc/githubers";
     }
 }

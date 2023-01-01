@@ -1,4 +1,4 @@
-package com.wildcodeschool.wildandwizard.controller.jdbcIntroduction;
+package com.wildcodeschool.wildandwizard.controller.jdbc.jdbcIntroduction;
 
 import com.wildcodeschool.wildandwizard.entity.Person;
 import com.wildcodeschool.wildandwizard.repository.PersonRepository;
@@ -13,35 +13,35 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class PersonController {
     private PersonRepository repository = new PersonRepository();
 
-    @GetMapping("/persons")
+    @GetMapping("/jdbc/persons")
     public String getAll(Model model) {
         model.addAttribute("persons", repository.findAll());
-        return "jdbcIntroduction/persons";
+        return "jdbc/jdbcIntroduction/persons";
     }
 
-    @GetMapping("/person")
+    @GetMapping("/jdbc/person")
     public String getPerson(Model model, @RequestParam(required = false) Long id) {
         Person person = new Person();
         if (id != null) {
             person = repository.findById(id);
         }
         model.addAttribute("person", person);
-        return "jdbcIntroduction/person";
+        return "jdbc/jdbcIntroduction/person";
     }
 
-    @PostMapping("/person")
+    @PostMapping("/jdbc/person")
     public String postPerson(@ModelAttribute Person person) {
         if (person.getId() != null) {
             repository.update(person);
         } else {
             repository.save(person);
         }
-        return "redirect:/persons";
+        return "redirect:/jdbc/persons";
     }
 
-    @GetMapping("/person/delete")
+    @GetMapping("/jdbc/person/delete")
     public String deletePerson(@RequestParam Long id) {
         repository.deleteById(id);
-        return "redirect:/persons";
+        return "redirect:/jdbc/persons";
     }
 }
