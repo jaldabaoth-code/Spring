@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head th:replace="head :: head">Your head here</head>
+    <body>
+        <header th:replace="header :: top">Your header/navbar here</header>
+        <h1>Spring Quest : Root</h1>
+        <h2>Root 1</h2>
+        <div class="root1-quest-container">
+            <ul>
+                <li><a href="/root/root1/doctor/1"><b>Doctor 1 ---> (William Hartnell)</b></a></li>
+                <li><a href="/root/root1/doctor/10"><b>Doctor 10 ---> (David Tennant)</b></a></li>
+                <li><a href="/root/root1/doctor/12"><b>Doctor 12 ---> (Jodie Whittaker)</b></a></li>
+                <li><a href="/root/root1/doctor/13"><b>Doctor 13 ---> (Error 404)</b></a></li>
+            </ul>
+        </div>
+    </body>
+    <footer th:replace="footer :: bottom">Your footer here</footer>
+</html>

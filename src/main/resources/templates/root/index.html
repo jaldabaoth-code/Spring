@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="head :: head">Your head here</head>
+    <body>
+        <header th:replace="header :: top">Your header/navbar here</header>
+        <h1>Spring Quests - Root</h1>
+        <div class="root-quests-container">
+            <h3><a class="quest-link" href="/root/root1/doctor">Root 1 (Doctor)</a></h3>
+            <h3><a class="quest-link" href="/root/root2/doctor">Root 2 (Doctor)</a></h3>
+            <h3><a class="quest-link" href="/root/root3/doctor">Root 3 (Doctor)</a></h3>
+        </div>
+    </body>
+    <footer th:replace="footer :: bottom">Your footer here</footer>
+</html>

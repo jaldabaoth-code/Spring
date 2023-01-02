@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="head :: head">Your head here</head>
+    <body>
+        <header th:replace="header :: top">Your header/navbar here</header>
+        <h1>Spring Quest : Root</h1>
+        <h2>Root 3</h2>
+        <div class="root3-quest-container">
+            <h3 th:text="| ${number}) ${name} |">$doctornumber $doctorname</h3>
+        </div>
+    </body>
+    <footer th:replace="footer :: bottom">Your footer here</footer>
+</html>
