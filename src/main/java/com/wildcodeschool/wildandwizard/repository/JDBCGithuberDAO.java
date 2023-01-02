@@ -12,4 +12,6 @@ public interface JDBCGithuberDAO<T> {
     T update(T entity);
 
     void deleteById(Long id);
+
+
 }

@@ -1,15 +1,36 @@
 package com.wildcodeschool.wildandwizard.repository;
 
+import com.wildcodeschool.wildandwizard.controller.GetPropertiesBean;
 import com.wildcodeschool.wildandwizard.entity.Githuber;
 import com.wildcodeschool.wildandwizard.util.JdbcUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@PropertySource("UserUtil.properties")
 public class GithuberRepository implements JDBCGithuberDAO<Githuber> {
-    private final static String DB_URL = "jdbc:mysql://localhost:3306/spring5?serverTimezone=GMT";
-    private final static String DB_USER = "h4rryp0tt3r";
-    private final static String DB_PASSWORD = "Horcrux4life!";
+
+
+
+    private static String DB_URL;
+
+    private static String DB_USER;
+
+    private static String DB_PASSWORD;
+
+
+/*    private final String foo;
+
+    @Autowired
+    public GetPropertiesBean(@Value("${foo.bar}") String foo) {
+        this.foo = foo;
+        System.out.println(foo);
+    }*/
+
 
     @Override
     public Githuber save(Githuber githuber) {
@@ -160,5 +181,12 @@ public class GithuberRepository implements JDBCGithuberDAO<Githuber> {
             JdbcUtils.closeStatement(statement);
             JdbcUtils.closeConnection(connection);
         }
+    }
+
+    public String setTest(String value, String value1, String value2) {
+        this.DB_URL = value;
+        this.DB_USER = value1;
+        this.DB_PASSWORD = value2;
+        return value;
     }
 }
