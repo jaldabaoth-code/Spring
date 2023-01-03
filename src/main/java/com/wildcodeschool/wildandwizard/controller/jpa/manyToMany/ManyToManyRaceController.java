@@ -1,4 +1,4 @@
-package com.wildcodeschool.wildandwizard.controller.jpa;
+package com.wildcodeschool.wildandwizard.controller.jpa.manyToMany;
 
 import com.wildcodeschool.wildandwizard.entity.Race;
 import com.wildcodeschool.wildandwizard.repository.RaceRepository;
@@ -11,22 +11,22 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import java.util.Optional;
 
-/* Spring Quests : JPA (Race) */
+/* Spring Quest JPA : Many To Many */
 @Controller
-public class RaceController {
+public class ManyToManyRaceController {
     @Autowired
     private RaceRepository raceRepository;
 
-    /* Spring Quest : JPA Many To Many (Get all Races) */
-    @GetMapping("/jpa/races")
+    /* Get all Races */
+    @GetMapping("/jpa/many-to-many/races")
     public String getAll(Model model) {
         // TODO : find all races
         model.addAttribute("races", raceRepository.findAll());
-        return "/jpa/races";
+        return "/jpa/manyToMany/races";
     }
 
-    /* Spring Quest : JPA Many To Many (Get Race by id) */
-    @GetMapping("/jpa/race")
+    /* Get Race by id */
+    @GetMapping("/jpa/many-to-many/race")
     public String getRace(Model model, @RequestParam(required = false) Long id) {
         // TODO : find one race by id
         Race race = new Race();
@@ -37,22 +37,22 @@ public class RaceController {
             }
         }
         model.addAttribute("race", race);
-        return "/jpa/race";
+        return "/jpa/manyToMany/race";
     }
 
-    /* Spring Quest : JPA Many To Many (Update new Race) */
-    @PostMapping("/jpa/race")
+    /* Update new Race */
+    @PostMapping("/jpa/many-to-many/race")
     public String postRace(@ModelAttribute Race race) {
         // TODO : create or update a race
         raceRepository.save(race);
-        return "redirect:/jpa/races";
+        return "redirect:/jpa/many-to-many/races";
     }
 
-    /* Spring Quest : JPA Many To Many (Delete the Race) */
-    @GetMapping("/jpa/race/delete")
+    /* Delete the Race */
+    @GetMapping("/jpa/many-to-many/race/delete")
     public String deleteRace(@RequestParam Long id) {
         // TODO : delete a race
         raceRepository.deleteById(id);
-        return "redirect:/jpa/races";
+        return "redirect:/jpa/many-to-many/races";
     }
 }

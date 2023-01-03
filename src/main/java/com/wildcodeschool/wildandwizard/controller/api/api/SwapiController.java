@@ -1,4 +1,4 @@
-package com.wildcodeschool.wildandwizard.controller.api;
+package com.wildcodeschool.wildandwizard.controller.api.api;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;

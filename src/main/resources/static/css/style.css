@@ -87,6 +87,10 @@ h1, h2 {
 }
 
 /* Quests : Root1, Root2 and Root3 */
+.root1-quest-container, .root2-quest-container, .root3-quest-container {
+    margin-left: 20px;
+}
+
 .root1-quest-container ul, .root2-quest-container ul, .root3-quest-container ul {
     list-style-type: none;
 }
@@ -95,7 +99,6 @@ h1, h2 {
     text-decoration: none;
     list-style-type: none;
     color: black;
-    margin-left: 20px;
 }
 
 .root1-quest-container a:hover, .root2-quest-container a:hover, .root3-quest-container a:hover {

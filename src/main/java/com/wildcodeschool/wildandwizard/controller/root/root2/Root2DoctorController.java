@@ -8,14 +8,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.server.ResponseStatusException;
 
-/* Spring Quest : Root 2 */
+/* Spring Quest Root : Root 2 */
 @Controller
 public class Root2DoctorController {
-    @GetMapping("/root/root2/doctor")
-    public String doctor() {
-        return "root/root2/index";
-    }
-
     @GetMapping("root/root2/doctor/{number}")
     @ResponseBody
     public Doctor doctor(@PathVariable int number) {

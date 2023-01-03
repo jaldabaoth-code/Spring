@@ -5,9 +5,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 /* Spring Quests : Root */
 @Controller
-public class DoctorController {
+public class RootController {
     @GetMapping("/root")
-    public String doctor() {
+    public String root() {
         return "root/index";
     }
 }

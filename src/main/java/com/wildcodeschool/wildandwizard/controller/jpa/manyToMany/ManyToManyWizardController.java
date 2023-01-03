@@ -1,4 +1,4 @@
-package com.wildcodeschool.wildandwizard.controller.jpa;
+package com.wildcodeschool.wildandwizard.controller.jpa.manyToMany;
 
 import com.wildcodeschool.wildandwizard.entity.Race;
 import com.wildcodeschool.wildandwizard.entity.Wizard;
@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import java.lang.reflect.InvocationTargetException;
@@ -17,57 +16,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-/* Spring Quests : JPA (Wizard) */
+/* Spring Quest JPA : Many To Many */
 @Controller
-public class WizardController {
+public class ManyToManyWizardController {
     @Autowired
     private WizardRepository wizardRepository;
     @Autowired
     private RaceRepository raceRepository;
 
-    @GetMapping("/jpa")
-    public String jpa() {
-        return "jpa/jpa";
-    }
-
-    /* Spring Quest : JPA (Get all Wizards) */
-    @GetMapping("/jpa/wizards")
-    public String getAll(Model model) {
-        model.addAttribute("wizards", wizardRepository.findAll());
-        return "/jpa/wizards";
-    }
-
-    /* Spring Quest : JPA (Get Wizard by id) */
-    @GetMapping("/jpa/wizard")
-    public String getWizard(Model model, @RequestParam(required = false) Long id) {
-        Wizard wizard = new Wizard();
-        if (id != null) {
-            Optional<Wizard> optionalWizard = wizardRepository.findById(id);
-            if (optionalWizard.isPresent()) {
-                wizard = optionalWizard.get();
-            }
-        }
-        model.addAttribute("wizard", wizard);
-        return "/jpa/wizard";
-    }
-
-    /* Spring Quest : JPA (Update new Wizard) */
-    @PostMapping("/jpa/wizard")
-    public String postWizard(@ModelAttribute Wizard wizard) {
-        wizardRepository.save(wizard);
-        return "redirect:/jpa/wizards";
-    }
-
-    /* Spring Quest : JPA (Delete the Wizard) */
-    @GetMapping("/jpa/wizard/delete")
-    public String deleteWizard(@RequestParam Long id) {
-        wizardRepository.deleteById(id);
-        return "redirect:/jpa/wizards";
-    }
-
-    /* Spring Quest : JPA Many To Many (Show races of wizard) */
-    @GetMapping("/jpa/wizard/races")
-    public String getWizardRaces(Model model, @RequestParam Long idWizard) {
+    /* Show races of wizard */
+    @GetMapping("/jpa/many-to-many/wizard/races")
+    public String getRaces(Model model, @RequestParam Long idWizard) {
         Optional<Wizard> optionalWizard = wizardRepository.findById(idWizard);
         Wizard wizard = new Wizard();
         if (optionalWizard.isPresent()) {
@@ -86,12 +45,12 @@ public class WizardController {
             }
         }
         model.addAttribute("wizardRaces", races);
-        return "jpa/wizardRace";
+        return "jpa/manyToMany/wizardRace";
     }
 
-    /* Spring Quest : JPA Many To Many (Add a race to wizard) */
-    @PostMapping("/jpa/wizard/race/register")
-    public String postWizardRaceRegister(@RequestParam Long idWizard, @RequestParam Long idRace) {
+    /* Add a race to wizard */
+    @PostMapping("/jpa/many-to-many/wizard/race")
+    public String postRace(@RequestParam Long idWizard, @RequestParam Long idRace) {
         Optional<Wizard> optionalWizard = wizardRepository.findById(idWizard);
         if (optionalWizard.isPresent()) {
             Wizard wizard = optionalWizard.get();
@@ -112,7 +71,7 @@ public class WizardController {
                 wizardRepository.save(wizard);
             }
         }
-        return "redirect:/jpa/wizard/races?idWizard=" + idWizard;
+        return "redirect:/jpa/many-to-many/wizard/races?idWizard=" + idWizard;
     }
 
     public Method getMethod(Object obj, String methodName, Class[] args) {
