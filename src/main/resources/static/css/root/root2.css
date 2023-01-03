@@ -1,0 +1,19 @@
+/* Quests : Root */
+.root2-quest-container {
+    margin-left: 20px;
+}
+
+.root2-quest-container ul {
+    list-style-type: none;
+}
+
+.root2-quest-container a {
+    text-decoration: none;
+    color: #000000;
+    font-size: 1.15em;
+}
+
+.root2-quest-container a:hover {
+    text-decoration: underline;
+    color: #000000;
+}

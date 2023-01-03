@@ -1,13 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-<head th:replace="head :: head">Your head here</head>
+    <head th:fragment="head">
+        <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+        <link rel="stylesheet" th:href="@{/css/style.css}"/>
+        <link rel="stylesheet" th:href="@{/css/jpa/oneToMany.css}"/>
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+        <title>One To Many</title>
+    </head>
     <body>
         <header th:replace="header :: top">Your header/navbar here</header>
         <h1>Spring Quest : JPA</h1>
         <h2>One To Many</h2>
         <div class="one-to-many-quest-container">
             <ul>
-                <li><a href="/jpa/one-to-many/schools">wizards</a></li>
+                <li><b><a href="/jpa/one-to-many/schools">All Schools</a></b></li>
             </ul>
         </div>
     </body>

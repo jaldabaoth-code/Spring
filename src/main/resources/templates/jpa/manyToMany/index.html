@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head th:fragment="head">
+        <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+        <link rel="stylesheet" th:href="@{/css/style.css}"/>
+        <link rel="stylesheet" th:href="@{/css/jpa/manyToMany.css}"/>
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+        <title>Many To Many</title>
+    </head>
+    <body>
+        <header th:replace="header :: top">Your header/navbar here</header>
+        <h1>Spring Quest : JPA</h1>
+        <h2>Many To Many</h2>
+        <div class="many-to-many-quest-container">
+            <ul>
+                <li><b><a href="/jpa/many-to-many/wizards">All Wizards</a></b></li>
+                <li><b><a href="/jpa/many-to-many/races">All Races</a></b></li>
+            </ul>
+        </div>
+    </body>
+    <footer th:replace="footer :: bottom">Your footer here</footer>
+</html>

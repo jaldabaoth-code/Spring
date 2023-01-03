@@ -1,38 +1,14 @@
-
-table {
-    border-collapse: collapse;
-}
-
-th {
-    background-color: #4CAF50;
-    color: white;
-}
-
-tr:nth-child(even) {
-    background-color: #f2f2f2;
-}
-
-th, td {
-    border-bottom: 1px solid #ddd;
-    padding: 10px 5px;
-    text-align: left;
-}
-
-label, textarea {
+/*label, textarea {
     display: block;
     margin-top: 15px;
-}
-
-input {
-    margin-top: 10px;
-    width: 500px;
-    height: 20px;
-}
-
-
+}*/
 
 
 /* Header/Navbar */
+nav {
+    margin-bottom: 20px;
+}
+
 nav ul {
     background-color: #24262b;
     list-style-type: none;
@@ -52,7 +28,6 @@ nav li a {
     font-size: 20px;
     text-align: center;
     padding: 10px 20px;
-
 }
 
 .active {
@@ -74,40 +49,9 @@ h1, h2 {
     text-align: center;
 }
 
-/* List of quests */
-.quest-link {
-    text-decoration: none;
-    color: black;
-    margin-left: 20px;
-}
-
-.quest-link:hover {
-    text-decoration: underline;
-    color: black;
-}
-
-/* Quests : Root1, Root2 and Root3 */
-.root1-quest-container, .root2-quest-container, .root3-quest-container {
-    margin-left: 20px;
-}
-
-.root1-quest-container ul, .root2-quest-container ul, .root3-quest-container ul {
-    list-style-type: none;
-}
-
-.root1-quest-container a, .root2-quest-container a, .root3-quest-container a {
-    text-decoration: none;
-    list-style-type: none;
-    color: black;
-}
-
-.root1-quest-container a:hover, .root2-quest-container a:hover, .root3-quest-container a:hover {
-    text-decoration: underline;
-    color: black;
-}
-
 /* Footer */
 footer {
+    margin-top: 50px;
     text-align: center;
     color: #ffffff;
     background: #24262b;
@@ -131,4 +75,136 @@ footer .social-links a {
 footer .social-links a:hover {
     color: #4caf50;
     background-color: #ffffff;
+}
+
+/* List of quests */
+.quest-link {
+    text-decoration: none;
+    color: #000000;
+    margin-left: 20px;
+}
+
+.quest-link:hover {
+    text-decoration: underline;
+    color: #000000;
+}
+
+/* Quests : Root */
+/*.root1-quest-container, .root2-quest-container, .root3-quest-container {
+    margin-left: 20px;
+}
+
+.root1-quest-container ul, .root2-quest-container ul, .root3-quest-container ul {
+    list-style-type: none;
+}
+
+.root1-quest-container a, .root2-quest-container a, .root3-quest-container a {
+    text-decoration: none;
+    color: #000000;
+    font-size: 1.15em;
+}
+
+.root1-quest-container a:hover, .root2-quest-container a:hover, .root3-quest-container a:hover {
+    text-decoration: underline;
+    color: #000000;
+}*/
+
+/* Quests : JPA */
+.jpa1-quest-container, .many-to-many-quest-container, .one-to-many-quest-container {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.jpa1-quest-container ul, .many-to-many-quest-container ul, .one-to-many-quest-container ul {
+    list-style-type: none;
+}
+
+.jpa1-quest-container a, .many-to-many-quest-container a, .one-to-many-quest-container a {
+    text-decoration: none;
+    color: #000000;
+    font-size: 1.15em;
+}
+
+.jpa1-quest-container a:hover, .many-to-many-quest-container a:hover, .one-to-many-quest-container a:hover {
+    text-decoration: underline;
+    color: #000000;
+}
+
+.jpa1-quest-container h3, .many-to-many-quest-container h3, .one-to-many-quest-container h3 {
+    text-align: center;
+}
+
+.jpa1-quest-container table, .many-to-many-quest-container table, .one-to-many-quest-container table {
+    border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.jpa1-quest-container th, .many-to-many-quest-container th, .one-to-many-quest-container th {
+    background-color: #4caf50;
+    color: #ffffff;
+}
+
+.jpa1-quest-container tr:nth-child(even), .many-to-many-quest-container tr:nth-child(even), .one-to-many-quest-container tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.jpa1-quest-container th, td, .many-to-many-quest-container th, td, .one-to-many-quest-container th, td {
+    border-bottom: 1px solid #ddd;
+    padding: 10px 5px;
+    text-align: left;
+}
+
+.jpa1-quest-container td a, .many-to-many-quest-container td a, .one-to-many-quest-container td a {
+    font-weight: bold;
+}
+
+.register-wizard-to-school {
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.register-wizard-to-school select {
+    width: 200px;
+    height: 36px;
+}
+
+.register-wizard-to-school input {
+    width: 150px;
+    height: 36px;
+    background-color: #4caf50;
+    color: #ffffff;
+    cursor: pointer;
+    border-radius: 4px;
+    border-style: none;
+}
+
+.register-wizard-to-school input:hover {
+    background-color: #4caf50;
+    opacity: 0.9;
+}
+
+.edit-race {
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.name-edit-race, .edit-race label {
+    width: 200px;
+    height: 30px;
+}
+
+.button-edit-race {
+    width: 150px;
+    height: 36px;
+    background-color: #4caf50;
+    color: #ffffff;
+    cursor: pointer;
+    border-radius: 4px;
+    border-style: none;
+}
+
+.button-edit-race:hover {
+    background-color: #4caf50;
+    opacity: 0.9;
 }

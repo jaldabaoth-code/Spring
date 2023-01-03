@@ -24,6 +24,14 @@ public class ManyToManyWizardController {
     @Autowired
     private RaceRepository raceRepository;
 
+    /* Get all Schools */
+    @GetMapping("/jpa/many-to-many/wizards")
+    public String getAll(Model model) {
+        // TODO : find all schools
+        model.addAttribute("wizards", wizardRepository.findAll());
+        return "/jpa/manyToMany/wizards";
+    }
+
     /* Show races of wizard */
     @GetMapping("/jpa/many-to-many/wizard/races")
     public String getRaces(Model model, @RequestParam Long idWizard) {

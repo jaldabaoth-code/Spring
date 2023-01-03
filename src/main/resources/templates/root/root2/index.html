@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head th:replace="head :: head">Your head here</head>
+    <head th:fragment="head">
+        <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+        <link rel="stylesheet" th:href="@{/css/style.css}"/>
+        <link rel="stylesheet" th:href="@{/css/root/root2.css}"/>
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+        <title>Root 2</title>
+    </head>
     <body>
         <header th:replace="header :: top">Your header/navbar here</header>
         <h1>Spring Quest : Root</h1>

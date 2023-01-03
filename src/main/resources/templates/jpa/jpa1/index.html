@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head th:fragment="head">
+        <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+        <link rel="stylesheet" th:href="@{/css/style.css}"/>
+        <link rel="stylesheet" th:href="@{/css/jpa/jpa1.css}"/>
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+        <title>JPA 1</title>
+    </head>
+    <body>
+        <header th:replace="header :: top">Your header/navbar here</header>
+        <h1>Spring Quest : JPA</h1>
+        <h2>JPA 1</h2>
+        <div class="many-to-many-quest-container">
+            <ul>
+                <li><b><a href="/jpa/jpa1/schools">All Schools</a></b></li>
+                <li><b><a href="/jpa/jpa1/wizards">All Wizards</a></b></li>
+            </ul>
+        </div>
+    </body>
+    <footer th:replace="footer :: bottom">Your footer here</footer>
+</html>

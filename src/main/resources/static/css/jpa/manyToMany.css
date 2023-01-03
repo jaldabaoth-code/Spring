@@ -1,0 +1,49 @@
+/* Quests : JPA */
+.many-to-many-quest-container {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.many-to-many-quest-container ul {
+    list-style-type: none;
+}
+
+.many-to-many-quest-container a {
+    text-decoration: none;
+    color: #000000;
+    font-size: 1.15em;
+}
+
+.many-to-many-quest-container a:hover {
+    text-decoration: underline;
+    color: #000000;
+}
+
+.many-to-many-quest-container h3 {
+    text-align: center;
+}
+
+.many-to-many-quest-container table {
+    border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.many-to-many-quest-container th {
+    background-color: #4caf50;
+    color: #ffffff;
+}
+
+.many-to-many-quest-container tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.many-to-many-quest-container th, td {
+    border-bottom: 1px solid #ddd;
+    padding: 10px 5px;
+    text-align: left;
+}
+
+.many-to-many-quest-container td a {
+    font-weight: bold;
+}
