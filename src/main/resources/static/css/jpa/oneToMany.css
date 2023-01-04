@@ -1,56 +1,121 @@
-/* Quests : JPA */
-.one-to-many-quest-container {
+/* JPA Quest : One To Many */
+.container {
     margin-left: 20px;
     margin-right: 20px;
 }
 
-.one-to-many-quest-container ul {
+.container ul {
     list-style-type: none;
 }
 
-.one-to-many-quest-container a {
+.container li a {
+    text-decoration: none;
+    color: #000000;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.container li a:hover {
+    text-decoration: underline;
+    color: #000000;
+}
+
+.container td  a {
     text-decoration: none;
     color: #000000;
     font-size: 1.15em;
 }
 
-.one-to-many-quest-container a:hover {
+.container td a:hover {
     text-decoration: underline;
     color: #000000;
 }
 
-.one-to-many-quest-container h3 {
-    text-align: center;
-}
-
-.one-to-many-quest-container table {
+.container table {
     border-collapse: collapse;
     margin-left: auto;
     margin-right: auto;
 }
 
-.one-to-many-quest-container th {
+.container th {
     background-color: #4caf50;
     color: #ffffff;
 }
 
-.one-to-many-quest-container tr:nth-child(even) {
+.container tr:nth-child(even) {
     background-color: #f2f2f2;
 }
 
-.one-to-many-quest-container th, td {
+.container th, td {
     border-bottom: 1px solid #ddd;
     padding: 10px 5px;
     text-align: left;
 }
 
-.one-to-many-quest-container td a {
+.container td a {
     font-weight: bold;
+}
+
+.add-new-school {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.add-new-school a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    height: 36px;
+    text-decoration: none;
+    background-color: #4caf50;
+    color: #ffffff;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.add-new-school a:hover {
+    background-color: #4caf50;
+    opacity: 0.9;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+input {
+    margin-top: 6px;
+    margin-bottom: 16px;
+    padding: 12px;
+    border-radius: 4px;
+}
+
+input[type=submit] {
+    background-color: #4caf50;
+    color: #ffffff;
+    font-size: medium;
+    cursor: pointer;
+    border-radius: 4px;
+    padding: 12px;
+    border: none;
+}
+
+input[type=submit]:hover {
+    background-color: #4caf50;
+    opacity: 0.9;
 }
 
 
 
 
+
+
+
+
+
+/*
 .register-wizard-to-school {
     margin-bottom: 50px;
     text-align: center;
@@ -75,3 +140,12 @@
     background-color: #4caf50;
     opacity: 0.9;
 }
+*/
+
+
+
+
+
+
+
+

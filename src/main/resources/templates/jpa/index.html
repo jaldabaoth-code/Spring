@@ -9,10 +9,13 @@
     <body>
         <header th:replace="header :: top">Your header/navbar here</header>
         <h1>Spring Quests - JPA</h1>
-        <div class="jpa-quests-container">
-            <h3><a class="quest-link" href="/jpa/jpa">JPA</a></h3>
-            <h3><a class="quest-link" href="/jpa/many-to-many">Many To Many</a></h3>
-            <h3><a class="quest-link" href="/jpa/one-to-many">One To Many</a></h3>
+        <h2>Quests List</h2>
+        <div class="quests-links-container">
+            <div class="quests-links">
+                <h3><a class="quest-link" href="/jpa/jpa">JPA</a></h3>
+                <h3><a class="quest-link" href="/jpa/many-to-many">Many To Many</a></h3>
+                <h3><a class="quest-link" href="/jpa/one-to-many">One To Many</a></h3>
+            </div>
         </div>
     </body>
     <footer th:replace="footer :: bottom">Your footer here</footer>

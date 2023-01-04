@@ -11,7 +11,10 @@
         <header th:replace="header :: top">Your header/navbar here</header>
         <h1>Spring Quest : JPA</h1>
         <h2>One To Many</h2>
-        <div class="one-to-many-quest-container">
+        <div class="container">
+            <div class="add-new-school">
+                <a href="/jpa/one-to-many/school">Add New School</a>
+            </div>
             <h3>All Schools</h3>
             <table>
                 <thead>
@@ -28,7 +31,7 @@
                         <td th:text="${school.name}">name</td>
                         <td th:text="${school.capacity}">capacity</td>
                         <td th:text="${school.country}">country</td>
-                        <td><a th:href="@{/jpa/one-to-many/school/wizards(idSchool=${school.id})}">Wizards/Students</a></td>
+                        <td><a th:href="@{/jpa/one-to-many/school/wizards(idSchool=${school.id})}">Wizards</a></td>
                     </tr>
                 </tbody>
             </table>
