@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head th:fragment="head">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
         <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
         <link rel="stylesheet" th:href="@{/css/style.css}"/>
         <link rel="stylesheet" th:href="@{/css/jpa/oneToMany.css}"/>
@@ -11,12 +11,10 @@
         <header th:replace="header :: top">Your header/navbar here</header>
         <h1>Spring Quest : JPA</h1>
         <h2>One To Many</h2>
-        <div class="quests-links-container">
-            <div class="quests-links">
-                <ul>
-                    <li><a href="/jpa/one-to-many/schools">All Schools</a></li>
-                </ul>
-            </div>
+        <div class="container">
+            <ul>
+                <li><a href="/jpa/one-to-many/schools">All Schools</a></li>
+            </ul>
         </div>
     </body>
     <footer th:replace="footer :: bottom">Your footer here</footer>

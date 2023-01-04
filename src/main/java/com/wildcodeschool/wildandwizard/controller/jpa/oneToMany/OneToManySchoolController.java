@@ -64,7 +64,7 @@ public class OneToManySchoolController {
         return "redirect:/jpa/oneToMany/schools";
     }
 
-    /* Get all wizards/students in school */
+    /* Get all wizards in school */
     @GetMapping("/jpa/one-to-many/school/wizards")
     public String getWizards(Model model, @RequestParam Long idSchool) {
         Optional<School> optionalSchool = schoolRepository.findById(idSchool);
@@ -88,7 +88,7 @@ public class OneToManySchoolController {
         return "jpa/oneToMany/schoolWizard";
     }
 
-    /* Register wizard/student in school */
+    /* Register new wizard in school */
     @PostMapping("/jpa/one-to-many/school/wizard")
     public String postWizard(@RequestParam Long idSchool, @RequestParam Long idWizard) {
         Optional<Wizard> optionalWizard = wizardRepository.findById(idWizard);

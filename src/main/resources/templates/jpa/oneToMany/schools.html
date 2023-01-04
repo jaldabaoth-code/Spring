@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-    <head th:fragment="head">
+    <head>
         <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
         <link rel="stylesheet" th:href="@{/css/style.css}"/>
         <link rel="stylesheet" th:href="@{/css/jpa/oneToMany.css}"/>
@@ -27,11 +27,13 @@
                 </thead>
                 <tbody>
                     <tr th:each="school : ${schools}">
-                        <td th:text="${school.id}">id</td>
-                        <td th:text="${school.name}">name</td>
-                        <td th:text="${school.capacity}">capacity</td>
-                        <td th:text="${school.country}">country</td>
+                        <td th:text="${school.id}"></td>
+                        <td th:text="${school.name}"></td>
+                        <td th:text="${school.capacity}"></td>
+                        <td th:text="${school.country}"></td>
                         <td><a th:href="@{/jpa/one-to-many/school/wizards(idSchool=${school.id})}">Wizards</a></td>
+                        <td><a th:href="@{/jpa/one-to-many/school(id=${school.id})}">Edit</a></td>
+                        <td><a th:href="@{/jpa/one-to-many/school/delete(id=${school.id})}">Remove</a></td>
                     </tr>
                 </tbody>
             </table>
