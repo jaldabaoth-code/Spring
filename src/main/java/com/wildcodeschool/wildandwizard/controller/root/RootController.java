@@ -3,7 +3,7 @@ package com.wildcodeschool.wildandwizard.controller.root;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
-/* Spring Quests : Root */
+/* Quests : Root */
 @Controller
 public class RootController {
     @GetMapping("/root")

@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.server.ResponseStatusException;
 
-/* Spring Quest Root : Root 2 */
+/* Root Quest : Root 2 */
 @Controller
 public class Root2DoctorController {
     @GetMapping("root/root2/doctor/{number}")

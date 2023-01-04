@@ -5,7 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-/* Spring Quest Root : Root 3 */
+/* Root Quest : Root 3 */
 @Controller
 public class Root3DoctorController {
     @GetMapping("/root/root3/doctor")
