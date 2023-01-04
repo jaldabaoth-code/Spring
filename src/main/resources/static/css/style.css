@@ -110,6 +110,7 @@ footer .social-links a:hover {
 }*/
 
 /* Quests : JPA */
+/*
 .jpa1-quest-container, .many-to-many-quest-container, .one-to-many-quest-container {
     margin-left: 20px;
     margin-right: 20px;
@@ -158,8 +159,9 @@ footer .social-links a:hover {
 .jpa1-quest-container td a, .many-to-many-quest-container td a, .one-to-many-quest-container td a {
     font-weight: bold;
 }
+*/
 
-.register-wizard-to-school {
+/*.register-wizard-to-school {
     margin-bottom: 50px;
     text-align: center;
 }
@@ -182,9 +184,9 @@ footer .social-links a:hover {
 .register-wizard-to-school input:hover {
     background-color: #4caf50;
     opacity: 0.9;
-}
+}*/
 
-.edit-race {
+/*.edit-race {
     margin-bottom: 50px;
     text-align: center;
 }
@@ -207,4 +209,4 @@ footer .social-links a:hover {
 .button-edit-race:hover {
     background-color: #4caf50;
     opacity: 0.9;
-}
+}*/

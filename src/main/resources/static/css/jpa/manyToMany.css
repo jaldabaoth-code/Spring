@@ -8,13 +8,13 @@
     list-style-type: none;
 }
 
-.many-to-many-quest-container a {
+.many-to-many-quest-container table a {
     text-decoration: none;
     color: #000000;
     font-size: 1.15em;
 }
 
-.many-to-many-quest-container a:hover {
+.many-to-many-quest-container table a:hover {
     text-decoration: underline;
     color: #000000;
 }
@@ -46,4 +46,55 @@
 
 .many-to-many-quest-container td a {
     font-weight: bold;
+}
+
+.edit-race {
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.name-edit-race, .edit-race label {
+    width: 200px;
+    height: 30px;
+}
+
+.button-edit-race {
+    width: 150px;
+    height: 36px;
+    background-color: #4caf50;
+    color: #ffffff;
+    cursor: pointer;
+    border-radius: 4px;
+    border-style: none;
+}
+
+.button-edit-race:hover {
+    background-color: #4caf50;
+    opacity: 0.9;
+}
+
+
+.add-new-race, .add-new-wizard {
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: center;
+
+}
+
+.add-new-race a, .add-new-wizard a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    height: 36px;
+    text-decoration: none;
+    background-color: #4caf50;
+    color: #ffffff;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.add-new-race a:hover, .add-new-wizard a:hover {
+    background-color: #4caf50;
+    opacity: 0.9;
 }

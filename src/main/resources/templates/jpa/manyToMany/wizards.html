@@ -12,8 +12,10 @@
         <h1>Spring Quest : JPA</h1>
         <h2>Many To Many</h2>
         <div class="many-to-many-quest-container">
-            <h3>Wizards</h3>
-            <a href="/jpa/wizard">Add a new Wizard !</a>
+            <div class="add-new-wizard">
+                <a href="/jpa/many-to-many/wizard">Add a new Wizard!</a>
+            </div>
+            <h3>All Wizards</h3>
             <table>
                 <thead>
                     <tr>
@@ -26,8 +28,6 @@
                         <th>Muggle</th>
                         <th>Race</th>
                         <th></th>
-                        <th>Edit</th>
-                        <th>Remove</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -40,14 +40,11 @@
                         <td th:text="${wizard.biography}">biography</td>
                         <td th:text="${wizard.muggle}">muggle</td>
                         <td><div th:each="race : ${wizard.races}" th:text="${race.getName()}">race</div></td>
-                        <td><a th:href="@{/jpa/many-to-many/wizards/races(idWizard=${wizard.id})}">races</a></td>
-                        <td><a th:href="@{/jpa/many-to-many/wizard(id=${wizard.id})}">Edit</a></td>
-                        <td><a th:href="@{/jpa/many-to-many/wizard/delete(id=${wizard.id})}">Remove</a></td>
+                        <td><a th:href="@{/jpa/many-to-many/wizard/races(idWizard=${wizard.id})}">races</a></td>
                     </tr>
                 </tbody>
             </table>
         </div>
-        <a href="/static">Return to the index</a>
     </body>
     <footer th:replace="footer :: bottom">Your footer here</footer>
 </html>
