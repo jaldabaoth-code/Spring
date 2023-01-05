@@ -61,7 +61,7 @@ public class OneToManySchoolController {
     public String deleteSchool(@RequestParam Long id) {
         // TODO : delete a school
         schoolRepository.deleteById(id);
-        return "redirect:/jpa/oneToMany/schools";
+        return "redirect:/jpa/one-to-many/schools";
     }
 
     /* Get all wizards in school */

@@ -5,22 +5,17 @@
         <link rel="stylesheet" th:href="@{/css/style.css}"/>
         <link rel="stylesheet" th:href="@{/css/jpa/oneToMany.css}"/>
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-        <title>One To Many</title>
+        <title>Many To Many</title>
     </head>
     <body>
         <header th:replace="header :: top">Your header/navbar here</header>
         <h1>Spring Quest : JPA</h1>
         <h2>One To Many</h2>
         <div class="container">
-            <h3 th:text="'Register new Wizard to : ' + ${school.name}"></h3>
-            <form action="/jpa/one-to-many/school/wizard" method="POST">
-                <input name="idSchool" th:value="${school.id}" type="hidden">
-                <select id="wizard" name="idWizard">
-                    <option th:each="wizard : ${allWizards}" th:text="|${wizard.firstName} ${wizard.lastName}|" th:value="${wizard.id}"></option>
-                </select>
-                <input type="submit" value="Register">
-            </form>
-            <h3 th:text="'All Wizards in : ' + ${school.name}"></h3>
+            <div class="add-new-wizard">
+                <a href="/jpa/one-to-many/wizard">Add New Wizard</a>
+            </div>
+            <h3>All Wizards</h3>
             <table>
                 <thead>
                     <tr>
@@ -34,7 +29,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr th:each="wizard : ${schoolWizards}">
+                    <tr th:each="wizard : ${wizards}">
                         <td th:text="${wizard.id}"></td>
                         <td th:text="${wizard.firstName}"></td>
                         <td th:text="${wizard.lastName}"></td>

@@ -3,14 +3,14 @@
     <head>
         <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
         <link rel="stylesheet" th:href="@{/css/style.css}"/>
-        <link rel="stylesheet" th:href="@{/css/jpa/manyToMany.css}"/>
+        <link rel="stylesheet" th:href="@{/css/jpa/oneToMany.css}"/>
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
         <title>JPA 1</title>
     </head>
     <body>
         <header th:replace="header :: top">Your header/navbar here</header>
         <h1>Spring Quest : JPA</h1>
-        <h2>Many To Many</h2>
+        <h2>One To Many</h2>
         <div class="container">
             <h3 th:text="${wizard.id} ? 'Edit Wizard' : 'Create Wizard'">Wizard</h3>
             <form method="POST" th:action="@{wizard}" th:object="${wizard}">

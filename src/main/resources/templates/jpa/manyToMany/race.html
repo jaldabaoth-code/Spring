@@ -12,15 +12,13 @@
         <h1>Spring Quest : JPA</h1>
         <h2>Many To Many</h2>
         <div class="container">
-            <div class="edit-race">
-                <h3 th:text="${race.id} ? 'Edit Race' : 'Create Race'">Race</h3>
-                <form method="post" th:action="@{race}" th:object="${race}">
-                    <input name="id" th:field="*{id}" type="hidden">
-                    <label for="race-name">Name : </label>
-                    <input class="name-edit-race" id="race-name" name="name" placeholder="Wild Code Race" required th:field="*{name}" type="text">
-                    <input class="button-edit-race" type="submit" value="Send">
-                </form>
-            </div>
+            <h3 th:text="${race.id} ? 'Edit Race' : 'Create Race'">Race</h3>
+            <form method="POST" th:action="@{race}" th:object="${race}">
+                <input name="id" th:field="*{id}" type="hidden">
+                <label for="name">Name : </label>
+                <input id="name" name="name" placeholder="Wild Code Race" required th:field="*{name}" type="text">
+                <input type="submit" value="Send">
+            </form>
         </div>
     </body>
     <footer th:replace="footer :: bottom">Your footer here</footer>
