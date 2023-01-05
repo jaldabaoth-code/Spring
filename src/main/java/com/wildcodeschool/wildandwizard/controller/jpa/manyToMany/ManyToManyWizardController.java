@@ -63,14 +63,6 @@ public class ManyToManyWizardController {
         return "redirect:/jpa/many-to-many/wizards";
     }
 
-
-
-
-
-
-
-
-
     /* Show the races of wizard */
     @GetMapping("/jpa/many-to-many/wizard/races")
     public String getRaces(Model model, @RequestParam Long idWizard) {

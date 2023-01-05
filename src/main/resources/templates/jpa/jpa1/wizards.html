@@ -8,43 +8,44 @@
         <title>JPA 1</title>
     </head>
     <body>
-        <header th:replace="header :: top">Your header here</header>
-        <h2>Spring Quest : JPA (Harry Potter - Wizards)</h2>
-        <h3>Wizards</h3>
-        <a href="/jpa/wizard">Add a new Wizard !</a>
-        <table>
-            <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>First name</th>
-                    <th>Last name</th>
-                    <th>Birthday</th>
-                    <th>Birth place</th>
-                    <th>Biography</th>
-                    <th>Muggle</th>
-                    <th>Race</th>
-                    <th></th>
-                    <th>Edit</th>
-                    <th>Remove</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr th:each="wizard : ${wizards}">
-                    <td th:text="${wizard.id}">id</td>
-                    <td th:text="${wizard.firstName}">first name</td>
-                    <td th:text="${wizard.lastName}">last name</td>
-                    <td th:text="${wizard.birthday}">birthday</td>
-                    <td th:text="${wizard.birthPlace}">birth place</td>
-                    <td th:text="${wizard.biography}">biography</td>
-                    <td th:text="${wizard.muggle}">muggle</td>
-                    <td><div th:each="race : ${wizard.races}" th:text="${race.getName()}">race</div></td>
-                    <td><a th:href="@{/jpa/wizard/races(idWizard=${wizard.id})}">races</a></td>
-                    <td><a th:href="@{/jpa/wizard(id=${wizard.id})}">Edit</a></td>
-                    <td><a th:href="@{/jpa/wizard/delete(id=${wizard.id})}">Remove</a></td>
-                </tr>
-            </tbody>
-        </table>
-        <a href="/static">Return to the index</a>
+        <header th:replace="header :: top">Your header/navbar here</header>
+        <h1>Spring Quest : JPA</h1>
+        <h2>JPA 1</h2>
+        <div class="container">
+            <div class="add-new-wizard">
+                <a href="/jpa/many-to-many/wizard">Add New Wizard</a>
+            </div>
+            <h3>All Wizards</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>First name</th>
+                        <th>Last name</th>
+                        <th>Birthday</th>
+                        <th>Birth place</th>
+                        <th>Biography</th>
+                        <th>Muggle</th>
+                        <th>Race</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="wizard : ${wizards}">
+                        <td th:text="${wizard.id}">id</td>
+                        <td th:text="${wizard.firstName}">first name</td>
+                        <td th:text="${wizard.lastName}">last name</td>
+                        <td th:text="${wizard.birthday}">birthday</td>
+                        <td th:text="${wizard.birthPlace}">birth place</td>
+                        <td th:text="${wizard.biography}">biography</td>
+                        <td th:text="${wizard.muggle}">muggle</td>
+                        <td><div th:each="race : ${wizard.races}" th:text="${race.getName()}">race</div></td>
+                        <td><a th:href="@{/jpa/wizard/races(idWizard=${wizard.id})}">races</a></td>
+                        <td><a th:href="@{/jpa/wizard(id=${wizard.id})}">Edit</a></td>
+                        <td><a th:href="@{/jpa/wizard/delete(id=${wizard.id})}">Remove</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </body>
     <footer th:replace="footer :: bottom">Your footer here</footer>
 </html>

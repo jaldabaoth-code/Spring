@@ -80,33 +80,31 @@
 .container td a {
     font-weight: bold;
 }
-/*
 
-.jpa1-quest-container h3 {
-    text-align: center;
+form {
+    display: flex;
+    flex-direction: column;
 }
 
-.jpa1-quest-container table {
-    border-collapse: collapse;
-    margin-left: auto;
-    margin-right: auto;
+input, textarea, select {
+    margin-top: 6px;
+    margin-bottom: 16px;
+    padding: 12px;
+    border-radius: 4px;
+    font-size: medium;
 }
 
-.jpa1-quest-container th {
+input[type=submit] {
     background-color: #4caf50;
     color: #ffffff;
+    font-size: medium;
+    cursor: pointer;
+    border-radius: 4px;
+    padding: 12px;
+    border: none;
 }
 
-.jpa1-quest-container tr:nth-child(even) {
-    background-color: #f2f2f2;
+input[type=submit]:hover {
+    background-color: #4caf50;
+    opacity: 0.9;
 }
-
-.jpa1-quest-container th, td {
-    border-bottom: 1px solid #ddd;
-    padding: 10px 5px;
-    text-align: left;
-}
-
-.jpa1-quest-container td a {
-    font-weight: bold;
-}*/
