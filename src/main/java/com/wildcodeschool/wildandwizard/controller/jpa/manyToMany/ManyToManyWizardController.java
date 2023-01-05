@@ -2,12 +2,13 @@ package com.wildcodeschool.wildandwizard.controller.jpa.manyToMany;
 
 import com.wildcodeschool.wildandwizard.entity.Race;
 import com.wildcodeschool.wildandwizard.entity.Wizard;
-import com.wildcodeschool.wildandwizard.repository.RaceRepository;
-import com.wildcodeschool.wildandwizard.repository.WizardRepository;
+import com.wildcodeschool.wildandwizard.repository.jpa.JpaRaceRepository;
+import com.wildcodeschool.wildandwizard.repository.jpa.JpaWizardRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import java.lang.reflect.InvocationTargetException;
@@ -16,15 +17,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-/* Spring Quest JPA : Many To Many */
+/* JPA Quest : Many To Many */
 @Controller
 public class ManyToManyWizardController {
     @Autowired
-    private WizardRepository wizardRepository;
+    private JpaWizardRepository wizardRepository;
     @Autowired
-    private RaceRepository raceRepository;
+    private JpaRaceRepository raceRepository;
 
-    /* Get all Schools */
+    /* Get all wizards */
     @GetMapping("/jpa/many-to-many/wizards")
     public String getAll(Model model) {
         // TODO : find all schools
@@ -32,7 +33,45 @@ public class ManyToManyWizardController {
         return "/jpa/manyToMany/wizards";
     }
 
-    /* Show races of wizard */
+
+
+    /* Get Wizard by id */
+    @GetMapping("/jpa/many-to-many/wizard")
+    public String getWizard(Model model, @RequestParam(required = false) Long id) {
+        Wizard wizard = new Wizard();
+        if (id != null) {
+            Optional<Wizard> optionalWizard = wizardRepository.findById(id);
+            if (optionalWizard.isPresent()) {
+                wizard = optionalWizard.get();
+            }
+        }
+        model.addAttribute("wizard", wizard);
+        return "/jpa/manyToMany/wizard";
+    }
+
+    /* Update new Wizard */
+    @PostMapping("/jpa/many-to-many/wizard")
+    public String postWizard(@ModelAttribute Wizard wizard) {
+        wizardRepository.save(wizard);
+        return "redirect:/jpa/many-to-many/wizards";
+    }
+
+    /* Delete the Wizard */
+    @GetMapping("/jpa/many-to-many/wizard/delete")
+    public String deleteWizard(@RequestParam Long id) {
+        wizardRepository.deleteById(id);
+        return "redirect:/jpa/many-to-many/wizards";
+    }
+
+
+
+
+
+
+
+
+
+    /* Show the races of wizard */
     @GetMapping("/jpa/many-to-many/wizard/races")
     public String getRaces(Model model, @RequestParam Long idWizard) {
         Optional<Wizard> optionalWizard = wizardRepository.findById(idWizard);
@@ -56,7 +95,7 @@ public class ManyToManyWizardController {
         return "jpa/manyToMany/wizardRace";
     }
 
-    /* Add a race to wizard */
+    /* Register a wizard to the race */
     @PostMapping("/jpa/many-to-many/wizard/race")
     public String postRace(@RequestParam Long idWizard, @RequestParam Long idRace) {
         Optional<Wizard> optionalWizard = wizardRepository.findById(idWizard);

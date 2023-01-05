@@ -1,7 +1,7 @@
 package com.wildcodeschool.wildandwizard.controller.jpa.manyToMany;
 
 import com.wildcodeschool.wildandwizard.entity.Race;
-import com.wildcodeschool.wildandwizard.repository.RaceRepository;
+import com.wildcodeschool.wildandwizard.repository.jpa.JpaRaceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,11 +11,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import java.util.Optional;
 
-/* Spring Quest JPA : Many To Many */
+/* JPA Quest : Many To Many */
 @Controller
 public class ManyToManyRaceController {
     @Autowired
-    private RaceRepository raceRepository;
+    private JpaRaceRepository raceRepository;
 
     /* Get all Races */
     @GetMapping("/jpa/many-to-many/races")

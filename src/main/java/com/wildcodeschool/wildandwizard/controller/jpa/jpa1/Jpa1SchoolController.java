@@ -1,7 +1,7 @@
 package com.wildcodeschool.wildandwizard.controller.jpa.jpa1;
 
 import com.wildcodeschool.wildandwizard.entity.School;
-import com.wildcodeschool.wildandwizard.repository.SchoolRepository;
+import com.wildcodeschool.wildandwizard.repository.jpa.JpaSchoolRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,7 +15,7 @@ import java.util.Optional;
 @Controller
 public class Jpa1SchoolController {
     @Autowired
-    private SchoolRepository schoolRepository;
+    private JpaSchoolRepository schoolRepository;
 
     /* Get all Schools */
     @GetMapping("/jpa/jpa1/schools")

@@ -1,23 +1,93 @@
-/* Quests : JPA */
-.many-to-many-quest-container {
+/* JPA Quest : Many To Many */
+.container {
     margin-left: 20px;
     margin-right: 20px;
 }
 
-.many-to-many-quest-container ul {
+.container ul {
     list-style-type: none;
 }
 
-.many-to-many-quest-container table a {
+.container li a {
+    text-decoration: none;
+    color: #000000;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.container li a:hover {
+    text-decoration: underline;
+    color: #000000;
+}
+
+.add-new-wizard {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+    font-weight: bold;
+}
+
+.add-new-wizard a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    height: 36px;
+    text-decoration: none;
+    background-color: #4caf50;
+    color: #ffffff;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.add-new-wizard a:hover {
+    background-color: #4caf50;
+    opacity: 0.9;
+}
+
+.container table {
+    border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.container td a {
     text-decoration: none;
     color: #000000;
     font-size: 1.15em;
 }
 
-.many-to-many-quest-container table a:hover {
+.container td a:hover {
     text-decoration: underline;
     color: #000000;
 }
+
+.container th {
+    background-color: #4caf50;
+    color: #ffffff;
+}
+
+.container tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.container th, td {
+    border-bottom: 1px solid #ddd;
+    padding: 10px 5px;
+    text-align: left;
+}
+
+.container td a {
+    font-weight: bold;
+}
+
+
+
+
+
+
+/*
+
 
 .many-to-many-quest-container h3 {
     text-align: center;
@@ -97,4 +167,4 @@
 .add-new-race a:hover, .add-new-wizard a:hover {
     background-color: #4caf50;
     opacity: 0.9;
-}
+}*/

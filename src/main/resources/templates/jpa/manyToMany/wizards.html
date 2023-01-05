@@ -11,9 +11,9 @@
         <header th:replace="header :: top">Your header/navbar here</header>
         <h1>Spring Quest : JPA</h1>
         <h2>Many To Many</h2>
-        <div class="many-to-many-quest-container">
+        <div class="container">
             <div class="add-new-wizard">
-                <a href="/jpa/many-to-many/wizard">Add a new Wizard!</a>
+                <a href="/jpa/many-to-many/wizard">Add New Wizard</a>
             </div>
             <h3>All Wizards</h3>
             <table>
@@ -26,21 +26,23 @@
                         <th>Birth place</th>
                         <th>Biography</th>
                         <th>Muggle</th>
-                        <th>Race</th>
-                        <th></th>
+                        <th>Races</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr th:each="wizard : ${wizards}">
-                        <td th:text="${wizard.id}">id</td>
-                        <td th:text="${wizard.firstName}">first name</td>
-                        <td th:text="${wizard.lastName}">last name</td>
-                        <td th:text="${wizard.birthday}">birthday</td>
-                        <td th:text="${wizard.birthPlace}">birth place</td>
-                        <td th:text="${wizard.biography}">biography</td>
-                        <td th:text="${wizard.muggle}">muggle</td>
-                        <td><div th:each="race : ${wizard.races}" th:text="${race.getName()}">race</div></td>
-                        <td><a th:href="@{/jpa/many-to-many/wizard/races(idWizard=${wizard.id})}">races</a></td>
+                        <td th:text="${wizard.id}"></td>
+                        <td th:text="${wizard.firstName}"></td>
+                        <td th:text="${wizard.lastName}"></td>
+                        <td th:text="${wizard.birthday}"></td>
+                        <td th:text="${wizard.birthPlace}"></td>
+                        <td th:text="${wizard.biography}"></td>
+                        <td th:text="${wizard.muggle}"></td>
+                        <td><div th:each="race : ${wizard.races}" th:text="${race.getName()}"></div></td>
+                        <td><a th:href="@{/jpa/many-to-many/wizard/races(idWizard=${wizard.id})}">Races</a></td>
+                        <td><a th:href="@{/jpa/many-to-many/wizard/wizards(idSchool=${wizard.id})}">Wizards</a></td>
+                        <td><a th:href="@{/jpa/many-to-many/wizard(id=${wizard.id})}">Edit</a></td>
+                        <td><a th:href="@{/jpa/many-to-many/wizard/delete(id=${wizard.id})}">Remove</a></td>
                     </tr>
                 </tbody>
             </table>
