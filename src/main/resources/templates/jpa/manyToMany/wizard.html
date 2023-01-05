@@ -15,18 +15,18 @@
             <h3 th:text="${wizard.id} ? 'Edit Wizard' : 'Create Wizard'">Wizard</h3>
             <form method="POST" th:action="@{wizard}" th:object="${wizard}">
                 <input name="id" th:field="*{id}" type="hidden">
-                <label for="wizard-first-name">First Name : </label>
-                <input id="wizard-first-name" name="firstName" placeholder="Harry" required th:field="*{firstName}" type="text">
-                <label for="wizard-last-name">Last Name : </label>
-                <input id="wizard-last-name" name="lastName" placeholder="Potter" required th:field="*{lastName}" type="text">
-                <label for="wizard-birthday">Birthday : </label>
-                <input id="wizard-birthday" name="birthday" placeholder="1980-07-31" required th:field="*{birthday}" type="date">
-                <label for="wizard-birth-place">Birth Place : </label>
-                <input id="wizard-birth-place" name="birthPlace" placeholder="London" th:field="*{birthPlace}" type="text">
-                <label for="wizard-biography">Biography : </label>
-                <textarea id="wizard-biography" name="biography" th:field="*{biography}"></textarea>
-                <label for="wizard-is-muggle">Is Muggle ? </label>
-                <input id="wizard-is-muggle" name="muggle" th:field="*{muggle}" type="checkbox">
+                <label for="first-name">First Name : </label>
+                <input id="first-name" name="firstName" placeholder="Harry" required th:field="*{firstName}" type="text">
+                <label for="last-name">Last Name : </label>
+                <input id="last-name" name="lastName" placeholder="Potter" required th:field="*{lastName}" type="text">
+                <label for="birthday">Birthday : </label>
+                <input id="birthday" name="birthday" placeholder="1980-07-31" required th:field="*{birthday}" type="date">
+                <label for="birth-place">Birth Place : </label>
+                <input id="birth-place" name="birthPlace" placeholder="London" th:field="*{birthPlace}" type="text">
+                <label for="biography">Biography : </label>
+                <textarea id="biography" name="biography" th:field="*{biography}"></textarea>
+                <label for="is-muggle">Is Muggle ? </label>
+                <input id="is-muggle" name="muggle" th:field="*{muggle}" type="checkbox">
                 <input type="submit" value="Send">
             </form>
         </div>

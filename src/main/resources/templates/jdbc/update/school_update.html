@@ -6,7 +6,7 @@
 </head>
 <body>
 <h3>Update School:</h3>
-<form action="/school/update" method="post">
+<form action="/school/update" method="POST">
     <input th:value="${school.id}" name="id" type="hidden">
     <label for="school-name">Name:</label>
     <input th:value="${school.name}"  id="school-name" name="name" placeholder="Wild Code School" required type="text">

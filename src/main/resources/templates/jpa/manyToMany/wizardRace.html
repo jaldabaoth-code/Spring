@@ -11,31 +11,33 @@
         <header th:replace="header :: top">Your header/navbar here</header>
         <h1>Spring Quest : JPA</h1>
         <h2>Many To Many</h2>
-        <h3>Wizard's Races</h3>
-        <form action="/jpa/wizard/race/register" method="post">
-            <input name="idWizard" th:value="${wizard.id}" type="hidden">
-            <h3 th:text="|${wizard.firstName} ${wizard.lastName}|"></h3>
-            <label for="race">Register a race to wizard:</label>
-            <select id="race" name="idRace">
-                <option th:each="race : ${allRaces}" th:text="${race.name}" th:value="${race.id}">wizard name</option>
-            </select>
-            <input type="submit" value="Register">
-        </form>
-        <h3>Wizard races:</h3>
-        <table>
-            <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-            </tr>
-            </thead>
-            <tbody>
-                <tr th:each="race : ${wizard.races}">
-                    <td th:text="${race.id}">id</td>
-                    <td th:text="${race.name}">name</td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="container">
+            <h3 th:text="'Register ' + |${wizard.firstName} ${wizard.lastName}| + ' in a new race'"></h3>
+            <form action="/jpa/many-to-many/wizard/race" method="POST">
+                <input name="idWizard" th:value="${wizard.id}" type="hidden">
+                <select id="race" name="idRace">
+                    <option th:each="race : ${allRaces}" th:text="${race.name}" th:value="${race.id}">wizard name</option>
+                </select>
+                <input type="submit" value="Register">
+            </form>
+            <h3 th:text="'All Races where ' + |${wizard.firstName} ${wizard.lastName}| + ' is registered'"></h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="race : ${wizard.races}">
+                        <td th:text="${race.id}"></td>
+                        <td th:text="${race.name}"></td>
+                        <td><a th:href="@{/jpa/many-to-many/race(id=${race.id})}">Edit</a></td>
+                        <td><a th:href="@{/jpa/many-to-many/race/delete(id=${race.id})}">Remove</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </body>
     <footer th:replace="footer :: bottom">Your footer here</footer>
 </html>

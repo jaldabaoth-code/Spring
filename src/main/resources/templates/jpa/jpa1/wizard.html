@@ -11,7 +11,7 @@
         <header th:replace="header :: top">Your header here</header>
         <h2>Spring Quest : JPA (Harry Potter - Wizard)</h2>
         <h3 th:text="${wizard.id} ? 'Edit Wizard' : 'Create Wizard'">Wizard</h3>
-        <form method="post" th:action="@{wizard}" th:object="${wizard}">
+        <form method="POST" th:action="@{wizard}" th:object="${wizard}">
             <input name="id" th:field="*{id}" type="hidden">
             <br/>
             <label for="wizard-first-name">First Name : </label>

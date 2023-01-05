@@ -40,7 +40,6 @@
                         <td th:text="${wizard.muggle}"></td>
                         <td><div th:each="race : ${wizard.races}" th:text="${race.getName()}"></div></td>
                         <td><a th:href="@{/jpa/many-to-many/wizard/races(idWizard=${wizard.id})}">Races</a></td>
-                        <td><a th:href="@{/jpa/many-to-many/wizard/wizards(idSchool=${wizard.id})}">Wizards</a></td>
                         <td><a th:href="@{/jpa/many-to-many/wizard(id=${wizard.id})}">Edit</a></td>
                         <td><a th:href="@{/jpa/many-to-many/wizard/delete(id=${wizard.id})}">Remove</a></td>
                     </tr>

@@ -1,23 +1,86 @@
-/* Quests : JPA */
-.jpa1-quest-container {
+/* JPA Quest : JPA 1 */
+.container {
     margin-left: 20px;
     margin-right: 20px;
 }
 
-.jpa1-quest-container ul {
+.container ul {
     list-style-type: none;
 }
 
-.jpa1-quest-container a {
+.container li a {
+    text-decoration: none;
+    color: #000000;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.container li a:hover {
+    text-decoration: underline;
+    color: #000000;
+}
+
+.add-new-school {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+    font-weight: bold;
+}
+
+.add-new-school a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    height: 36px;
+    text-decoration: none;
+    background-color: #4caf50;
+    color: #ffffff;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.add-new-school a:hover {
+    background-color: #4caf50;
+    opacity: 0.9;
+}
+
+.container table {
+    border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.container td a {
     text-decoration: none;
     color: #000000;
     font-size: 1.15em;
 }
 
-.jpa1-quest-container a:hover {
+.container td a:hover {
     text-decoration: underline;
     color: #000000;
 }
+
+.container th {
+    background-color: #4caf50;
+    color: #ffffff;
+}
+
+.container tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.container th, td {
+    border-bottom: 1px solid #ddd;
+    padding: 10px 5px;
+    text-align: left;
+}
+
+.container td a {
+    font-weight: bold;
+}
+/*
 
 .jpa1-quest-container h3 {
     text-align: center;
@@ -46,4 +109,4 @@
 
 .jpa1-quest-container td a {
     font-weight: bold;
-}
+}*/

@@ -8,35 +8,36 @@
         <title>JPA 1</title>
     </head>
     <body>
-        <header th:replace="header :: top">Your header here</header>
-        <h2>Spring Quest : JPA (Harry Potter - Schools)</h2>
-        <h3>Schools</h3>
-        <a href="/jpa/school">Add a new School !</a>
-        <table>
-            <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Name</th>
-                    <th>Capacity</th>
-                    <th>Country</th>
-                    <th></th>
-                    <th>Edit</th>
-                    <th>Remove</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr th:each="school : ${schools}">
-                    <td th:text="${school.id}">id</td>
-                    <td th:text="${school.name}">name</td>
-                    <td th:text="${school.capacity}">capacity</td>
-                    <td th:text="${school.country}">country</td>
-                    <td><a th:href="@{/jpa/school/wizards(idSchool=${school.id})}">wizards</a></td>
-                    <td><a th:href="@{/jpa/school(id=${school.id})}">Edit</a></td>
-                    <td><a th:href="@{/jpa/school/delete(id=${school.id})}">Remove</a></td>
-                </tr>
-            </tbody>
-        </table>
-        <a href="/static">Return to the index</a>
+        <header th:replace="header :: top">Your header/navbar here</header>
+        <h1>Spring Quest : JPA</h1>
+        <h2>JPA 1</h2>
+        <div class="container">
+            <div class="add-new-school">
+                <a href="/jpa/jpa1/school">Add New School</a>
+            </div>
+            <h3>All Schools</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Capacity</th>
+                        <th>Country</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="school : ${schools}">
+                        <td th:text="${school.id}">id</td>
+                        <td th:text="${school.name}">name</td>
+                        <td th:text="${school.capacity}">capacity</td>
+                        <td th:text="${school.country}">country</td>
+                        <td><a th:href="@{/jpa/jpa1/school/wizards(idSchool=${school.id})}">wizards</a></td>
+                        <td><a th:href="@{/jpa/jpa1/school(id=${school.id})}">Edit</a></td>
+                        <td><a th:href="@{/jpa/jpa1/school/delete(id=${school.id})}">Remove</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </body>
     <footer th:replace="footer :: bottom">Your footer here</footer>
 </html>

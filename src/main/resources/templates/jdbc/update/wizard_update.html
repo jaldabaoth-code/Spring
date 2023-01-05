@@ -6,7 +6,7 @@
 </head>
 <body>
 <h3>Update Wizard:</h3>
-<form action="/wizard/update" method="post">
+<form action="/wizard/update" method="POST">
     <input th:value="${wizard.id}" name="id" type="hidden">
     <label for="wizard-first-name">First name:</label>
     <input th:value="${wizard.firstName}" id="wizard-first-name" name="firstName" placeholder="Harry" required type="text">

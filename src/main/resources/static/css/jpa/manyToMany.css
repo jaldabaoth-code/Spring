@@ -86,7 +86,7 @@ form {
     flex-direction: column;
 }
 
-input, select {
+input, textarea, select {
     margin-top: 6px;
     margin-bottom: 16px;
     padding: 12px;
@@ -108,89 +108,3 @@ input[type=submit]:hover {
     background-color: #4caf50;
     opacity: 0.9;
 }
-
-
-
-
-/*
-
-
-.many-to-many-quest-container h3 {
-    text-align: center;
-}
-
-.many-to-many-quest-container table {
-    border-collapse: collapse;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.many-to-many-quest-container th {
-    background-color: #4caf50;
-    color: #ffffff;
-}
-
-.many-to-many-quest-container tr:nth-child(even) {
-    background-color: #f2f2f2;
-}
-
-.many-to-many-quest-container th, td {
-    border-bottom: 1px solid #ddd;
-    padding: 10px 5px;
-    text-align: left;
-}
-
-.many-to-many-quest-container td a {
-    font-weight: bold;
-}
-
-.edit-race {
-    margin-bottom: 50px;
-    text-align: center;
-}
-
-.name-edit-race, .edit-race label {
-    width: 200px;
-    height: 30px;
-}
-
-.button-edit-race {
-    width: 150px;
-    height: 36px;
-    background-color: #4caf50;
-    color: #ffffff;
-    cursor: pointer;
-    border-radius: 4px;
-    border-style: none;
-}
-
-.button-edit-race:hover {
-    background-color: #4caf50;
-    opacity: 0.9;
-}
-
-
-.add-new-race, .add-new-wizard {
-    margin-bottom: 50px;
-    display: flex;
-    justify-content: center;
-
-}
-
-.add-new-race a, .add-new-wizard a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 150px;
-    height: 36px;
-    text-decoration: none;
-    background-color: #4caf50;
-    color: #ffffff;
-    cursor: pointer;
-    border-radius: 4px;
-}
-
-.add-new-race a:hover, .add-new-wizard a:hover {
-    background-color: #4caf50;
-    opacity: 0.9;
-}*/

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
     <head>
         <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
         <link rel="stylesheet" th:href="@{/css/style.css}"/>
@@ -11,10 +11,10 @@
         <header th:replace="header :: top">Your header/navbar here</header>
         <h1>Spring Quest : JPA</h1>
         <h2>JPA 1</h2>
-        <div class="many-to-many-quest-container">
+        <div class="container">
             <ul>
-                <li><b><a href="/jpa/jpa1/schools">All Schools</a></b></li>
-                <li><b><a href="/jpa/jpa1/wizards">All Wizards</a></b></li>
+                <li><a href="/jpa/jpa1/schools">All Schools</a></li>
+                <li><a href="/jpa/jpa1/wizards">All Wizards</a></li>
             </ul>
         </div>
     </body>
