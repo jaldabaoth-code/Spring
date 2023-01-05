@@ -9,10 +9,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
 import java.util.Optional;
 
-/* Spring Quest JPA : JPA */
+/* JPA Quest : JPA 1 */
 @Controller
 public class Jpa1WizardController {
     @Autowired

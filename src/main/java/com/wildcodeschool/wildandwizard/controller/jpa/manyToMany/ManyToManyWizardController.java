@@ -33,8 +33,6 @@ public class ManyToManyWizardController {
         return "/jpa/manyToMany/wizards";
     }
 
-
-
     /* Get Wizard by id */
     @GetMapping("/jpa/many-to-many/wizard")
     public String getWizard(Model model, @RequestParam(required = false) Long id) {

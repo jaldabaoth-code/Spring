@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import java.util.Optional;
 
-/* Spring Quest JPA : JPA1 */
+/* JPA Quest : JPA 1 */
 @Controller
 public class Jpa1SchoolController {
     @Autowired
