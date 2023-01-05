@@ -20,7 +20,6 @@ public class OneToManyWizardController {
     /* Get all wizards */
     @GetMapping("/jpa/one-to-many/wizards")
     public String getAll(Model model) {
-        // TODO : find all schools
         model.addAttribute("wizards", wizardRepository.findAll());
         return "/jpa/oneToMany/wizards";
     }
@@ -39,7 +38,7 @@ public class OneToManyWizardController {
         return "/jpa/oneToMany/wizard";
     }
 
-    /* Update new Wizard */
+    /* Create or Update a Wizard  */
     @PostMapping("/jpa/one-to-many/wizard")
     public String postWizard(@ModelAttribute Wizard wizard) {
         wizardRepository.save(wizard);

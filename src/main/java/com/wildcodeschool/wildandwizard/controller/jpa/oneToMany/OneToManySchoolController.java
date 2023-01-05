@@ -28,7 +28,6 @@ public class OneToManySchoolController {
     /* Get all Schools */
     @GetMapping("/jpa/one-to-many/schools")
     public String getAll(Model model) {
-        // TODO : find all schools
         model.addAttribute("schools", schoolRepository.findAll());
         return "/jpa/oneToMany/schools";
     }
@@ -36,7 +35,6 @@ public class OneToManySchoolController {
     /* Get School by id */
     @GetMapping("/jpa/one-to-many/school")
     public String getSchool(Model model, @RequestParam(required = false) Long id) {
-        // TODO : find one school by id
         School school = new School();
         if (id != null) {
             Optional<School> optionalSchool = schoolRepository.findById(id);
@@ -51,7 +49,6 @@ public class OneToManySchoolController {
     /* Create or Update a School */
     @PostMapping("/jpa/one-to-many/school")
     public String postSchool(@ModelAttribute School school) {
-        // TODO : create or update a school
         schoolRepository.save(school);
         return "redirect:/jpa/one-to-many/schools";
     }
@@ -59,7 +56,6 @@ public class OneToManySchoolController {
     /* Delete the School */
     @GetMapping("/jpa/one-to-many/school/delete")
     public String deleteSchool(@RequestParam Long id) {
-        // TODO : delete a school
         schoolRepository.deleteById(id);
         return "redirect:/jpa/one-to-many/schools";
     }
