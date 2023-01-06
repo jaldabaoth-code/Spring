@@ -3,36 +3,40 @@
     <head>
         <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
         <link rel="stylesheet" th:href="@{/css/style.css}"/>
-        <title>Spring Quest : JDBC Introduction (Person List)</title>
+        <link rel="stylesheet" th:href="@{/css/jdbc/jdbcIntroduction.css}"/>
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+        <title>JDBC Introduction</title>
     </head>
     <body>
-        <header th:replace="header :: top">Your header here</header>
-        <h2>Spring Quest : JDBC Introduction (Person List)</h2>
-        <h3>Persons</h3>
-        <a href="/jdbc/person">Add a new person!</a>
-        <table>
-            <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Age</th>
-                    <th></th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr th:each="person : ${persons}">
-                    <td th:text="${person.id}">id</td>
-                    <td th:text="${person.firstName}">firstName</td>
-                    <td th:text="${person.lastName}">lastName</td>
-                    <td th:text="${person.age}">age</td>
-                    <td><a th:href="@{/templates/jdbc/person(id=${person.id})}">Edit</a></td>
-                    <td><a th:href="@{/templates/jdbc/person/delete(id=${person.id})}">Remove</a></td>
-                </tr>
-            </tbody>
-        </table>
-        <a href="/">Return to the index</a>
+        <header th:replace="header :: top">Your header/navbar here</header>
+        <h1>Spring Quest : JDBC</h1>
+        <h2>JDBC Introduction</h2>
+        <div class="container">
+            <div class="add-new-person">
+                <a href="/jdbc/jdbc-introduction/person">Add New Person</a>
+            </div>
+            <h3>All Persons</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Age</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="person : ${persons}">
+                        <td th:text="${person.id}">id</td>
+                        <td th:text="${person.firstName}">firstName</td>
+                        <td th:text="${person.lastName}">lastName</td>
+                        <td th:text="${person.age}">age</td>
+                        <td><a th:href="@{/templates/jdbc/person(id=${person.id})}">Edit</a></td>
+                        <td><a th:href="@{/templates/jdbc/person/delete(id=${person.id})}">Remove</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </body>
     <footer th:replace="footer :: bottom">Your footer here</footer>
 </html>

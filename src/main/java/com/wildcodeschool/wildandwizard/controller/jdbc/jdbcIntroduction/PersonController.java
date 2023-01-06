@@ -13,13 +13,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class PersonController {
     private PersonRepository repository = new PersonRepository();
 
-    @GetMapping("/jdbc/persons")
+    @GetMapping("/jdbc/jdbc-introduction/persons")
     public String getAll(Model model) {
         model.addAttribute("persons", repository.findAll());
         return "jdbc/jdbcIntroduction/persons";
     }
 
-    @GetMapping("/jdbc/person")
+    @GetMapping("/jdbc/jdbc-introduction/person")
     public String getPerson(Model model, @RequestParam(required = false) Long id) {
         Person person = new Person();
         if (id != null) {
@@ -29,19 +29,19 @@ public class PersonController {
         return "jdbc/jdbcIntroduction/person";
     }
 
-    @PostMapping("/jdbc/person")
+    @PostMapping("/jdbc/jdbc-introduction/person")
     public String postPerson(@ModelAttribute Person person) {
         if (person.getId() != null) {
             repository.update(person);
         } else {
             repository.save(person);
         }
-        return "redirect:/jdbc/persons";
+        return "redirect:/jdbc/jdbcIntroduction/persons";
     }
 
-    @GetMapping("/jdbc/person/delete")
+    @GetMapping("/jdbc/jdbc-introduction/person/delete")
     public String deletePerson(@RequestParam Long id) {
         repository.deleteById(id);
-        return "redirect:/jdbc/persons";
+        return "redirect:/jdbc/jdbcIntroduction/persons";
     }
 }

@@ -1,3 +1,4 @@
+<!--
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +9,7 @@
 <h1>Wild And Wizard</h1>
 <section>
     <h3>Update a Wizard:</h3>
-    <form action="/wizard/update" method="get">
+    <form action="/wizard/update" method="GET">
         <label>Search by id:</label>
         <input name="id" placeholder="1" required type="text">
         <input type="submit" value="Send">
@@ -16,11 +17,33 @@
 </section>
 <section>
     <h3>Update a School:</h3>
-    <form action="/school/update" method="get">
+    <form action="/school/update" method="GET">
         <label>Search by id:</label>
         <input name="id" placeholder="1" required type="text">
         <input type="submit" value="Send">
     </form>
 </section>
 </body>
+</html>-->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+        <link rel="stylesheet" th:href="@{/css/style.css}"/>
+        <link rel="stylesheet" th:href="@{/css/jdbc/update.css}"/>
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+        <title>Update</title>
+    </head>
+    <body>
+        <header th:replace="header :: top">Your header/navbar here</header>
+        <h1>Spring Quest : JDBC</h1>
+        <h2>Update</h2>
+        <div class="container">
+            <ul>
+                <li><a href="/jdbc/update/schools">Show All Schools</a></li>
+                <li><a href="/jdbc/update/wizards">Show All Wizards</a></li>
+            </ul>
+        </div>
+    </body>
+    <footer th:replace="footer :: bottom">Your footer here</footer>
 </html>

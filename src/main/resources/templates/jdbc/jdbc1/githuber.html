@@ -3,42 +3,37 @@
     <head>
         <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
         <link rel="stylesheet" th:href="@{/css/style.css}"/>
-        <title>Spring Quest : JDBC (Githuber)</title>
+        <link rel="stylesheet" th:href="@{/css/jdbc/jdbc1.css}"/>
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+        <title>JDBC 1</title>
     </head>
     <body>
-        <header th:replace="header :: top">Your header here</header>
-        <h2>Spring Quest : JDBC (Githuber)</h2>
-        <h3 th:text="${githuber.id} ? 'Edit Githuber' : 'Create Githuber'">Githuber</h3>
-        <form method="POST" th:action="@{githuber}" th:object="${githuber}">
-            <input name="id" th:field="*{id}" type="hidden">
-            <br/>
-            <label for="githuber-githubId">Github Id:</label>
-            <input id="githuber-githubId" name="githubId" placeholder="0" required th:field="*{githubId}" type="number">
-            <br/>
-            <label for="githuber-name">Name:</label>
-            <input id="githuber-name" name="name" placeholder="Name" required th:field="*{name}" type="text">
-            <br/>
-            <label for="githuber-login">Login:</label>
-            <input id="githuber-login" name="login" placeholder="Login" required th:field="*{login}" type="text">
-            <br/>
-            <label for="githuber-url">URL:</label>
-            <input id="githuber-url" name="url" placeholder="URL" required th:field="*{url}" type="text">
-            <br/>
-            <label for="githuber-email">Email:</label>
-            <input id="githuber-email" name="email" placeholder="Email" required th:field="*{email}" type="text">
-            <br/>
-            <label for="githuber-bio">Bio:</label>
-            <input id="githuber-bio" name="bio" placeholder="Bio" required th:field="*{bio}" type="text">
-            <br/>
-            <label for="githuber-location">Location:</label>
-            <input id="githuber-location" name="location" placeholder="Location" required th:field="*{location}" type="text">
-            <br/>
-            <label for="githuber-avatarUrl">Avatar Url:</label>
-            <input id="githuber-avatarUrl" name="avatarUrl" placeholder="AvatarUrl" required th:field="*{avatarUrl}" type="text">
-            <br/>
-            <input type="submit" value="Send">
-        </form>
-        <a href="/jdbc/githubers">Return to the list</a>
+        <header th:replace="header :: top">Your header/navbar here</header>
+        <h1>Spring Quest : JDBC</h1>
+        <h2>JDBC 1</h2>
+        <div class="container">
+            <h3 th:text="${githuber.id} ? 'Edit Githuber' : 'Create Githuber'">Githuber</h3>
+            <form method="POST" th:action="@{githuber}" th:object="${githuber}">
+                <input name="id" th:field="*{id}" type="hidden">
+                <label for="githubId">Github Id:</label>
+                <input id="githubId" name="githubId" placeholder="0" required th:field="*{githubId}" type="number">
+                <label for="name">Name:</label>
+                <input id="name" name="name" placeholder="Name" required th:field="*{name}" type="text">
+                <label for="login">Login:</label>
+                <input id="login" name="login" placeholder="Login" required th:field="*{login}" type="text">
+                <label for="url">URL:</label>
+                <input id="url" name="url" placeholder="URL" required th:field="*{url}" type="text">
+                <label for="email">Email:</label>
+                <input id="email" name="email" placeholder="Email" required th:field="*{email}" type="text">
+                <label for="bio">Bio:</label>
+                <input id="bio" name="bio" placeholder="Bio" required th:field="*{bio}" type="text">
+                <label for="location">Location:</label>
+                <input id="location" name="location" placeholder="Location" required th:field="*{location}" type="text">
+                <label for="avatarUrl">Avatar Url:</label>
+                <input id="avatarUrl" name="avatarUrl" placeholder="AvatarUrl" required th:field="*{avatarUrl}" type="text">
+                <input type="submit" value="Send">
+            </form>
+        </div>
     </body>
     <footer th:replace="footer :: bottom">Your footer here</footer>
 </html>
