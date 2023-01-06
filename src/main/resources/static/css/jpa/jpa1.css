@@ -20,14 +20,14 @@
     color: #000000;
 }
 
-.add-new-school {
+.add-new-school, .add-new-wizard {
     display: flex;
     justify-content: center;
     margin-bottom: 50px;
     font-weight: bold;
 }
 
-.add-new-school a {
+.add-new-school a, .add-new-wizard a {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -40,7 +40,7 @@
     border-radius: 4px;
 }
 
-.add-new-school a:hover {
+.add-new-school a:hover, .add-new-wizard a:hover {
     background-color: #4caf50;
     opacity: 0.9;
 }
