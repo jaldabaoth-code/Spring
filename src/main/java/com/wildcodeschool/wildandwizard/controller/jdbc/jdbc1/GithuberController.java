@@ -1,4 +1,4 @@
-package com.wildcodeschool.wildandwizard.controller.jdbc;
+package com.wildcodeschool.wildandwizard.controller.jdbc.jdbc1;
 
 import com.wildcodeschool.wildandwizard.entity.Githuber;
 import com.wildcodeschool.wildandwizard.repository.GithuberRepository;

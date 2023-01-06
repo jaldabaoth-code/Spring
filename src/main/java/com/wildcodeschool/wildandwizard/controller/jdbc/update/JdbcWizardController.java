@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.sql.Date;
 
 @Controller
-public class JDBCWizardController {
+public class JdbcWizardController {
 
     private JDBCWizardRepository repository = new JDBCWizardRepository();
 
