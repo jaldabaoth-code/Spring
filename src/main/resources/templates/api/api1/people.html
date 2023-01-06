@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+    <head>
+        <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+        <link rel="stylesheet" th:href="@{/css/style.css}"/>
+        <link rel="stylesheet" th:href="@{/css/api/api1.css}"/>
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+        <title>API 1</title>
+    </head>
+    <body>
+        <header th:replace="header :: top">Your header/navbar here</header>
+        <h1>Spring Quest : API</h1>
+        <h2>API 1</h2>
+        <div class="container">
+<!--            <h3 th:text="| ${peopleInfos.name} - ${peopleInfos.gender} |"></h3>-->
+            <h3>People</h3>
+<!--            <ul>
+                <li th:each="film : ${peopleInfos.films}">
+                    <a th:href="${film}" th:text="${film}"></a>
+                </li>
+            </ul>-->
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Gender</th>
+                        <th>Films</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td th:text="${peopleInfos.name}"></td>
+                        <td th:text="${peopleInfos.gender}"></td>
+                        <td>
+                            <a th:each="film : ${peopleInfos.films}" th:href="${film}" th:text="${film}"></a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </body>
+    <footer th:replace="footer :: bottom">Your footer here</footer>
+</html>

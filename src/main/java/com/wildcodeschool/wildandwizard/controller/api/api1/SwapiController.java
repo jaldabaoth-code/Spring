@@ -1,4 +1,4 @@
-package com.wildcodeschool.wildandwizard.controller.api.api;
+package com.wildcodeschool.wildandwizard.controller.api.api1;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -11,14 +11,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
 
-/* Spring Quests : API (Star Wars) */
+/* API Quest : API */
 @Controller
 public class SwapiController {
     private static final String SWAPI_URL = "https://swapi.dev";
 
-    @GetMapping("/api")
-    public String apiStarWars() {
-        return "api/starWars";
+    @GetMapping("/api/api1/star-wars")
+    public String starWars() {
+        return "api/api1/starWars";
     }
 
     /* Spring Quest : API (Star Wars - Planet) */
@@ -41,7 +41,7 @@ public class SwapiController {
             e.printStackTrace();
         }
         model.addAttribute("planetInfos", planetObject);
-        return "api/planet";
+        return "api/api1/planet";
     }
 
     /* Spring Quest : API (Star Wars - People) */
@@ -63,6 +63,6 @@ public class SwapiController {
             e.printStackTrace();
         }
         model.addAttribute("peopleInfos", peopleObject);
-        return "api/people";
+        return "api/api1/people";
     }
 }

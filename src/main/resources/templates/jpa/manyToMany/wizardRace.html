@@ -12,7 +12,7 @@
         <h1>Spring Quest : JPA</h1>
         <h2>Many To Many</h2>
         <div class="container">
-            <h3 th:text="'Register ' + |${wizard.firstName} ${wizard.lastName}| + ' in a new race'"></h3>
+            <h3 th:text="'Register ' + | ${wizard.firstName} ${wizard.lastName} | + ' in a new race'"></h3>
             <form action="/jpa/many-to-many/wizard/race" method="POST">
                 <input name="idWizard" th:value="${wizard.id}" type="hidden">
                 <select id="race" name="idRace">
@@ -20,7 +20,7 @@
                 </select>
                 <input type="submit" value="Register">
             </form>
-            <h3 th:text="'All Races where ' + |${wizard.firstName} ${wizard.lastName}| + ' is registered'"></h3>
+            <h3 th:text="'All Races where ' + | ${wizard.firstName} ${wizard.lastName} | + ' is registered'"></h3>
             <table>
                 <thead>
                     <tr>

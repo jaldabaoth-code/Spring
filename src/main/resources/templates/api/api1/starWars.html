@@ -3,22 +3,24 @@
     <head>
         <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
         <link rel="stylesheet" th:href="@{/css/style.css}"/>
-        <title>Spring Quest : API (Star Wars)</title>
+        <link rel="stylesheet" th:href="@{/css/api/api1.css}"/>
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+        <title>API 1</title>
     </head>
     <body>
-        <header th:replace="header :: top">Your header here</header>
-        <h2>Spring Quest : API (Star Wars)</h2>
-        <div>
-            <h3>You can search : </h3>
-            <h3>People : </h3>
+        <header th:replace="header :: top">Your header/navbar here</header>
+        <h1>Spring Quest : API</h1>
+        <h2>API 1</h2>
+        <div class="container">
+            <h3>Search People </h3>
             <form action="/api/people" method="get">
-                <label>People id : </label>
+                <label>People Id : </label>
                 <input name="id" placeholder="1" required type="number">
                 <input type="submit" value="Send">
             </form>
-            <h3>Planet : </h3>
+            <h3>Search Planet</h3>
             <form action="/api/planet" method="get">
-                <label>Planet id : </label>
+                <label>Planet Id : </label>
                 <input name="id" placeholder="1" required type="number">
                 <input type="submit" value="Send">
             </form>
