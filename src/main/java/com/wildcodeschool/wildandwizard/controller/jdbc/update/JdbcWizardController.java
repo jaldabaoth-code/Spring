@@ -23,7 +23,7 @@ public class JdbcWizardController {
     @GetMapping("/wizard/update")
     public String getWizardUpdate(Model model, @RequestParam Long id) {
         model.addAttribute("wizard", wizardRepository.findById(id));
-        return "jdbc/update/wizard_update";
+        return "wizard";
     }
 
     @PostMapping("/wizard/update")

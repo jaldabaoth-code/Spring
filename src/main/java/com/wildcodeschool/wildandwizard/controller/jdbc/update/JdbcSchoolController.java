@@ -22,7 +22,7 @@ public class JdbcSchoolController {
     @GetMapping("/jdbc/update/school/update")
     public String getSchoolUpdate(Model model, @RequestParam Long id) {
         model.addAttribute("school", schoolRepository.findById(id));
-        return "jdbc/update/school_update";
+        return "school";
     }
 
 
