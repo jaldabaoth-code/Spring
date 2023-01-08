@@ -3,7 +3,7 @@
     <head>
         <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
         <link rel="stylesheet" th:href="@{/css/style.css}"/>
-        <link rel="stylesheet" th:href="@{/css/api/api1.css}"/>
+        <link rel="stylesheet" th:href="@{/css/api/api-1.css}"/>
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
         <title>API 1</title>
     </head>
@@ -12,16 +12,14 @@
         <h1>Spring Quest : API</h1>
         <h2>API 1</h2>
         <div class="container">
-            <h3>Search People </h3>
+            <h3>Search People by Id</h3>
             <form action="/api/people" method="GET">
-                <label>People Id : </label>
-                <input name="id" placeholder="1" required type="number">
+                <input name="id" placeholder="1" type="number" required>
                 <input type="submit" value="Send">
             </form>
-            <h3>Search Planet</h3>
+            <h3>Search Planet by Id</h3>
             <form action="/api/planet" method="GET">
-                <label>Planet Id : </label>
-                <input name="id" placeholder="1" required type="number">
+                <input name="id" placeholder="1" type="number" required>
                 <input type="submit" value="Send">
             </form>
         </div>

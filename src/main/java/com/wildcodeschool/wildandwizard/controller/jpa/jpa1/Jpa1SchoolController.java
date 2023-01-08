@@ -18,15 +18,15 @@ public class Jpa1SchoolController {
     private JpaSchoolRepository schoolRepository;
 
     /* Get all Schools */
-    @GetMapping("/jpa/jpa1/schools")
+    @GetMapping("/jpa/jpa-1/schools")
     public String getAll(Model model) {
         // TODO : find all schools
         model.addAttribute("schools", schoolRepository.findAll());
-        return "/jpa/jpa1/schools";
+        return "/jpa/jpa-1/schools";
     }
 
     /* Get School by id */
-    @GetMapping("/jpa/jpa1/school")
+    @GetMapping("/jpa/jpa-1/school")
     public String getSchool(Model model, @RequestParam(required = false) Long id) {
         // TODO : find one school by id
         School school = new School();
@@ -37,22 +37,22 @@ public class Jpa1SchoolController {
             }
         }
         model.addAttribute("school", school);
-        return "/jpa/jpa1/school";
+        return "/jpa/jpa-1/school";
     }
 
     /* Update new School */
-    @PostMapping("/jpa/jpa1/school")
+    @PostMapping("/jpa/jpa-1/school")
     public String postSchool(@ModelAttribute School school) {
         // TODO : create or update a school
         schoolRepository.save(school);
-        return "redirect:/jpa/jpa1/schools";
+        return "redirect:/jpa/jpa-1/schools";
     }
 
     /* Delete the School */
-    @GetMapping("/jpa/jpa1/school/delete")
+    @GetMapping("/jpa/jpa-1/school/delete")
     public String deleteSchool(@RequestParam Long id) {
         // TODO : delete a school
         schoolRepository.deleteById(id);
-        return "redirect:/jpa/jpa1/schools";
+        return "redirect:/jpa/jpa-1/schools";
     }
 }

@@ -13,7 +13,7 @@
         <h2>Update</h2>
         <div class="container">
             <div class="add-new-school">
-                <a href="/jpa/jpa1/school">Add New School</a>
+                <a href="/jpa/jpa-1/school">Add New School</a>
             </div>
             <h3>All Schools</h3>
             <table>
@@ -31,7 +31,7 @@
                         <td th:text="${school.name}">name</td>
                         <td th:text="${school.capacity}">capacity</td>
                         <td th:text="${school.country}">country</td>
-                        <td><a th:href="@{/jpa/jpa1/school(id=${school.id})}">Update</a></td>
+                        <td><a th:href="@{/jpa/jpa-1/school(id=${school.id})}">Update</a></td>
                     </tr>
                 </tbody>
             </table>

@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 /* JPA Quest : JPA 1 */
 @Controller
 public class Jpa1Controller {
-    @GetMapping("/jpa/jpa1")
+    @GetMapping("/jpa/jpa-1")
     public String index() {
         return "jpa/jpa1/index";
     }

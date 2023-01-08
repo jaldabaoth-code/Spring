@@ -31,8 +31,8 @@
                         <td th:text="${person.firstName}">firstName</td>
                         <td th:text="${person.lastName}">lastName</td>
                         <td th:text="${person.age}">age</td>
-                        <td><a th:href="@{/templates/jdbc/person(id=${person.id})}">Edit</a></td>
-                        <td><a th:href="@{/templates/jdbc/person/delete(id=${person.id})}">Remove</a></td>
+                        <td><a th:href="@{/jdbc/person(id=${person.id})}">Edit</a></td>
+                        <td><a th:href="@{/jdbc/person/delete(id=${person.id})}">Remove</a></td>
                     </tr>
                 </tbody>
             </table>

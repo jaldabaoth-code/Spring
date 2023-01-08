@@ -18,14 +18,14 @@ public class Jpa1WizardController {
     private JpaWizardRepository wizardRepository;
 
     /* Get all Wizards */
-    @GetMapping("/jpa/jpa1/wizards")
+    @GetMapping("/jpa/jpa-1/wizards")
     public String getAll(Model model) {
         model.addAttribute("wizards", wizardRepository.findAll());
-        return "/jpa/jpa1/wizards";
+        return "/jpa/jpa-1/wizards";
     }
 
     /* Get Wizard by id */
-    @GetMapping("/jpa/jpa1/wizard")
+    @GetMapping("/jpa/jpa-1/wizard")
     public String getWizard(Model model, @RequestParam(required = false) Long id) {
         Wizard wizard = new Wizard();
         if (id != null) {
@@ -35,20 +35,20 @@ public class Jpa1WizardController {
             }
         }
         model.addAttribute("wizard", wizard);
-        return "/jpa/jpa1/wizard";
+        return "/jpa/jpa-1/wizard";
     }
 
     /* Update new Wizard */
-    @PostMapping("/jpa/jpa1/wizard")
+    @PostMapping("/jpa/jpa-1/wizard")
     public String postWizard(@ModelAttribute Wizard wizard) {
         wizardRepository.save(wizard);
-        return "redirect:/jpa/jpa1/wizards";
+        return "redirect:/jpa/jpa-1/wizards";
     }
 
     /* Delete the Wizard */
-    @GetMapping("/jpa/jpa1/wizard/delete")
+    @GetMapping("/jpa/jpa-1/wizard/delete")
     public String deleteWizard(@RequestParam Long id) {
         wizardRepository.deleteById(id);
-        return "redirect:/jpa/jpa1/wizards";
+        return "redirect:/jpa/jpa-1/wizards";
     }
 }

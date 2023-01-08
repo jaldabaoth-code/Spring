@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 /* Root Quest : Root 3 */
 @Controller
 public class Root3Controller {
-    @GetMapping("/root/root3")
+    @GetMapping("/root/root-3")
     public String index() {
         return "root/root3/index";
     }

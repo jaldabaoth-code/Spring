@@ -16,7 +16,7 @@ import reactor.core.publisher.Mono;
 public class SwapiController {
     private static final String SWAPI_URL = "https://swapi.dev";
 
-    @GetMapping("/api/api1/star-wars")
+    @GetMapping("/api/api-1/star-wars")
     public String starWars() {
         return "api/api1/starWars";
     }

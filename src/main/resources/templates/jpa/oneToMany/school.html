@@ -16,11 +16,11 @@
             <form method="POST" th:action="@{school}" th:object="${school}">
                 <input name="id" th:field="*{id}" type="hidden">
                 <label for="name">Name : </label>
-                <input id="name" name="name" placeholder="Wild Code School" required th:field="*{name}" type="text">
+                <input id="name" name="name" placeholder="Hogwarts" required th:field="*{name}" type="text">
                 <label for="capacity">Capacity : </label>
-                <input id="capacity" name="capacity" placeholder="40" required th:field="*{capacity}" type="number">
+                <input id="capacity" name="capacity" placeholder="1000" required th:field="*{capacity}" type="number">
                 <label for="country">Country : </label>
-                <input id="country" name="country" placeholder="France" required th:field="*{country}" type="text">
+                <input id="country" name="country" placeholder="Scotland" required th:field="*{country}" type="text">
                 <input type="submit" value="Send">
             </form>
         </div>

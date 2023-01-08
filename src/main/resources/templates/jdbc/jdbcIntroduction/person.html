@@ -13,14 +13,14 @@
         <h2>JDBC Introduction</h2>
         <div class="container">
             <h3 th:text="${person.id} ? 'Edit Person' : 'Create Person'">Person</h3>
-            <form method="POST" th:action="@{/templates/jdbc/person}" th:object="${person}">
+            <form method="POST" th:action="@{/jdbc/person}" th:object="${person}">
                 <input name="id" th:field="*{id}" type="hidden">
-                <label for="person-firstName">First Name:</label>
-                <input id="person-firstName" name="firstName" placeholder="First Name" required th:field="*{firstName}" type="text">
-                <label for="person-lastName">Last Name:</label>
-                <input id="person-lastName" name="lastName" placeholder="Last Name" required th:field="*{lastName}" type="text">
-                <label for="person-age">Age:</label>
-                <input id="person-age" name="age" placeholder="40" required th:field="*{age}" type="number">
+                <label for="firstName">First Name : </label>
+                <input id="firstName" name="firstName" placeholder="First Name" required th:field="*{firstName}" type="text">
+                <label for="lastName">Last Name : </label>
+                <input id="lastName" name="lastName" placeholder="Last Name" required th:field="*{lastName}" type="text">
+                <label for="age">Age:</label>
+                <input id="age" name="age" placeholder="40" required th:field="*{age}" type="number">
                 <input type="submit" value="Send">
             </form>
         </div>
