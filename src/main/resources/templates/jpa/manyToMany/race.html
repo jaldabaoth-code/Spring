@@ -16,7 +16,7 @@
             <form method="POST" th:action="@{race}" th:object="${race}">
                 <input name="id" th:field="*{id}" type="hidden">
                 <label for="name">Name : </label>
-                <input id="name" name="name" placeholder="Wild Code Race" required th:field="*{name}" type="text">
+                <input id="name" name="name" placeholder="Human" th:field="*{name}" type="text" required>
                 <input type="submit" value="Send">
             </form>
         </div>

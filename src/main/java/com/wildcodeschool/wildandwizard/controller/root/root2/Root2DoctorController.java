@@ -11,7 +11,7 @@ import org.springframework.web.server.ResponseStatusException;
 /* Root Quest : Root 2 */
 @Controller
 public class Root2DoctorController {
-    @GetMapping("root/root2/doctor/{number}")
+    @GetMapping("root/root-2/doctor/{number}")
     @ResponseBody
     public Doctor doctor(@PathVariable int number) {
         if (number == 13) {

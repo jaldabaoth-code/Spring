@@ -16,21 +16,21 @@
             <form method="POST" th:action="@{githuber}" th:object="${githuber}">
                 <input name="id" th:field="*{id}" type="hidden">
                 <label for="githubId">Github Id:</label>
-                <input id="githubId" name="githubId" placeholder="0" required th:field="*{githubId}" type="number">
+                <input id="githubId" name="githubId" placeholder="0" th:field="*{githubId}" type="number" required>
                 <label for="name">Name:</label>
-                <input id="name" name="name" placeholder="Name" required th:field="*{name}" type="text">
+                <input id="name" name="name" placeholder="Name" th:field="*{name}" type="text" required>
                 <label for="login">Login:</label>
-                <input id="login" name="login" placeholder="Login" required th:field="*{login}" type="text">
+                <input id="login" name="login" placeholder="Login" th:field="*{login}" type="text" required>
                 <label for="url">URL:</label>
-                <input id="url" name="url" placeholder="URL" required th:field="*{url}" type="text">
+                <input id="url" name="url" placeholder="URL" th:field="*{url}" type="text" required>
                 <label for="email">Email:</label>
-                <input id="email" name="email" placeholder="Email" required th:field="*{email}" type="text">
+                <input id="email" name="email" placeholder="Email" th:field="*{email}" type="text" required>
                 <label for="bio">Bio:</label>
-                <input id="bio" name="bio" placeholder="Bio" required th:field="*{bio}" type="text">
+                <input id="bio" name="bio" placeholder="Bio" th:field="*{bio}" type="text" required>
                 <label for="location">Location:</label>
-                <input id="location" name="location" placeholder="Location" required th:field="*{location}" type="text">
+                <input id="location" name="location" placeholder="Location" th:field="*{location}" type="text" required>
                 <label for="avatarUrl">Avatar Url:</label>
-                <input id="avatarUrl" name="avatarUrl" placeholder="AvatarUrl" required th:field="*{avatarUrl}" type="text">
+                <input id="avatarUrl" name="avatarUrl" placeholder="AvatarUrl" th:field="*{avatarUrl}" type="text" required>
                 <input type="submit" value="Send">
             </form>
         </div>

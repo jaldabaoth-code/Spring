@@ -16,9 +16,9 @@
             <form method="POST" th:action="@{/jdbc/person}" th:object="${person}">
                 <input name="id" th:field="*{id}" type="hidden">
                 <label for="firstName">First Name : </label>
-                <input id="firstName" name="firstName" placeholder="First Name" required th:field="*{firstName}" type="text">
+                <input id="firstName" name="firstName" placeholder="First Name" th:field="*{firstName}" type="text" required>
                 <label for="lastName">Last Name : </label>
-                <input id="lastName" name="lastName" placeholder="Last Name" required th:field="*{lastName}" type="text">
+                <input id="lastName" name="lastName" placeholder="Last Name" th:field="*{lastName}" type="text" required>
                 <label for="age">Age:</label>
                 <input id="age" name="age" placeholder="40" required th:field="*{age}" type="number">
                 <input type="submit" value="Send">

@@ -15,12 +15,12 @@
             <h3 th:text="${school.id} ? 'Edit School' : 'Create School'">School</h3>
             <form method="POST" th:action="@{school}" th:object="${school}">
                 <input name="id" th:field="*{id}" type="hidden">
-                <label for="name">Name:</label>
-                <input id="name" name="name" placeholder="Hogwarts" required th:field="*{name}" type="text">
-                <label for="capacity">Capacity:</label>
-                <input id="capacity" name="capacity" placeholder="1000" required th:field="*{capacity}" type="number">
-                <label for="country">Country:</label>
-                <input id="country" name="country" placeholder="Scotland" required th:field="*{country}" type="text">
+                <label for="name">Name : </label>
+                <input id="name" name="name" placeholder="Hogwarts" th:field="*{name}" type="text" required>
+                <label for="capacity">Capacity : </label>
+                <input id="capacity" name="capacity" placeholder="1000" th:field="*{capacity}" type="number" required>
+                <label for="country">Country : </label>
+                <input id="country" name="country" placeholder="Scotland" th:field="*{country}" type="text" required>
                 <input type="submit" value="Send">
             </form>
         </div>

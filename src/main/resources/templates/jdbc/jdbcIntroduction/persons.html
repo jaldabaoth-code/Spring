@@ -27,10 +27,10 @@
                 </thead>
                 <tbody>
                     <tr th:each="person : ${persons}">
-                        <td th:text="${person.id}">id</td>
-                        <td th:text="${person.firstName}">firstName</td>
-                        <td th:text="${person.lastName}">lastName</td>
-                        <td th:text="${person.age}">age</td>
+                        <td th:text="${person.id}"></td>
+                        <td th:text="${person.firstName}"></td>
+                        <td th:text="${person.lastName}"></td>
+                        <td th:text="${person.age}"></td>
                         <td><a th:href="@{/jdbc/person(id=${person.id})}">Edit</a></td>
                         <td><a th:href="@{/jdbc/person/delete(id=${person.id})}">Remove</a></td>
                     </tr>

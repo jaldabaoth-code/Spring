@@ -37,7 +37,7 @@ public class Jpa1SchoolController {
             }
         }
         model.addAttribute("school", school);
-        return "/jpa/jpa-1/school";
+        return "/jpa/jpa1/school";
     }
 
     /* Update new School */

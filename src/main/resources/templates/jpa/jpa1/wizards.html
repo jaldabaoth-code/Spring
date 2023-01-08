@@ -20,10 +20,10 @@
                 <thead>
                     <tr>
                         <th>Id</th>
-                        <th>First name</th>
-                        <th>Last name</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
                         <th>Birthday</th>
-                        <th>Birth place</th>
+                        <th>Birth Place</th>
                         <th>Biography</th>
                         <th>Muggle</th>
                         <th>Race</th>
@@ -31,15 +31,15 @@
                 </thead>
                 <tbody>
                     <tr th:each="wizard : ${wizards}">
-                        <td th:text="${wizard.id}">id</td>
-                        <td th:text="${wizard.firstName}">first name</td>
-                        <td th:text="${wizard.lastName}">last name</td>
-                        <td th:text="${wizard.birthday}">birthday</td>
-                        <td th:text="${wizard.birthPlace}">birth place</td>
-                        <td th:text="${wizard.biography}">biography</td>
-                        <td th:text="${wizard.muggle}">muggle</td>
-                        <td><div th:each="race : ${wizard.races}" th:text="${race.getName()}">race</div></td>
-                        <td><a th:href="@{/jpa/wizard/races(idWizard=${wizard.id})}">races</a></td>
+                        <td th:text="${wizard.id}"></td>
+                        <td th:text="${wizard.firstName}"></td>
+                        <td th:text="${wizard.lastName}"></td>
+                        <td th:text="${wizard.birthday}"></td>
+                        <td th:text="${wizard.birthPlace}"></td>
+                        <td th:text="${wizard.biography}"></td>
+                        <td th:text="${wizard.muggle}"></td>
+                        <td><div th:each="race : ${wizard.races}" th:text="${race.getName()}"></div></td>
+                        <td><a th:href="@{/jpa/wizard/races(idWizard=${wizard.id})}">Races</a></td>
                         <td><a th:href="@{/jpa/wizard(id=${wizard.id})}">Edit</a></td>
                         <td><a th:href="@{/jpa/wizard/delete(id=${wizard.id})}">Remove</a></td>
                     </tr>

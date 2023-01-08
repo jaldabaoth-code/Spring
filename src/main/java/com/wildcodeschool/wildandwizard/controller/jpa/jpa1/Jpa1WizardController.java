@@ -21,7 +21,7 @@ public class Jpa1WizardController {
     @GetMapping("/jpa/jpa-1/wizards")
     public String getAll(Model model) {
         model.addAttribute("wizards", wizardRepository.findAll());
-        return "/jpa/jpa-1/wizards";
+        return "/jpa/jpa1/wizards";
     }
 
     /* Get Wizard by id */
@@ -35,7 +35,7 @@ public class Jpa1WizardController {
             }
         }
         model.addAttribute("wizard", wizard);
-        return "/jpa/jpa-1/wizard";
+        return "/jpa/jpa1/wizard";
     }
 
     /* Update new Wizard */
