@@ -13,6 +13,6 @@ public class Root3DoctorController {
                             @RequestParam(required=false, defaultValue="John Smith") String name, Model model) {
         model.addAttribute("name", name);
         model.addAttribute("number", number);
-        return "root/root3/doctor";
+        return "/root/root3/doctor";
     }
 }

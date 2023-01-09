@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="https://www.thymeleaf.org/">
     <head>
-        <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
-        <link rel="stylesheet" th:href="@{/css/style.css}"/>
-        <link rel="stylesheet" th:href="@{/css/api/api-1.css}"/>
+        <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+        <link rel="stylesheet" th:href="@{/css/style.css}">
+        <link rel="stylesheet" th:href="@{/css/api/api1.css}">
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
         <title>API 1</title>
     </head>
@@ -23,10 +23,10 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td th:text="${peopleInfos.name}"></td>
-                        <td th:text="${peopleInfos.gender}"></td>
+                        <td th:text="${people.name}"></td>
+                        <td th:text="${people.gender}"></td>
                         <td>
-                            <a th:each="film : ${peopleInfos.films}" th:href="${film}" th:text="${film}"></a>
+                            <a th:each="film : ${people.films}" th:href="${film}" th:text="${film}"></a>
                         </td>
                     </tr>
                 </tbody>

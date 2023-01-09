@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
     <head>
-        <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
-        <link rel="stylesheet" th:href="@{/css/style.css}"/>
-        <link rel="stylesheet" th:href="@{/css/jpa/jpa-1.css}"/>
+        <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+        <link rel="stylesheet" th:href="@{/css/style.css}">
+        <link rel="stylesheet" th:href="@{/css/jpa/jpa1.css}">
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
         <title>JPA 1</title>
     </head>
@@ -13,7 +13,7 @@
         <h2>JPA 1</h2>
         <div class="container">
             <div class="add-new-school">
-                <a href="/jpa/jpa-1/school">Add New School</a>
+                <a href="/jpa/1/school">Add New School</a>
             </div>
             <h3>All Schools</h3>
             <table>
@@ -27,13 +27,13 @@
                 </thead>
                 <tbody>
                     <tr th:each="school : ${schools}">
-                        <td th:text="${school.id}">id</td>
-                        <td th:text="${school.name}">name</td>
-                        <td th:text="${school.capacity}">capacity</td>
-                        <td th:text="${school.country}">country</td>
-                        <td><a th:href="@{/jpa/jpa-1/school/wizards(idSchool=${school.id})}">Wizards</a></td>
-                        <td><a th:href="@{/jpa/jpa-1/school(id=${school.id})}">Edit</a></td>
-                        <td><a th:href="@{/jpa/jpa-1/school/delete(id=${school.id})}">Remove</a></td>
+                        <td th:text="${school.id}"></td>
+                        <td th:text="${school.name}"></td>
+                        <td th:text="${school.capacity}"></td>
+                        <td th:text="${school.country}"></td>
+                        <td><a th:href="@{/jpa/1/school/wizards(idSchool=${school.id})}">Wizards</a></td>
+                        <td><a th:href="@{/jpa/1/school(id=${school.id})}">Edit</a></td>
+                        <td><a th:href="@{/jpa/1/school/delete(id=${school.id})}">Remove</a></td>
                     </tr>
                 </tbody>
             </table>

@@ -8,6 +8,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class RootController {
     @GetMapping("/root")
     public String root() {
-        return "root/index";
+        return "/root/index";
     }
 }

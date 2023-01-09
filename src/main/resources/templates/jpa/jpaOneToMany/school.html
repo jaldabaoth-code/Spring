@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+        <link rel="stylesheet" th:href="@{/css/style.css}">
+        <link rel="stylesheet" th:href="@{/css/jpa/jpaOneToMany.css}"/>
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+        <title>JPA 1</title>
+    </head>
+    <body>
+        <header th:replace="header :: top">Your header/navbar here</header>
+        <h1>Spring Quest : JPA</h1>
+        <h2>One To Many</h2>
+        <div class="container">
+            <h3 th:text="${school.id} ? 'Edit School' : 'Create School'">School</h3>
+            <form method="POST" th:action="@{school}" th:object="${school}">
+                <input name="id" th:field="*{id}" type="hidden">
+                <label for="name">Name : </label>
+                <input id="name" name="name" placeholder="Hogwarts" required th:field="*{name}" type="text">
+                <label for="capacity">Capacity : </label>
+                <input id="capacity" name="capacity" placeholder="1000" required th:field="*{capacity}" type="number">
+                <label for="country">Country : </label>
+                <input id="country" name="country" placeholder="Scotland" required th:field="*{country}" type="text">
+                <input type="submit" value="Send">
+            </form>
+        </div>
+    </body>
+    <footer th:replace="footer :: bottom">Your footer here</footer>
+</html>

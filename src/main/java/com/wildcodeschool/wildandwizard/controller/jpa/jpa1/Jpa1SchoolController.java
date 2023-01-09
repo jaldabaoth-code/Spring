@@ -1,7 +1,7 @@
 package com.wildcodeschool.wildandwizard.controller.jpa.jpa1;
 
 import com.wildcodeschool.wildandwizard.entity.School;
-import com.wildcodeschool.wildandwizard.repository.jpa.JpaSchoolRepository;
+import com.wildcodeschool.wildandwizard.repository.jpa.jpa1.Jpa1SchoolRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,24 +11,22 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import java.util.Optional;
 
-/* JPA Quest : JPA 1 */
+/* Quest : JPA 1 */
 @Controller
 public class Jpa1SchoolController {
     @Autowired
-    private JpaSchoolRepository schoolRepository;
+    private Jpa1SchoolRepository schoolRepository;
 
     /* Get all Schools */
-    @GetMapping("/jpa/jpa-1/schools")
+    @GetMapping("/jpa/1/schools")
     public String getAll(Model model) {
-        // TODO : find all schools
         model.addAttribute("schools", schoolRepository.findAll());
-        return "/jpa/jpa-1/schools";
+        return "/jpa/jpa1/schools";
     }
 
     /* Get School by id */
-    @GetMapping("/jpa/jpa-1/school")
+    @GetMapping("/jpa/1/school")
     public String getSchool(Model model, @RequestParam(required = false) Long id) {
-        // TODO : find one school by id
         School school = new School();
         if (id != null) {
             Optional<School> optionalSchool = schoolRepository.findById(id);
@@ -40,19 +38,17 @@ public class Jpa1SchoolController {
         return "/jpa/jpa1/school";
     }
 
-    /* Update new School */
-    @PostMapping("/jpa/jpa-1/school")
+    /* Create or Update a School */
+    @PostMapping("/jpa/1/school")
     public String postSchool(@ModelAttribute School school) {
-        // TODO : create or update a school
         schoolRepository.save(school);
-        return "redirect:/jpa/jpa-1/schools";
+        return "redirect:/jpa/1/schools";
     }
 
     /* Delete the School */
-    @GetMapping("/jpa/jpa-1/school/delete")
+    @GetMapping("/jpa/1/school/delete")
     public String deleteSchool(@RequestParam Long id) {
-        // TODO : delete a school
         schoolRepository.deleteById(id);
-        return "redirect:/jpa/jpa-1/schools";
+        return "redirect:/jpa/1/schools";
     }
 }

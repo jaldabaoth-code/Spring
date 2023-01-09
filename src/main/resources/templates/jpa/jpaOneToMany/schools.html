@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+        <link rel="stylesheet" th:href="@{/css/style.css}">
+        <link rel="stylesheet" th:href="@{/css/jpa/jpaOneToMany.css}"/>
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+        <title>One To Many</title>
+    </head>
+    <body>
+        <header th:replace="header :: top">Your header/navbar here</header>
+        <h1>Spring Quest : JPA</h1>
+        <h2>One To Many</h2>
+        <div class="container">
+            <div class="add-new-school">
+                <a href="/jpa/one-to-many/school">Add New School</a>
+            </div>
+            <h3>All Schools</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Capacity</th>
+                        <th>Country</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="school : ${schools}">
+                        <td th:text="${school.id}"></td>
+                        <td th:text="${school.name}"></td>
+                        <td th:text="${school.capacity}"></td>
+                        <td th:text="${school.country}"></td>
+                        <td><a th:href="@{/jpa/one-to-many/school/wizards(idSchool=${school.id})}">Wizards</a></td>
+                        <td><a th:href="@{/jpa/one-to-many/school(id=${school.id})}">Edit</a></td>
+                        <td><a th:href="@{/jpa/one-to-many/school/delete(id=${school.id})}">Remove</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </body>
+    <footer th:replace="footer :: bottom">Your footer here</footer>
+</html>

@@ -8,6 +8,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class ApiController {
     @GetMapping("/api")
     public String api() {
-        return "api/index";
+        return "/api/index";
     }
 }

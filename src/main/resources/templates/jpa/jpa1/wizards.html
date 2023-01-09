@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
     <head>
-        <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
-        <link rel="stylesheet" th:href="@{/css/style.css}"/>
-        <link rel="stylesheet" th:href="@{/css/jpa/jpa-1.css}"/>
+        <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+        <link rel="stylesheet" th:href="@{/css/style.css}">
+        <link rel="stylesheet" th:href="@{/css/jpa/jpa1.css}">
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
         <title>JPA 1</title>
     </head>
@@ -13,7 +13,7 @@
         <h2>JPA 1</h2>
         <div class="container">
             <div class="add-new-wizard">
-                <a href="/jpa/many-to-many/wizard">Add New Wizard</a>
+                <a href="/jpa/1/wizard">Add New Wizard</a>
             </div>
             <h3>All Wizards</h3>
             <table>
@@ -39,9 +39,9 @@
                         <td th:text="${wizard.biography}"></td>
                         <td th:text="${wizard.muggle}"></td>
                         <td><div th:each="race : ${wizard.races}" th:text="${race.getName()}"></div></td>
-                        <td><a th:href="@{/jpa/wizard/races(idWizard=${wizard.id})}">Races</a></td>
-                        <td><a th:href="@{/jpa/wizard(id=${wizard.id})}">Edit</a></td>
-                        <td><a th:href="@{/jpa/wizard/delete(id=${wizard.id})}">Remove</a></td>
+                        <td><a th:href="@{/jpa/1/wizard/races(idWizard=${wizard.id})}">Races</a></td>
+                        <td><a th:href="@{/jpa/1/wizard(id=${wizard.id})}">Edit</a></td>
+                        <td><a th:href="@{/jpa/1/wizard/delete(id=${wizard.id})}">Remove</a></td>
                     </tr>
                 </tbody>
             </table>

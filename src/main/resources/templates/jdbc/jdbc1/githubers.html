@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+        <link rel="stylesheet" th:href="@{/css/style.css}">
+        <link rel="stylesheet" th:href="@{/css/jdbc/1.css}"/>
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+        <title>JDBC 1</title>
+    </head>
+    <body>
+        <header th:replace="header :: top">Your header/navbar here</header>
+        <h1>Spring Quest : JDBC</h1>
+        <h2>JDBC 1</h2>
+        <div class="container">
+            <div class="add-new-githuber">
+                <a href="/jdbc/1/githuber">Add New Githuber</a>
+            </div>
+            <h3>All Githubers</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Github Id</th>
+                        <th>Name</th>
+                        <th>Login</th>
+                        <th>URL</th>
+                        <th>Email</th>
+                        <th>Bio</th>
+                        <th>Location</th>
+                        <th>Avatar Url</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="githuber : ${githubers}">
+                        <td th:text="${githuber.id}"></td>
+                        <td th:text="${githuber.githubId}"></td>
+                        <td th:text="${githuber.name}"></td>
+                        <td th:text="${githuber.login}"></td>
+                        <td th:text="${githuber.url}"></td>
+                        <td th:text="${githuber.email}"></td>
+                        <td th:text="${githuber.bio}"></td>
+                        <td th:text="${githuber.location}"></td>
+                        <td><img th:src="${githuber.avatarUrl}" alt="githuber avatar"></td>
+                        <td><a th:href="@{/templates/jdbc/jdbc1/githuber(id=${githuber.id})}">Edit</a></td>
+                        <td><a th:href="@{/templates/jdbc/jdbc1/delete(id=${githuber.id})}">Remove</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </body>
+    <footer th:replace="footer :: bottom">Your footer here</footer>
+</html>
