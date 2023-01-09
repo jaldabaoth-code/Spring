@@ -7,18 +7,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class JDBCSchoolRepository {
+    private static String databaseUrl;
+    private static String databaseUsername;
+    private static String databasePassword;
 
-    private final static String DB_URL = "jdbc:mysql://localhost:3306/spring_jdbc_quest?serverTimezone=GMT";
-    private final static String DB_USER = "h4rryp0tt3r";
-    private final static String DB_PASSWORD = "Horcrux4life!";
+    public void getDataParameters(String databaseUrl, String databaseUsername, String databasePassword) {
+        this.databaseUrl = databaseUrl;
+        this.databaseUsername = databaseUsername;
+        this.databasePassword = databasePassword;
+    }
 
     public List<School> findAll() {
-        // TODO : find all schools
         Connection connection = null;
         PreparedStatement statement = null;
         ResultSet resultSet = null;
         try {
-            connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+            connection = DriverManager.getConnection(databaseUrl, databaseUsername, databasePassword);
             statement = connection.prepareStatement("SELECT * FROM school;");
             resultSet = statement.executeQuery();
             List<School> schools = new ArrayList<>();
@@ -44,7 +48,7 @@ public class JDBCSchoolRepository {
         Connection connection = null;
         PreparedStatement statement = null;
         try {
-            connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+            connection = DriverManager.getConnection(databaseUrl, databaseUsername, databasePassword);
             statement = connection.prepareStatement("UPDATE school SET name=?, capacity=?, country=? WHERE id=?");
             statement.setString(1, name);
             statement.setLong(2, capacity);
@@ -68,7 +72,7 @@ public class JDBCSchoolRepository {
         PreparedStatement statement = null;
         ResultSet resultSet = null;
         try {
-            connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+            connection = DriverManager.getConnection(databaseUrl, databaseUsername, databasePassword);
             statement = connection.prepareStatement("SELECT * FROM school WHERE id = ?;");
             statement.setLong(1, id);
             resultSet = statement.executeQuery();

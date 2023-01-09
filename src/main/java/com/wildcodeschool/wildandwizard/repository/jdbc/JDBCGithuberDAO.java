@@ -1,4 +1,4 @@
-package com.wildcodeschool.wildandwizard.repository;
+package com.wildcodeschool.wildandwizard.repository.jdbc;
 
 import java.util.List;
 

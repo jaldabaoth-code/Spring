@@ -5,14 +5,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-/* Root Quest : Root 3 */
+/* Quest : Root 3 */
 @Controller
 public class Root3DoctorController {
-    @GetMapping("/root/root-3/doctor")
+    @GetMapping("/root/3/doctor")
     public String doctor(@RequestParam(required=false, defaultValue="0") int number,
-                          @RequestParam(required=false, defaultValue="John Smith") String name, Model model) {
+                            @RequestParam(required=false, defaultValue="John Smith") String name, Model model) {
         model.addAttribute("name", name);
         model.addAttribute("number", number);
-        return "root/root3/root3";
+        return "root/root3/doctor";
     }
 }

@@ -1,25 +1,31 @@
-package com.wildcodeschool.wildandwizard.repository;
+package com.wildcodeschool.wildandwizard.repository.jdbc;
 
 import com.wildcodeschool.wildandwizard.entity.Person;
+import com.wildcodeschool.wildandwizard.repository.CrudDao;
 import com.wildcodeschool.wildandwizard.util.JdbcUtils;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class PersonRepository implements CrudDao<Person> {
-    private final static String DB_URL = "jdbc:mysql://localhost:3306/spring5?serverTimezone=GMT";
-    private final static String DB_USER = "h4rryp0tt3r";
-    private final static String DB_PASSWORD = "Horcrux4life!";
+    private static String databaseUrl;
+    private static String databaseUsername;
+    private static String databasePassword;
+
+    public void getDataParameters(String databaseUrl, String databaseUsername, String databasePassword) {
+        this.databaseUrl = databaseUrl;
+        this.databaseUsername = databaseUsername;
+        this.databasePassword = databasePassword;
+    }
 
     @Override
     public Person save(Person person) {
-
         Connection connection = null;
         PreparedStatement statement = null;
         ResultSet generatedKeys = null;
         try {
             connection = DriverManager.getConnection(
-                    DB_URL, DB_USER, DB_PASSWORD
+                    databaseUrl, databaseUsername, databasePassword
             );
             statement = connection.prepareStatement(
                     "INSERT INTO person (first_name, last_name, age) VALUES (?, ?, ?)",
@@ -60,7 +66,7 @@ public class PersonRepository implements CrudDao<Person> {
         ResultSet resultSet = null;
         try {
             connection = DriverManager.getConnection(
-                    DB_URL, DB_USER, DB_PASSWORD
+                    databaseUrl, databaseUsername, databasePassword
             );
             statement = connection.prepareStatement(
                     "SELECT * FROM person WHERE id = ?;"
@@ -92,7 +98,7 @@ public class PersonRepository implements CrudDao<Person> {
         ResultSet resultSet = null;
         try {
             connection = DriverManager.getConnection(
-                    DB_URL, DB_USER, DB_PASSWORD
+                    databaseUrl, databaseUsername, databasePassword
             );
             statement = connection.prepareStatement(
                     "SELECT * FROM person;"
@@ -125,7 +131,7 @@ public class PersonRepository implements CrudDao<Person> {
         PreparedStatement statement = null;
         try {
             connection = DriverManager.getConnection(
-                    DB_URL, DB_USER, DB_PASSWORD
+                    databaseUrl, databaseUsername, databasePassword
             );
             statement = connection.prepareStatement(
                     "UPDATE person SET first_name=?, last_name=?, age=? WHERE id=?"
@@ -155,7 +161,7 @@ public class PersonRepository implements CrudDao<Person> {
         PreparedStatement statement = null;
         try {
             connection = DriverManager.getConnection(
-                    DB_URL, DB_USER, DB_PASSWORD
+                    databaseUrl, databaseUsername, databasePassword
             );
             statement = connection.prepareStatement(
                     "DELETE FROM person WHERE id=?"

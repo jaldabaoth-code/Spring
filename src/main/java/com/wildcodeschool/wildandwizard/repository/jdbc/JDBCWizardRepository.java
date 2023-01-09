@@ -7,16 +7,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class JDBCWizardRepository {
-    private final static String DB_URL = "jdbc:mysql://localhost:3306/spring_jdbc_quest?serverTimezone=GMT";
-    private final static String DB_USER = "h4rryp0tt3r";
-    private final static String DB_PASSWORD = "Horcrux4life!";
+    private static String databaseUrl;
+    private static String databaseUsername;
+    private static String databasePassword;
+
+    public void getDataParameters(String databaseUrl, String databaseUsername, String databasePassword) {
+        this.databaseUrl = databaseUrl;
+        this.databaseUsername = databaseUsername;
+        this.databasePassword = databasePassword;
+    }
 
     public List<Wizard> findAll() {
         Connection connection = null;
         PreparedStatement statement = null;
         ResultSet resultSet = null;
         try {
-            connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+            connection = DriverManager.getConnection(databaseUrl, databaseUsername, databasePassword);
             statement = connection.prepareStatement("SELECT * FROM wizard;");
             resultSet = statement.executeQuery();
             List<Wizard> wizards = new ArrayList<>();
@@ -45,7 +51,7 @@ public class JDBCWizardRepository {
         Connection connection = null;
         PreparedStatement statement = null;
         try {
-            connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+            connection = DriverManager.getConnection(databaseUrl, databaseUsername, databasePassword);
             statement = connection.prepareStatement("UPDATE wizard SET first_name=?, last_name=?, birthday=?, birth_place=?, biography=?, is_muggle=? WHERE id=?");
             statement.setString(1, firstName);
             statement.setString(2, lastName);
@@ -72,7 +78,7 @@ public class JDBCWizardRepository {
         PreparedStatement statement = null;
         ResultSet resultSet = null;
         try {
-            connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+            connection = DriverManager.getConnection(databaseUrl, databaseUsername, databasePassword);
             statement = connection.prepareStatement("SELECT * FROM wizard WHERE id = ?;");
             statement.setLong(1, id);
             resultSet = statement.executeQuery();

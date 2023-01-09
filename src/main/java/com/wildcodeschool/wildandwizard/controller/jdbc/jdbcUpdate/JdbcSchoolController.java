@@ -1,4 +1,4 @@
-package com.wildcodeschool.wildandwizard.controller.jdbc.update;
+package com.wildcodeschool.wildandwizard.controller.jdbc.jdbcUpdate;
 
 import com.wildcodeschool.wildandwizard.repository.jdbc.JDBCSchoolRepository;
 import org.springframework.stereotype.Controller;

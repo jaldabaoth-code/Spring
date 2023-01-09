@@ -1,35 +1,26 @@
 package com.wildcodeschool.wildandwizard.controller;
 
-import com.wildcodeschool.wildandwizard.repository.GithuberRepository;
+import com.wildcodeschool.wildandwizard.repository.jdbc.GithuberRepository;
+import com.wildcodeschool.wildandwizard.repository.jdbc.PersonRepository;
+import com.wildcodeschool.wildandwizard.repository.jdbc.JDBCSchoolRepository;
+import com.wildcodeschool.wildandwizard.repository.jdbc.JDBCWizardRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component
 public class GetPropertiesBean {
-
-
-    private String foo;
-    private String foo1;
-    private String foo2;
-
     public GetPropertiesBean() {
-
     }
-    private String tata;
+
     @Autowired
-    public GetPropertiesBean(@Value("${spring.datasource.url}") String foo,
-                             @Value("${spring.datasource.username}") String foo2,
-                             @Value("${spring.datasource.password}") String foo3
-
-                             ) {
-
-        new GithuberRepository().setTest(foo, foo2, foo3);
-
-        this.foo = foo;
-        System.out.println(foo);
-
+    public GetPropertiesBean(@Value("${spring.datasource.url}") String databaseUrl,
+                             @Value("${spring.datasource.username}") String databaseUsername,
+                             @Value("${spring.datasource.password}") String databasePassword
+    ) {
+        new GithuberRepository().getDataParameters(databaseUrl, databaseUsername, databasePassword);
+        new PersonRepository().getDataParameters(databaseUrl, databaseUsername, databasePassword);
+        new JDBCSchoolRepository().getDataParameters(databaseUrl, databaseUsername, databasePassword);
+        new JDBCWizardRepository().getDataParameters(databaseUrl, databaseUsername, databasePassword);
     }
-
-
 }

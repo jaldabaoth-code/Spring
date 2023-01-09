@@ -1,36 +1,23 @@
-package com.wildcodeschool.wildandwizard.repository;
+package com.wildcodeschool.wildandwizard.repository.jdbc;
 
-import com.wildcodeschool.wildandwizard.controller.GetPropertiesBean;
 import com.wildcodeschool.wildandwizard.entity.Githuber;
 import com.wildcodeschool.wildandwizard.util.JdbcUtils;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
-
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 @PropertySource("UserUtil.properties")
 public class GithuberRepository implements JDBCGithuberDAO<Githuber> {
+    private static String databaseUrl;
+    private static String databaseUsername;
+    private static String databasePassword;
 
-
-
-    private static String DB_URL;
-
-    private static String DB_USER;
-
-    private static String DB_PASSWORD;
-
-
-/*    private final String foo;
-
-    @Autowired
-    public GetPropertiesBean(@Value("${foo.bar}") String foo) {
-        this.foo = foo;
-        System.out.println(foo);
-    }*/
-
+    public void getDataParameters(String databaseUrl, String databaseUsername, String databasePassword) {
+        this.databaseUrl = databaseUrl;
+        this.databaseUsername = databaseUsername;
+        this.databasePassword = databasePassword;
+    }
 
     @Override
     public Githuber save(Githuber githuber) {
@@ -38,7 +25,7 @@ public class GithuberRepository implements JDBCGithuberDAO<Githuber> {
         PreparedStatement statement = null;
         ResultSet generatedKeys = null;
         try {
-            connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+            connection = DriverManager.getConnection(databaseUrl, databaseUsername, databasePassword);
             statement = connection.prepareStatement("INSERT INTO githuber (github_id, name, login, url, email, bio, location, avatar_url) VALUES (?, ?, ?, ?, ?, ?, ?, ?)", Statement.RETURN_GENERATED_KEYS);
             statement.setLong(1, githuber.getGithubId());
             statement.setString(2, githuber.getName());
@@ -75,7 +62,7 @@ public class GithuberRepository implements JDBCGithuberDAO<Githuber> {
         PreparedStatement statement = null;
         ResultSet resultSet = null;
         try {
-            connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+            connection = DriverManager.getConnection(databaseUrl, databaseUsername, databasePassword);
             statement = connection.prepareStatement("SELECT * FROM githuber WHERE id = ?;");
             statement.setLong(1, id);
             resultSet = statement.executeQuery();
@@ -106,7 +93,7 @@ public class GithuberRepository implements JDBCGithuberDAO<Githuber> {
         PreparedStatement statement = null;
         ResultSet resultSet = null;
         try {
-            connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+            connection = DriverManager.getConnection(databaseUrl, databaseUsername, databasePassword);
             statement = connection.prepareStatement("SELECT * FROM githuber;");
             resultSet = statement.executeQuery();
             List<Githuber> githubers = new ArrayList<>();
@@ -138,7 +125,7 @@ public class GithuberRepository implements JDBCGithuberDAO<Githuber> {
         Connection connection = null;
         PreparedStatement statement = null;
         try {
-            connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+            connection = DriverManager.getConnection(databaseUrl, databaseUsername, databasePassword);
             statement = connection.prepareStatement("UPDATE githuber SET github_id=?, name=?, login=?, url=?, email=?, bio=?, location=?, avatar_url=? WHERE id=?");
             statement.setLong(1, githuber.getGithubId());
             statement.setString(2, githuber.getName());
@@ -168,7 +155,7 @@ public class GithuberRepository implements JDBCGithuberDAO<Githuber> {
         Connection connection = null;
         PreparedStatement statement = null;
         try {
-            connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+            connection = DriverManager.getConnection(databaseUrl, databaseUsername, databasePassword);
             statement = connection.prepareStatement("DELETE FROM githuber WHERE id=?");
             statement.setLong(1, id);
             if (statement.executeUpdate() != 1) {
@@ -181,12 +168,5 @@ public class GithuberRepository implements JDBCGithuberDAO<Githuber> {
             JdbcUtils.closeStatement(statement);
             JdbcUtils.closeConnection(connection);
         }
-    }
-
-    public String setTest(String value, String value1, String value2) {
-        this.DB_URL = value;
-        this.DB_USER = value1;
-        this.DB_PASSWORD = value2;
-        return value;
     }
 }
