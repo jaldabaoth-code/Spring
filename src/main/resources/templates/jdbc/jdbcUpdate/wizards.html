@@ -13,7 +13,7 @@
         <h2>Update</h2>
         <div class="container">
             <div class="add-new-wizard">
-                <a href="/jpa/many-to-many/wizard">Add New Wizard</a>
+                <a href="/jdbc/update/wizard">Add New Wizard</a>
             </div>
             <h3>All Wizards</h3>
             <table>
@@ -37,7 +37,7 @@
                         <td th:text="${wizard.birthPlace}"></td>
                         <td th:text="${wizard.biography}"></td>
                         <td th:text="${wizard.muggle}"></td>
-                        <td><a th:href="@{/jpa/wizard(id=${wizard.id})}">Update</a></td>
+                        <td><a th:href="@{/jdbc/update/wizard(id=${wizard.id})}">Update</a></td>
                     </tr>
                 </tbody>
             </table>

@@ -7,6 +7,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class JdbcUpdateController {
     @GetMapping("/jdbc/update")
     public String index() {
-        return "jdbc/update/index";
+        return "jdbc/jdbcUpdate/index";
     }
 }

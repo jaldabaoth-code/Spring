@@ -1,7 +1,7 @@
 package com.wildcodeschool.wildandwizard.controller.jdbc.jdbc1;
 
 import com.wildcodeschool.wildandwizard.entity.Githuber;
-import com.wildcodeschool.wildandwizard.repository.jdbc.GithuberRepository;
+import com.wildcodeschool.wildandwizard.repository.jdbc.jdbc1.Jdbc1GithuberRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,15 +9,15 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-/* JDBC Quest : JDBC 1 */
+/* Quest : JDBC 1 */
 @Controller
-public class JdbcGitHuberController {
-    private GithuberRepository repository = new GithuberRepository();
+public class Jdbc1GitHuberController {
+    private Jdbc1GithuberRepository repository = new Jdbc1GithuberRepository();
 
     @GetMapping("/jdbc/1/githubers")
     public String getAll(Model model) {
         model.addAttribute("githubers", repository.findAll());
-        return "jdbc/1/githubers";
+        return "jdbc/jdbc1/githubers";
     }
 
     @GetMapping("/jdbc/1/githuber")
@@ -27,7 +27,7 @@ public class JdbcGitHuberController {
             githuber = repository.findById(id);
         }
         model.addAttribute("githuber", githuber);
-        return "jdbc/1/githuber";
+        return "jdbc/jdbc1/githuber";
     }
 
     @PostMapping("/jdbc/1/githuber")

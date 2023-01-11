@@ -1,13 +1,13 @@
-package com.wildcodeschool.wildandwizard.repository.jdbc;
+package com.wildcodeschool.wildandwizard.repository.jdbc.jdbcIntroduction;
 
 import com.wildcodeschool.wildandwizard.entity.Person;
-import com.wildcodeschool.wildandwizard.repository.CrudDao;
 import com.wildcodeschool.wildandwizard.util.JdbcUtils;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PersonRepository implements CrudDao<Person> {
+public class JdbcIntroductionPersonRepository implements JdbcIntroductionCrudDao<Person> {
     private static String databaseUrl;
     private static String databaseUsername;
     private static String databasePassword;

@@ -1,12 +1,13 @@
-package com.wildcodeschool.wildandwizard.repository.jdbc;
+package com.wildcodeschool.wildandwizard.repository.jdbc.jdbcUpdate;
 
 import com.wildcodeschool.wildandwizard.entity.School;
 import com.wildcodeschool.wildandwizard.util.JdbcUtils;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class JDBCSchoolRepository {
+public class JdbcUpdateSchoolRepository {
     private static String databaseUrl;
     private static String databaseUsername;
     private static String databasePassword;

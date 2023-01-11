@@ -1,8 +1,8 @@
-package com.wildcodeschool.wildandwizard.repository.jdbc;
+package com.wildcodeschool.wildandwizard.repository.jdbc.jdbc1;
 
 import java.util.List;
 
-public interface JDBCGithuberDAO<T> {
+public interface Jdbc1GithuberDao<T> {
     T save(T entity);
 
     T findById(Long id);

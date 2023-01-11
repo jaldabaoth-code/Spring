@@ -1,8 +1,8 @@
-package com.wildcodeschool.wildandwizard.repository;
+package com.wildcodeschool.wildandwizard.repository.jdbc.jdbcIntroduction;
 
         import java.util.List;
 
-public interface CrudDao<T> {
+public interface JdbcIntroductionCrudDao<T> {
 
     T save(T entity);
 

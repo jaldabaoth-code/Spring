@@ -1,14 +1,15 @@
-package com.wildcodeschool.wildandwizard.repository.jdbc;
+package com.wildcodeschool.wildandwizard.repository.jdbc.jdbc1;
 
 import com.wildcodeschool.wildandwizard.entity.Githuber;
 import com.wildcodeschool.wildandwizard.util.JdbcUtils;
 import org.springframework.context.annotation.PropertySource;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 @PropertySource("UserUtil.properties")
-public class GithuberRepository implements JDBCGithuberDAO<Githuber> {
+public class Jdbc1GithuberRepository implements Jdbc1GithuberDao<Githuber> {
     private static String databaseUrl;
     private static String databaseUsername;
     private static String databasePassword;
