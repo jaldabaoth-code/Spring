@@ -1,15 +1,23 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="https://www.thymeleaf.org/">
 <head>
-    <meta charset="UTF-8">
-    <title>Wild And Wizard - School Result</title>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/jdbc/jdbcUpdate.css}"/>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <title>Update</title>
 </head>
-<body>
-<ul>
-    <li th:text="|Id: ${school.id}|">$id</li>
-    <li th:text="|Name: ${school.name}|">$name</li>
-    <li th:text="|Capacity: ${school.capacity}|">$capacity</li>
-    <li th:text="|Country: ${school.country}|">$country</li>
-</ul>
-</body>
+    <body>
+        <header th:replace="header :: top">Your header/navbar here</header>
+        <h1>Spring Quest : JDBC</h1>
+        <h2>Update</h2>
+        <div class="container">
+            <ul>
+                <li th:text="|Id: ${school.id}|">$id</li>
+                <li th:text="|Name: ${school.name}|">$name</li>
+                <li th:text="|Capacity: ${school.capacity}|">$capacity</li>
+                <li th:text="|Country: ${school.country}|">$country</li>
+            </ul>
+        </div>
+    </body>
 </html>
