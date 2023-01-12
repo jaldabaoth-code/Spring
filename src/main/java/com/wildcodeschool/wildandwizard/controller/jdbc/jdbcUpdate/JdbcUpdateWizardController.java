@@ -17,22 +17,22 @@ public class JdbcUpdateWizardController {
     @GetMapping("/jdbc/update/wizards")
     public String getAll(Model model) {
         model.addAttribute("wizards", wizardRepository.findAll());
-        return "jdbc/jdbcUpdate/wizards";
+        return "/jdbc/jdbcUpdate/wizards";
     }
 
     @GetMapping("/jdbc/wizard/update")
-    public String getWizardUpdate(Model model, @RequestParam Long id) {
+    public String getById(Model model, @RequestParam Long id) {
         model.addAttribute("wizard", wizardRepository.findById(id));
-        return "jdbc/jdbcUpdate/wizard";
+        return "/jdbc/jdbcUpdate/wizard";
     }
 
     @PostMapping("/jdbc/wizard/update")
-    public String postWizardUpdate(Model model, @RequestParam Long id, @RequestParam String firstName,
+    public String update(Model model, @RequestParam Long id, @RequestParam String firstName,
                             @RequestParam String lastName, @RequestParam Date birthday, @RequestParam String birthPlace,
                             @RequestParam(required = false, defaultValue = "") String biography,
                             @RequestParam(required = false, defaultValue = "false") boolean muggle
     ) {
         model.addAttribute("wizard", wizardRepository.update(id, firstName, lastName, birthday, birthPlace, biography, muggle));
-        return "jdbc/jdbcUpdate/wizardUpdateResult";
+        return "/jdbc/jdbcUpdate/wizardUpdateResult";
     }
 }

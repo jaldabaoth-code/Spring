@@ -16,18 +16,18 @@ public class JdbcUpdateSchoolController {
     @GetMapping("/jdbc/update/schools")
     public String getAll(Model model) {
         model.addAttribute("schools", schoolRepository.findAll());
-        return "jdbc/jdbcUpdate/schools";
+        return "/jdbc/jdbcUpdate/schools";
     }
 
     @GetMapping("/jdbc/update/school")
-    public String getSchoolUpdate(Model model, @RequestParam Long id) {
+    public String getById(Model model, @RequestParam Long id) {
         model.addAttribute("school", schoolRepository.findById(id));
-        return "jdbc/jdbcUpdate/school";
+        return "/jdbc/jdbcUpdate/school";
     }
 
     @PostMapping("/jdbc/update/school")
-    public String postSchoolUpdate(Model model, @RequestParam Long id, @RequestParam String name, @RequestParam Long capacity, @RequestParam String country) {
+    public String update(Model model, @RequestParam Long id, @RequestParam String name, @RequestParam Long capacity, @RequestParam String country) {
         model.addAttribute("school", schoolRepository.update(id, name, capacity, country));
-        return "jdbc/jdbcUpdate/schoolUpdateResult";
+        return "/jdbc/jdbcUpdate/schoolUpdateResult";
     }
 }

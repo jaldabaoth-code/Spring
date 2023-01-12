@@ -34,7 +34,7 @@ public class JpaManyToManyWizardController {
 
     /* Get Wizard by id */
     @GetMapping("/jpa/many-to-many/wizard")
-    public String getWizard(Model model, @RequestParam(required = false) Long id) {
+    public String getById(Model model, @RequestParam(required = false) Long id) {
         Wizard wizard = new Wizard();
         if (id != null) {
             Optional<Wizard> optionalWizard = wizardRepository.findById(id);
@@ -48,21 +48,21 @@ public class JpaManyToManyWizardController {
 
     /* Update new Wizard */
     @PostMapping("/jpa/many-to-many/wizard")
-    public String postWizard(@ModelAttribute Wizard wizard) {
+    public String save(@ModelAttribute Wizard wizard) {
         wizardRepository.save(wizard);
         return "redirect:/jpa/many-to-many/wizards";
     }
 
     /* Delete the Wizard */
     @GetMapping("/jpa/many-to-many/wizard/delete")
-    public String deleteWizard(@RequestParam Long id) {
+    public String delete(@RequestParam Long id) {
         wizardRepository.deleteById(id);
         return "redirect:/jpa/many-to-many/wizards";
     }
 
     /* Show the races of wizard */
     @GetMapping("/jpa/many-to-many/wizard/races")
-    public String getRaces(Model model, @RequestParam Long idWizard) {
+    public String getRacesByWizardId(Model model, @RequestParam Long idWizard) {
         Optional<Wizard> optionalWizard = wizardRepository.findById(idWizard);
         Wizard wizard = new Wizard();
         if (optionalWizard.isPresent()) {
@@ -86,7 +86,7 @@ public class JpaManyToManyWizardController {
 
     /* Register a wizard to the race */
     @PostMapping("/jpa/many-to-many/wizard/race")
-    public String postRace(@RequestParam Long idWizard, @RequestParam Long idRace) {
+    public String registerWizardToRace(@RequestParam Long idWizard, @RequestParam Long idRace) {
         Optional<Wizard> optionalWizard = wizardRepository.findById(idWizard);
         if (optionalWizard.isPresent()) {
             Wizard wizard = optionalWizard.get();

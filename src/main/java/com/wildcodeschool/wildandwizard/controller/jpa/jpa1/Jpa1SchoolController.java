@@ -26,7 +26,7 @@ public class Jpa1SchoolController {
 
     /* Get School by id */
     @GetMapping("/jpa/1/school")
-    public String getSchool(Model model, @RequestParam(required = false) Long id) {
+    public String getById(Model model, @RequestParam(required = false) Long id) {
         School school = new School();
         if (id != null) {
             Optional<School> optionalSchool = schoolRepository.findById(id);
@@ -40,14 +40,14 @@ public class Jpa1SchoolController {
 
     /* Create or Update a School */
     @PostMapping("/jpa/1/school")
-    public String postSchool(@ModelAttribute School school) {
+    public String save(@ModelAttribute School school) {
         schoolRepository.save(school);
         return "redirect:/jpa/1/schools";
     }
 
     /* Delete the School */
     @GetMapping("/jpa/1/school/delete")
-    public String deleteSchool(@RequestParam Long id) {
+    public String delete(@RequestParam Long id) {
         schoolRepository.deleteById(id);
         return "redirect:/jpa/1/schools";
     }

@@ -17,21 +17,21 @@ public class JdbcIntroductionPersonController {
     @GetMapping("/jdbc/introduction/persons")
     public String getAll(Model model) {
         model.addAttribute("persons", repository.findAll());
-        return "jdbc/jdbcIntroduction/persons";
+        return "/jdbc/jdbcIntroduction/persons";
     }
 
     @GetMapping("/jdbc/introduction/person")
-    public String getPerson(Model model, @RequestParam(required = false) Long id) {
+    public String getById(Model model, @RequestParam(required = false) Long id) {
         Person person = new Person();
         if (id != null) {
             person = repository.findById(id);
         }
         model.addAttribute("person", person);
-        return "jdbc/jdbcIntroduction/person";
+        return "/jdbc/jdbcIntroduction/person";
     }
 
     @PostMapping("/jdbc/introduction/person")
-    public String postPerson(@ModelAttribute Person person) {
+    public String save(@ModelAttribute Person person) {
         if (person.getId() != null) {
             repository.update(person);
         } else {
@@ -41,7 +41,7 @@ public class JdbcIntroductionPersonController {
     }
 
     @GetMapping("/jdbc/introduction/person/delete")
-    public String deletePerson(@RequestParam Long id) {
+    public String delete(@RequestParam Long id) {
         repository.deleteById(id);
         return "redirect:/jdbc/jdbcIntroduction/persons";
     }

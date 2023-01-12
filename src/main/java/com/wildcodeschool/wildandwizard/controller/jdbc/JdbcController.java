@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class JdbcController {
     @GetMapping("/jdbc")
     public String api() {
-        return "jdbc/index";
+        return "/jdbc/index";
     }
 
 }

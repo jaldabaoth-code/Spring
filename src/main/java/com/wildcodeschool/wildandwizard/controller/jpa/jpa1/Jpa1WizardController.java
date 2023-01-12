@@ -26,7 +26,7 @@ public class Jpa1WizardController {
 
     /* Get Wizard by id */
     @GetMapping("/jpa/1/wizard")
-    public String getWizard(Model model, @RequestParam(required = false) Long id) {
+    public String getById(Model model, @RequestParam(required = false) Long id) {
         Wizard wizard = new Wizard();
         if (id != null) {
             Optional<Wizard> optionalWizard = wizardRepository.findById(id);
@@ -40,14 +40,14 @@ public class Jpa1WizardController {
 
     /* Create or Update a Wizard */
     @PostMapping("/jpa/1/wizard")
-    public String postWizard(@ModelAttribute Wizard wizard) {
+    public String save(@ModelAttribute Wizard wizard) {
         wizardRepository.save(wizard);
         return "redirect:/jpa/1/wizards";
     }
 
     /* Delete the Wizard */
     @GetMapping("/jpa/1/wizard/delete")
-    public String deleteWizard(@RequestParam Long id) {
+    public String delete(@RequestParam Long id) {
         wizardRepository.deleteById(id);
         return "redirect:/jpa/1/wizards";
     }

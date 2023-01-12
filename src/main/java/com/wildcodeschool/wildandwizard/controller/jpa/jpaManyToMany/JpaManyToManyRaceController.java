@@ -26,7 +26,7 @@ public class JpaManyToManyRaceController {
 
     /* Get Race by id */
     @GetMapping("/jpa/many-to-many/race")
-    public String getRace(Model model, @RequestParam(required = false) Long id) {
+    public String getById(Model model, @RequestParam(required = false) Long id) {
         Race race = new Race();
         if (id != null) {
             Optional<Race> optionalRace = raceRepository.findById(id);
@@ -40,14 +40,14 @@ public class JpaManyToManyRaceController {
 
     /* Update new Race */
     @PostMapping("/jpa/many-to-many/race")
-    public String postRace(@ModelAttribute Race race) {
+    public String save(@ModelAttribute Race race) {
         raceRepository.save(race);
         return "redirect:/jpa/many-to-many/races";
     }
 
     /* Delete the Race */
     @GetMapping("/jpa/many-to-many/race/delete")
-    public String deleteRace(@RequestParam Long id) {
+    public String delete(@RequestParam Long id) {
         raceRepository.deleteById(id);
         return "redirect:/jpa/many-to-many/races";
     }

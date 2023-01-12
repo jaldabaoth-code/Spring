@@ -26,7 +26,7 @@ public class JpaOneToManyWizardController {
 
     /* Get Wizard by id */
     @GetMapping("/jpa/one-to-many/wizard")
-    public String getWizard(Model model, @RequestParam(required = false) Long id) {
+    public String getById(Model model, @RequestParam(required = false) Long id) {
         Wizard wizard = new Wizard();
         if (id != null) {
             Optional<Wizard> optionalWizard = wizardRepository.findById(id);
@@ -40,14 +40,14 @@ public class JpaOneToManyWizardController {
 
     /* Create or Update a Wizard  */
     @PostMapping("/jpa/one-to-many/wizard")
-    public String postWizard(@ModelAttribute Wizard wizard) {
+    public String save(@ModelAttribute Wizard wizard) {
         wizardRepository.save(wizard);
         return "redirect:/jpa/one-to-many/wizards";
     }
 
     /* Delete the Wizard */
     @GetMapping("/jpa/one-to-many/wizard/delete")
-    public String deleteWizard(@RequestParam Long id) {
+    public String delete(@RequestParam Long id) {
         wizardRepository.deleteById(id);
         return "redirect:/jpa/one-to-many/wizards";
     }
