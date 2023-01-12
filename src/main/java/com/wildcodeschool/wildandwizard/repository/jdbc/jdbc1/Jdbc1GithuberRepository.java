@@ -1,13 +1,13 @@
 package com.wildcodeschool.wildandwizard.repository.jdbc.jdbc1;
 
 import com.wildcodeschool.wildandwizard.entity.Githuber;
-import com.wildcodeschool.wildandwizard.util.JdbcUtils;
+import com.wildcodeschool.wildandwizard.util.jdbc.jdbc1.Jdbc1Utils;
 import org.springframework.context.annotation.PropertySource;
-
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/* Quest : JDBC 1 */
 @PropertySource("UserUtil.properties")
 public class Jdbc1GithuberRepository implements Jdbc1GithuberDao<Githuber> {
     private static String databaseUrl;
@@ -50,9 +50,9 @@ public class Jdbc1GithuberRepository implements Jdbc1GithuberDao<Githuber> {
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            JdbcUtils.closeResultSet(generatedKeys);
-            JdbcUtils.closeStatement(statement);
-            JdbcUtils.closeConnection(connection);
+            Jdbc1Utils.closeResultSet(generatedKeys);
+            Jdbc1Utils.closeStatement(statement);
+            Jdbc1Utils.closeConnection(connection);
         }
         return null;
     }
@@ -81,9 +81,9 @@ public class Jdbc1GithuberRepository implements Jdbc1GithuberDao<Githuber> {
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            JdbcUtils.closeResultSet(resultSet);
-            JdbcUtils.closeStatement(statement);
-            JdbcUtils.closeConnection(connection);
+            Jdbc1Utils.closeResultSet(resultSet);
+            Jdbc1Utils.closeStatement(statement);
+            Jdbc1Utils.closeConnection(connection);
         }
         return null;
     }
@@ -114,9 +114,9 @@ public class Jdbc1GithuberRepository implements Jdbc1GithuberDao<Githuber> {
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            JdbcUtils.closeResultSet(resultSet);
-            JdbcUtils.closeStatement(statement);
-            JdbcUtils.closeConnection(connection);
+            Jdbc1Utils.closeResultSet(resultSet);
+            Jdbc1Utils.closeStatement(statement);
+            Jdbc1Utils.closeConnection(connection);
         }
         return null;
     }
@@ -145,8 +145,8 @@ public class Jdbc1GithuberRepository implements Jdbc1GithuberDao<Githuber> {
             e.printStackTrace();
         }
         finally {
-            JdbcUtils.closeStatement(statement);
-            JdbcUtils.closeConnection(connection);
+            Jdbc1Utils.closeStatement(statement);
+            Jdbc1Utils.closeConnection(connection);
         }
         return null;
     }
@@ -166,8 +166,8 @@ public class Jdbc1GithuberRepository implements Jdbc1GithuberDao<Githuber> {
             e.printStackTrace();
         }
         finally {
-            JdbcUtils.closeStatement(statement);
-            JdbcUtils.closeConnection(connection);
+            Jdbc1Utils.closeStatement(statement);
+            Jdbc1Utils.closeConnection(connection);
         }
     }
 }

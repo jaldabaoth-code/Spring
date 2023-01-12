@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+/* Quest : JDBC Update */
 @Controller
 public class JdbcUpdateSchoolController {
     private JdbcUpdateSchoolRepository schoolRepository = new JdbcUpdateSchoolRepository();
@@ -23,12 +24,6 @@ public class JdbcUpdateSchoolController {
         model.addAttribute("school", schoolRepository.findById(id));
         return "jdbc/jdbcUpdate/school";
     }
-
-
-/*    @GetMapping("/jdbc/update/index")
-    public String postIndex() {
-        return "jdbc/jdbcUpdate/index";
-    }*/
 
     @PostMapping("/jdbc/update/school")
     public String postSchoolUpdate(Model model, @RequestParam Long id, @RequestParam String name, @RequestParam Long capacity, @RequestParam String country) {

@@ -1,12 +1,12 @@
 package com.wildcodeschool.wildandwizard.repository.jdbc.jdbcIntroduction;
 
 import com.wildcodeschool.wildandwizard.entity.Person;
-import com.wildcodeschool.wildandwizard.util.JdbcUtils;
-
+import com.wildcodeschool.wildandwizard.util.jdbc.jdbcIntroduction.JdbcIntroductionUtils;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/* Quest : JDBC Introduction */
 public class JdbcIntroductionPersonRepository implements JdbcIntroductionCrudDao<Person> {
     private static String databaseUrl;
     private static String databaseUsername;
@@ -24,9 +24,7 @@ public class JdbcIntroductionPersonRepository implements JdbcIntroductionCrudDao
         PreparedStatement statement = null;
         ResultSet generatedKeys = null;
         try {
-            connection = DriverManager.getConnection(
-                    databaseUrl, databaseUsername, databasePassword
-            );
+            connection = DriverManager.getConnection(databaseUrl, databaseUsername, databasePassword);
             statement = connection.prepareStatement(
                     "INSERT INTO person (first_name, last_name, age) VALUES (?, ?, ?)",
                     Statement.RETURN_GENERATED_KEYS
@@ -34,13 +32,10 @@ public class JdbcIntroductionPersonRepository implements JdbcIntroductionCrudDao
             statement.setString(1, person.getFirstName());
             statement.setString(2, person.getLastName());
             statement.setInt(3, person.getAge());
-
             if (statement.executeUpdate() != 1) {
                 throw new SQLException("failed to insert data");
             }
-
             generatedKeys = statement.getGeneratedKeys();
-
             if (generatedKeys.next()) {
                 Long id = generatedKeys.getLong(1);
                 person.setId(id);
@@ -51,29 +46,23 @@ public class JdbcIntroductionPersonRepository implements JdbcIntroductionCrudDao
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            JdbcUtils.closeResultSet(generatedKeys);
-            JdbcUtils.closeStatement(statement);
-            JdbcUtils.closeConnection(connection);
+            JdbcIntroductionUtils.closeResultSet(generatedKeys);
+            JdbcIntroductionUtils.closeStatement(statement);
+            JdbcIntroductionUtils.closeConnection(connection);
         }
         return null;
     }
 
     @Override
     public Person findById(Long id) {
-
         Connection connection = null;
         PreparedStatement statement = null;
         ResultSet resultSet = null;
         try {
-            connection = DriverManager.getConnection(
-                    databaseUrl, databaseUsername, databasePassword
-            );
-            statement = connection.prepareStatement(
-                    "SELECT * FROM person WHERE id = ?;"
-            );
+            connection = DriverManager.getConnection(databaseUrl, databaseUsername, databasePassword);
+            statement = connection.prepareStatement("SELECT * FROM person WHERE id = ?;");
             statement.setLong(1, id);
             resultSet = statement.executeQuery();
-
             if (resultSet.next()) {
                 String firstName = resultSet.getString("first_name");
                 String lastName = resultSet.getString("last_name");
@@ -83,30 +72,23 @@ public class JdbcIntroductionPersonRepository implements JdbcIntroductionCrudDao
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            JdbcUtils.closeResultSet(resultSet);
-            JdbcUtils.closeStatement(statement);
-            JdbcUtils.closeConnection(connection);
+            JdbcIntroductionUtils.closeResultSet(resultSet);
+            JdbcIntroductionUtils.closeStatement(statement);
+            JdbcIntroductionUtils.closeConnection(connection);
         }
         return null;
     }
 
     @Override
     public List<Person> findAll() {
-
         Connection connection = null;
         PreparedStatement statement = null;
         ResultSet resultSet = null;
         try {
-            connection = DriverManager.getConnection(
-                    databaseUrl, databaseUsername, databasePassword
-            );
-            statement = connection.prepareStatement(
-                    "SELECT * FROM person;"
-            );
+            connection = DriverManager.getConnection(databaseUrl, databaseUsername, databasePassword);
+            statement = connection.prepareStatement("SELECT * FROM person;");
             resultSet = statement.executeQuery();
-
             List<Person> persons = new ArrayList<>();
-
             while (resultSet.next()) {
                 Long id = resultSet.getLong("id");
                 String firstName = resultSet.getString("first_name");
@@ -118,9 +100,9 @@ public class JdbcIntroductionPersonRepository implements JdbcIntroductionCrudDao
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            JdbcUtils.closeResultSet(resultSet);
-            JdbcUtils.closeStatement(statement);
-            JdbcUtils.closeConnection(connection);
+            JdbcIntroductionUtils.closeResultSet(resultSet);
+            JdbcIntroductionUtils.closeStatement(statement);
+            JdbcIntroductionUtils.closeConnection(connection);
         }
         return null;
     }
@@ -130,17 +112,12 @@ public class JdbcIntroductionPersonRepository implements JdbcIntroductionCrudDao
         Connection connection = null;
         PreparedStatement statement = null;
         try {
-            connection = DriverManager.getConnection(
-                    databaseUrl, databaseUsername, databasePassword
-            );
-            statement = connection.prepareStatement(
-                    "UPDATE person SET first_name=?, last_name=?, age=? WHERE id=?"
-            );
+            connection = DriverManager.getConnection(databaseUrl, databaseUsername, databasePassword);
+            statement = connection.prepareStatement("UPDATE person SET first_name=?, last_name=?, age=? WHERE id=?");
             statement.setString(1, person.getFirstName());
             statement.setString(2, person.getLastName());
             statement.setInt(3, person.getAge());
             statement.setLong(4, person.getId());
-
             if (statement.executeUpdate() != 1) {
                 throw new SQLException("failed to update data");
             }
@@ -149,8 +126,8 @@ public class JdbcIntroductionPersonRepository implements JdbcIntroductionCrudDao
             e.printStackTrace();
         }
         finally {
-            JdbcUtils.closeStatement(statement);
-            JdbcUtils.closeConnection(connection);
+            JdbcIntroductionUtils.closeStatement(statement);
+            JdbcIntroductionUtils.closeConnection(connection);
         }
         return null;
     }
@@ -160,14 +137,9 @@ public class JdbcIntroductionPersonRepository implements JdbcIntroductionCrudDao
         Connection connection = null;
         PreparedStatement statement = null;
         try {
-            connection = DriverManager.getConnection(
-                    databaseUrl, databaseUsername, databasePassword
-            );
-            statement = connection.prepareStatement(
-                    "DELETE FROM person WHERE id=?"
-            );
+            connection = DriverManager.getConnection(databaseUrl, databaseUsername, databasePassword);
+            statement = connection.prepareStatement("DELETE FROM person WHERE id=?");
             statement.setLong(1, id);
-
             if (statement.executeUpdate() != 1) {
                 throw new SQLException("failed to delete data");
             }
@@ -175,8 +147,8 @@ public class JdbcIntroductionPersonRepository implements JdbcIntroductionCrudDao
             e.printStackTrace();
         }
         finally {
-            JdbcUtils.closeStatement(statement);
-            JdbcUtils.closeConnection(connection);
+            JdbcIntroductionUtils.closeStatement(statement);
+            JdbcIntroductionUtils.closeConnection(connection);
         }
     }
 }

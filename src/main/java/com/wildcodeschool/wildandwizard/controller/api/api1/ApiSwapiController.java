@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
 
-/* Quest : API */
+/* Quest : API 1 */
 @Controller
 public class ApiSwapiController {
     private static final String SWAPI_URL = "https://swapi.dev";

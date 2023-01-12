@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+/* Quest : JDBC Introduction */
 @Controller
 public class JdbcIntroductionPersonController {
     private JdbcIntroductionPersonRepository repository = new JdbcIntroductionPersonRepository();

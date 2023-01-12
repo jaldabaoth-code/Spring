@@ -6,7 +6,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class JdbcUtils {
-
 	public static void closeConnection(Connection con) {
 		if (con != null) {
 			try {

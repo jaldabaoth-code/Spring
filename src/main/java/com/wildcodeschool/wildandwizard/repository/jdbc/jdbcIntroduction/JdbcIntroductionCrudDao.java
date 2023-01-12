@@ -1,9 +1,9 @@
 package com.wildcodeschool.wildandwizard.repository.jdbc.jdbcIntroduction;
 
-        import java.util.List;
+import java.util.List;
 
+/* Quest : JDBC Introduction */
 public interface JdbcIntroductionCrudDao<T> {
-
     T save(T entity);
 
     T findById(Long id);

@@ -1,12 +1,12 @@
 package com.wildcodeschool.wildandwizard.repository.jdbc.jdbcUpdate;
 
 import com.wildcodeschool.wildandwizard.entity.School;
-import com.wildcodeschool.wildandwizard.util.JdbcUtils;
-
+import com.wildcodeschool.wildandwizard.util.jdbc.jdbcUpdate.JdbcUpdateUtils;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/* Quest : JDBC Update */
 public class JdbcUpdateSchoolRepository {
     private static String databaseUrl;
     private static String databaseUsername;
@@ -38,9 +38,9 @@ public class JdbcUpdateSchoolRepository {
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            JdbcUtils.closeResultSet(resultSet);
-            JdbcUtils.closeStatement(statement);
-            JdbcUtils.closeConnection(connection);
+            JdbcUpdateUtils.closeResultSet(resultSet);
+            JdbcUpdateUtils.closeStatement(statement);
+            JdbcUpdateUtils.closeConnection(connection);
         }
         return null;
     }
@@ -62,8 +62,8 @@ public class JdbcUpdateSchoolRepository {
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            JdbcUtils.closeStatement(statement);
-            JdbcUtils.closeConnection(connection);
+            JdbcUpdateUtils.closeStatement(statement);
+            JdbcUpdateUtils.closeConnection(connection);
         }
         return null;
     }
@@ -86,9 +86,9 @@ public class JdbcUpdateSchoolRepository {
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            JdbcUtils.closeResultSet(resultSet);
-            JdbcUtils.closeStatement(statement);
-            JdbcUtils.closeConnection(connection);
+            JdbcUpdateUtils.closeResultSet(resultSet);
+            JdbcUpdateUtils.closeStatement(statement);
+            JdbcUpdateUtils.closeConnection(connection);
         }
         return null;
     }
