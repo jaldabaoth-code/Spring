@@ -20,13 +20,13 @@ public class JdbcUpdateWizardController {
         return "/jdbc/jdbcUpdate/wizards";
     }
 
-    @GetMapping("/jdbc/wizard/update")
+    @GetMapping("/jdbc/update/wizard")
     public String getById(Model model, @RequestParam Long id) {
         model.addAttribute("wizard", wizardRepository.findById(id));
         return "/jdbc/jdbcUpdate/wizard";
     }
 
-    @PostMapping("/jdbc/wizard/update")
+    @PostMapping("/jdbc/update/wizard")
     public String update(Model model, @RequestParam Long id, @RequestParam String firstName,
                             @RequestParam String lastName, @RequestParam Date birthday, @RequestParam String birthPlace,
                             @RequestParam(required = false, defaultValue = "") String biography,
