@@ -15,15 +15,15 @@
             <h3>Edit Wizard</h3>
             <form action="/wizard/update" method="POST">
                 <input th:value="${wizard.id}" name="id" type="hidden">
-                <label for="first-name">First name:</label>
+                <label for="first-name">First name :</label>
                 <input th:value="${wizard.firstName}" id="first-name" name="firstName" placeholder="Harry" type="text" required>
-                <label for="last-name">Last name:</label>
+                <label for="last-name">Last name :</label>
                 <input th:value="${wizard.lastName}" id="last-name" name="lastName" placeholder="Potter" type="text" required>
-                <label for="birthday">Birthday:</label>
+                <label for="birthday">Birthday :</label>
                 <input th:value="${wizard.birthday}" id="birthday" name="birthday" placeholder="1980-07-31" type="date" required>
-                <label for="birth-place">Birth Place:</label>
+                <label for="birth-place">Birth Place :</label>
                 <input th:value="${wizard.birthPlace}" id="birth-place" name="birthPlace" placeholder="London" type="text" required>
-                <label for="biography">Biography:</label>
+                <label for="biography">Biography :</label>
                 <textarea th:text="${wizard.biography}" id="biography" name="biography"></textarea>
                 <label for="is-muggle">Is Muggle ?</label>
                 <input th:checked="${wizard.muggle}" id="is-muggle" name="muggle" type="checkbox" value="true">

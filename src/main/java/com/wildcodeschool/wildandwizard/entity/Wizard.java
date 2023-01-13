@@ -25,6 +25,7 @@ public class Wizard {
 
     public Wizard() {
     }
+
     public Wizard(Long id, String firstName, String lastName, Date birthday, String birthPlace, String biography, boolean muggle) {
         this.id = id;
         this.firstName = firstName;
@@ -34,6 +35,7 @@ public class Wizard {
         this.biography = biography;
         this.muggle = muggle;
     }
+
     public Long getId() {
         return id;
     }
