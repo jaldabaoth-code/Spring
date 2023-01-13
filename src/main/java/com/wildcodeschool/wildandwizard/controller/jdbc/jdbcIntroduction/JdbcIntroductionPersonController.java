@@ -37,12 +37,12 @@ public class JdbcIntroductionPersonController {
         } else {
             repository.save(person);
         }
-        return "redirect:/jdbc/jdbcIntroduction/persons";
+        return "redirect:/jdbc/introduction/persons";
     }
 
     @GetMapping("/jdbc/introduction/person/delete")
     public String delete(@RequestParam Long id) {
         repository.deleteById(id);
-        return "redirect:/jdbc/jdbcIntroduction/persons";
+        return "redirect:/jdbc/introduction/persons";
     }
 }

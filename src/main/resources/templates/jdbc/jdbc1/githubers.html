@@ -41,8 +41,8 @@
                         <td th:text="${githuber.bio}"></td>
                         <td th:text="${githuber.location}"></td>
                         <td><img th:src="${githuber.avatarUrl}" alt="githuber avatar"></td>
-                        <td><a th:href="@{/templates/jdbc/1/githuber(id=${githuber.id})}">Edit</a></td>
-                        <td><a th:href="@{/templates/jdbc/1/delete(id=${githuber.id})}">Remove</a></td>
+                        <td><a th:href="@{/jdbc/1/githuber(id=${githuber.id})}">Edit</a></td>
+                        <td><a th:href="@{/jdbc/1/githuber/delete(id=${githuber.id})}">Remove</a></td>
                     </tr>
                 </tbody>
             </table>

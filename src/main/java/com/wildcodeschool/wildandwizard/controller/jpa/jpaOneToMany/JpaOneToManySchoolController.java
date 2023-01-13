@@ -76,7 +76,7 @@ public class JpaOneToManySchoolController {
             }
         }
         model.addAttribute("schoolWizards", wizards);
-        return "/jpa/jpaOneToMany/schoolWizards";
+        return "/jpa/jpaOneToMany/registerWizardToSchool";
     }
 
     @PostMapping("/jpa/one-to-many/school/wizard")

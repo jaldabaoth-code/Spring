@@ -20,14 +20,14 @@
     color: #000000;
 }
 
-.add-new-wizard, .add-new-school {
+.all-schools, .all-wizards {
     display: flex;
     justify-content: center;
     margin-bottom: 50px;
     font-weight: bold;
 }
 
-.add-new-wizard a, .add-new-school a {
+.all-schools a, .all-wizards a {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -40,7 +40,7 @@
     border-radius: 4px;
 }
 
-.add-new-wizard a:hover, .add-new-school a:hover {
+.all-schools a:hover, .all-wizards a:hover {
     background-color: #4caf50;
     opacity: 0.9;
 }
@@ -88,7 +88,7 @@ form {
     flex-direction: column;
 }
 
-input {
+input, textarea, select {
     margin-top: 6px;
     margin-bottom: 16px;
     padding: 12px;

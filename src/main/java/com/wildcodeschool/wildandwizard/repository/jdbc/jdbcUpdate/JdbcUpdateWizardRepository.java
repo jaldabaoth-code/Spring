@@ -53,7 +53,7 @@ public class JdbcUpdateWizardRepository {
         PreparedStatement statement = null;
         try {
             connection = DriverManager.getConnection(databaseUrl, databaseUsername, databasePassword);
-            statement = connection.prepareStatement("UPDATE wizard SET first_name=?, last_name=?, birthday=?, birth_place=?, biography=?, is_muggle=? WHERE id=?");
+            statement = connection.prepareStatement("UPDATE wizard SET first_name=?, last_name=?, birthday=?, birth_place=?, biography=?, muggle=? WHERE id=?");
             statement.setString(1, firstName);
             statement.setString(2, lastName);
             statement.setDate(3, birthday);

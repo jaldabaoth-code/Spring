@@ -10,7 +10,7 @@
     <body>
         <header th:replace="header :: top">Your header/navbar here</header>
         <h1>Spring Quest : JPA</h1>
-        <h2>Many To Many</h2>
+        <h2>JPA Many To Many</h2>
         <div class="container">
             <h3 th:text="${wizard.id} ? 'Edit Wizard' : 'Create Wizard'">Wizard</h3>
             <form method="POST" th:action="@{wizard}" th:object="${wizard}">

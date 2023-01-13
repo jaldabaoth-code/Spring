@@ -5,22 +5,41 @@
     <link rel="stylesheet" th:href="@{/css/style.css}">
     <link rel="stylesheet" th:href="@{/css/jdbc/jdbcUpdate.css}"/>
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-    <title>Update</title>
+    <title>JDBC Update</title>
 </head>
     <body>
         <header th:replace="header :: top">Your header/navbar here</header>
         <h1>Spring Quest : JDBC</h1>
-        <h2>Update</h2>
+        <h2>JDBC Update</h2>
         <div class="container">
-            <ul>
-                <li th:text="| Id: ${wizard.id} |"></li>
-                <li th:text="| First name: ${wizard.firstName} |"></li>
-                <li th:text="| Last name: ${wizard.lastName} |"></li>
-                <li th:text="| Birthday: ${wizard.birthday} |"></li>
-                <li th:text="| Birth place: ${wizard.birthPlace} |"></li>
-                <li th:text="| Is Muggle: ${wizard.muggle} |"></li>
-            </ul>
-            <a href="/jdbc/update/wizards">Back to all Wizards</a>
+            <div class="all-wizards">
+                <a href="/jdbc/update/wizards">All Wizards</a>
+            </div>
+            <h3>Wizard Updated Result</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>First name</th>
+                        <th>Last name</th>
+                        <th>Birthday</th>
+                        <th>Birth place</th>
+                        <th>Biography</th>
+                        <th>Muggle</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td th:text="${wizard.id}"></td>
+                        <td th:text="${wizard.firstName}"></td>
+                        <td th:text="${wizard.lastName}"></td>
+                        <td th:text="${wizard.birthday}"></td>
+                        <td th:text="${wizard.birthPlace}"></td>
+                        <td th:text="${wizard.biography}"></td>
+                        <td th:text="${wizard.muggle}"></td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </body>
 </html>

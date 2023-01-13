@@ -76,7 +76,7 @@ public class JpaManyToManyWizardController {
             }
         }
         model.addAttribute("wizardRaces", races);
-        return "/jpa/jpaManyToMany/wizardRace";
+        return "/jpa/jpaManyToMany/registerWizardToRace";
     }
 
     @PostMapping("/jpa/many-to-many/wizard/race")

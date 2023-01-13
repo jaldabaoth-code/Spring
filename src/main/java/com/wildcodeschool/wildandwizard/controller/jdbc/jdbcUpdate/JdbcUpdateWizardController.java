@@ -13,7 +13,6 @@ import java.sql.Date;
 public class JdbcUpdateWizardController {
     private JdbcUpdateWizardRepository wizardRepository = new JdbcUpdateWizardRepository();
 
-    /* Get all wizards */
     @GetMapping("/jdbc/update/wizards")
     public String getAll(Model model) {
         model.addAttribute("wizards", wizardRepository.findAll());
@@ -32,6 +31,7 @@ public class JdbcUpdateWizardController {
                             @RequestParam(required = false, defaultValue = "") String biography,
                             @RequestParam(required = false, defaultValue = "false") boolean muggle
     ) {
+        System.out.println(id);
         model.addAttribute("wizard", wizardRepository.update(id, firstName, lastName, birthday, birthPlace, biography, muggle));
         return "/jdbc/jdbcUpdate/wizardUpdateResult";
     }

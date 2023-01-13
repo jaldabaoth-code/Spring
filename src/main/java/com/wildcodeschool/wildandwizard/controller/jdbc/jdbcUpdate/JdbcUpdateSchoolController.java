@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class JdbcUpdateSchoolController {
     private JdbcUpdateSchoolRepository schoolRepository = new JdbcUpdateSchoolRepository();
 
-    /* Get all schools */
     @GetMapping("/jdbc/update/schools")
     public String getAll(Model model) {
         model.addAttribute("schools", schoolRepository.findAll());
