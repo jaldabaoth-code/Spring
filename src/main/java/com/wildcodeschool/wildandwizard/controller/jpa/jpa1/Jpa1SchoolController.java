@@ -17,14 +17,12 @@ public class Jpa1SchoolController {
     @Autowired
     private Jpa1SchoolRepository schoolRepository;
 
-    /* Get all Schools */
     @GetMapping("/jpa/1/schools")
     public String getAll(Model model) {
         model.addAttribute("schools", schoolRepository.findAll());
         return "/jpa/jpa1/schools";
     }
 
-    /* Get School by id */
     @GetMapping("/jpa/1/school")
     public String getById(Model model, @RequestParam(required = false) Long id) {
         School school = new School();
@@ -38,14 +36,12 @@ public class Jpa1SchoolController {
         return "/jpa/jpa1/school";
     }
 
-    /* Create or Update a School */
     @PostMapping("/jpa/1/school")
     public String save(@ModelAttribute School school) {
         schoolRepository.save(school);
         return "redirect:/jpa/1/schools";
     }
 
-    /* Delete the School */
     @GetMapping("/jpa/1/school/delete")
     public String delete(@RequestParam Long id) {
         schoolRepository.deleteById(id);

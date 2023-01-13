@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
     <head>
         <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
         <link rel="stylesheet" th:href="@{/css/style.css}">
@@ -20,7 +20,7 @@
                 <label for="lastName">Last Name : </label>
                 <input id="lastName" name="lastName" placeholder="Last Name" th:field="*{lastName}" type="text" required>
                 <label for="age">Age:</label>
-                <input id="age" name="age" placeholder="40" required th:field="*{age}" type="number">
+                <input id="age" name="age" placeholder="40" th:field="*{age}" type="number" required>
                 <input type="submit" value="Send">
             </form>
         </div>

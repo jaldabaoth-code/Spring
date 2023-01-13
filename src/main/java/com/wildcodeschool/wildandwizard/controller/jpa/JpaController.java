@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class JpaController {
     @GetMapping("/jpa")
-    public String jpa() {
+    public String index() {
         return "/jpa/index";
     }
 }

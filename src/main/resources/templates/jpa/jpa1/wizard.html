@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
     <head>
         <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
         <link rel="stylesheet" th:href="@{/css/style.css}">
@@ -13,20 +13,20 @@
         <h2>JPA 1</h2>
         <div class="container">
             <h3 th:text="${wizard.id} ? 'Edit Wizard' : 'Create Wizard'">Wizard</h3>
-            <form method="POST" th:action="@{jpa/1/wizard}" th:object="${wizard}">
+            <form method="POST" th:action="@{/jpa/1/wizard}" th:object="${wizard}">
                 <input name="id" th:field="*{id}" type="hidden">
-                <label for="first-name">First Name : </label>
+                <label for="first-name">First Name :</label>
                 <input id="first-name" name="firstName" placeholder="Harry" th:field="*{firstName}" type="text" required>
-                <label for="last-name">Last Name : </label>
+                <label for="last-name">Last Name :</label>
                 <input id="last-name" name="lastName" placeholder="Potter" th:field="*{lastName}" type="text" required>
-                <label for="birthday">Birthday : </label>
+                <label for="birthday">Birthday :</label>
                 <input id="birthday" name="birthday" placeholder="1980-07-31" th:field="*{birthday}" type="date" required>
-                <label for="birth-place">Birth Place : </label>
+                <label for="birth-place">Birth Place :</label>
                 <input id="birth-place" name="birthPlace" placeholder="London" th:field="*{birthPlace}" type="text">
-                <label for="biography">Biography : </label>
+                <label for="biography">Biography :</label>
                 <textarea id="biography" name="biography" placeholder="I have a scar on my forehead" th:field="*{biography}"></textarea>
                 <div>
-                    <label for="is-muggle">Is Muggle ? </label>
+                    <label for="is-muggle">Is Muggle ?</label>
                     <input id="is-muggle" name="muggle" th:field="*{muggle}" type="checkbox">
                 </div>
                 <input type="submit" value="Send">

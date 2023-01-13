@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
     <head>
         <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
         <link rel="stylesheet" th:href="@{/css/style.css}">
@@ -26,7 +26,6 @@
                         <th>Birth Place</th>
                         <th>Biography</th>
                         <th>Muggle</th>
-                        <th>Race</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -38,8 +37,6 @@
                         <td th:text="${wizard.birthPlace}"></td>
                         <td th:text="${wizard.biography}"></td>
                         <td th:text="${wizard.muggle}"></td>
-                        <td><div th:each="race : ${wizard.races}" th:text="${race.getName()}"></div></td>
-                        <td><a th:href="@{/jpa/1/wizard/races(idWizard=${wizard.id})}">Races</a></td>
                         <td><a th:href="@{/jpa/1/wizard(id=${wizard.id})}">Edit</a></td>
                         <td><a th:href="@{/jpa/1/wizard/delete(id=${wizard.id})}">Remove</a></td>
                     </tr>

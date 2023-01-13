@@ -25,14 +25,12 @@ public class JpaManyToManyWizardController {
     @Autowired
     private JpaManyToManyRaceRepository raceRepository;
 
-    /* Get all wizards */
     @GetMapping("/jpa/many-to-many/wizards")
     public String getAll(Model model) {
         model.addAttribute("wizards", wizardRepository.findAll());
         return "/jpa/jpaManyToMany/wizards";
     }
 
-    /* Get Wizard by id */
     @GetMapping("/jpa/many-to-many/wizard")
     public String getById(Model model, @RequestParam(required = false) Long id) {
         Wizard wizard = new Wizard();
@@ -46,21 +44,18 @@ public class JpaManyToManyWizardController {
         return "/jpa/jpaManyToMany/wizard";
     }
 
-    /* Update new Wizard */
     @PostMapping("/jpa/many-to-many/wizard")
     public String save(@ModelAttribute Wizard wizard) {
         wizardRepository.save(wizard);
         return "redirect:/jpa/many-to-many/wizards";
     }
 
-    /* Delete the Wizard */
     @GetMapping("/jpa/many-to-many/wizard/delete")
     public String delete(@RequestParam Long id) {
         wizardRepository.deleteById(id);
         return "redirect:/jpa/many-to-many/wizards";
     }
 
-    /* Show the races of wizard */
     @GetMapping("/jpa/many-to-many/wizard/races")
     public String getRacesByWizardId(Model model, @RequestParam Long idWizard) {
         Optional<Wizard> optionalWizard = wizardRepository.findById(idWizard);
@@ -84,7 +79,6 @@ public class JpaManyToManyWizardController {
         return "/jpa/jpaManyToMany/wizardRace";
     }
 
-    /* Register a wizard to the race */
     @PostMapping("/jpa/many-to-many/wizard/race")
     public String registerWizardToRace(@RequestParam Long idWizard, @RequestParam Long idRace) {
         Optional<Wizard> optionalWizard = wizardRepository.findById(idWizard);

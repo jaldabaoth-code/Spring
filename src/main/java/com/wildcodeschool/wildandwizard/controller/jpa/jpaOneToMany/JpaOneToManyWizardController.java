@@ -17,14 +17,12 @@ public class JpaOneToManyWizardController {
     @Autowired
     private JpaOneToManyWizardRepository wizardRepository;
 
-    /* Get all wizards */
     @GetMapping("/jpa/one-to-many/wizards")
     public String getAll(Model model) {
         model.addAttribute("wizards", wizardRepository.findAll());
         return "/jpa/jpaOneToMany/wizards";
     }
 
-    /* Get Wizard by id */
     @GetMapping("/jpa/one-to-many/wizard")
     public String getById(Model model, @RequestParam(required = false) Long id) {
         Wizard wizard = new Wizard();
@@ -38,14 +36,12 @@ public class JpaOneToManyWizardController {
         return "/jpa/jpaOneToMany/wizard";
     }
 
-    /* Create or Update a Wizard  */
     @PostMapping("/jpa/one-to-many/wizard")
     public String save(@ModelAttribute Wizard wizard) {
         wizardRepository.save(wizard);
         return "redirect:/jpa/one-to-many/wizards";
     }
 
-    /* Delete the Wizard */
     @GetMapping("/jpa/one-to-many/wizard/delete")
     public String delete(@RequestParam Long id) {
         wizardRepository.deleteById(id);

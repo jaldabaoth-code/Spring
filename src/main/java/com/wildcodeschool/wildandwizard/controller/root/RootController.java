@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class RootController {
     @GetMapping("/root")
-    public String root() {
+    public String index() {
         return "/root/index";
     }
 }

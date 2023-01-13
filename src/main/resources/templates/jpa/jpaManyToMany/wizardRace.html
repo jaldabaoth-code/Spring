@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
     <head>
         <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
         <link rel="stylesheet" th:href="@{/css/style.css}">
@@ -32,8 +32,6 @@
                     <tr th:each="race : ${wizard.races}">
                         <td th:text="${race.id}"></td>
                         <td th:text="${race.name}"></td>
-                        <td><a th:href="@{/jpa/many-to-many/race(id=${race.id})}">Edit</a></td>
-                        <td><a th:href="@{/jpa/many-to-many/race/delete(id=${race.id})}">Remove</a></td>
                     </tr>
                 </tbody>
             </table>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
     <head>
         <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
         <link rel="stylesheet" th:href="@{/css/style.css}">
@@ -15,7 +15,7 @@
             <h3 th:text="${race.id} ? 'Edit Race' : 'Create Race'">Race</h3>
             <form method="POST" th:action="@{race}" th:object="${race}">
                 <input name="id" th:field="*{id}" type="hidden">
-                <label for="name">Name : </label>
+                <label for="name">Name :</label>
                 <input id="name" name="name" placeholder="Human" th:field="*{name}" type="text" required>
                 <input type="submit" value="Send">
             </form>

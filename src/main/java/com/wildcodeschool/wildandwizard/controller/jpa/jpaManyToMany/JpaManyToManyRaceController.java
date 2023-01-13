@@ -17,14 +17,12 @@ public class JpaManyToManyRaceController {
     @Autowired
     private JpaManyToManyRaceRepository raceRepository;
 
-    /* Get all Races */
     @GetMapping("/jpa/many-to-many/races")
     public String getAll(Model model) {
         model.addAttribute("races", raceRepository.findAll());
         return "/jpa/jpaManyToMany/races";
     }
 
-    /* Get Race by id */
     @GetMapping("/jpa/many-to-many/race")
     public String getById(Model model, @RequestParam(required = false) Long id) {
         Race race = new Race();
@@ -38,14 +36,12 @@ public class JpaManyToManyRaceController {
         return "/jpa/jpaManyToMany/race";
     }
 
-    /* Update new Race */
     @PostMapping("/jpa/many-to-many/race")
     public String save(@ModelAttribute Race race) {
         raceRepository.save(race);
         return "redirect:/jpa/many-to-many/races";
     }
 
-    /* Delete the Race */
     @GetMapping("/jpa/many-to-many/race/delete")
     public String delete(@RequestParam Long id) {
         raceRepository.deleteById(id);

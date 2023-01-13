@@ -25,14 +25,12 @@ public class JpaOneToManySchoolController {
     @Autowired
     private JpaOneToManySchoolRepository schoolRepository;
 
-    /* Get all Schools */
     @GetMapping("/jpa/one-to-many/schools")
     public String getAll(Model model) {
         model.addAttribute("schools", schoolRepository.findAll());
         return "/jpa/jpaOneToMany/schools";
     }
 
-    /* Get School by id */
     @GetMapping("/jpa/one-to-many/school")
     public String getById(Model model, @RequestParam(required = false) Long id) {
         School school = new School();
@@ -46,21 +44,18 @@ public class JpaOneToManySchoolController {
         return "/jpa/jpaOneToMany/school";
     }
 
-    /* Create or Update a School */
     @PostMapping("/jpa/one-to-many/school")
     public String save(@ModelAttribute School school) {
         schoolRepository.save(school);
         return "redirect:/jpa/one-to-many/schools";
     }
 
-    /* Delete the School */
     @GetMapping("/jpa/one-to-many/school/delete")
     public String delete(@RequestParam Long id) {
         schoolRepository.deleteById(id);
         return "redirect:/jpa/one-to-many/schools";
     }
 
-    /* Get all wizards in school */
     @GetMapping("/jpa/one-to-many/school/wizards")
     public String getWizardsBySchoolId(Model model, @RequestParam Long idSchool) {
         Optional<School> optionalSchool = schoolRepository.findById(idSchool);
@@ -84,7 +79,6 @@ public class JpaOneToManySchoolController {
         return "/jpa/jpaOneToMany/schoolWizards";
     }
 
-    /* Register new wizard in school */
     @PostMapping("/jpa/one-to-many/school/wizard")
     public String registerWizardInSchool(@RequestParam Long idSchool, @RequestParam Long idWizard) {
         Optional<Wizard> optionalWizard = wizardRepository.findById(idWizard);
