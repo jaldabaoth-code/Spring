@@ -24,14 +24,8 @@ nav li a {
     padding: 10px 20px;
 }
 
-nav .active {
-    color: #ffffff;
-    background-color: #4caf50;
-}
-
 nav li a:hover {
     background-color: #4caf50;
-    opacity: 0.9;
 }
 
 /* Body */

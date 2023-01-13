@@ -1,3 +1,4 @@
+/*
 package com.wildcodeschool.wildandwizard.util;
 
 import org.springframework.beans.factory.annotation.Value;
@@ -17,3 +18,4 @@ public class testService {
         return username;
     }
 }
+*/

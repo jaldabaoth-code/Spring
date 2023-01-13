@@ -1,16 +1,16 @@
 package com.wildcodeschool.wildandwizard.unitTesting;
 
-/* Spring Quests : Unit Testing */
+/* Quests : Unit Testing */
 public class StringUtils {
     private static final String ALL_VOWELS = "aeiouyAEIOUY";
 
     /**
-     * Renvoie la chaine formée par les voyelles d'une chaine de caractères
-     * @return Chaine avec uniquement des voyelles
+     * Returns the string formed by the vowels of a character string
+     * @return String with only vowels
      */
     public static String vowels(String candidate) {
         String vowels = "";
-        if (candidate == null )throw new InvalidStringException ("Ca ne peut pas etre null");
+        if (candidate == null )throw new InvalidStringException ("It can't be null");
         char[] letters = candidate.toCharArray();
         for (int i = 0; i < candidate.length(); i++) {
             if (ALL_VOWELS.indexOf(letters[i]) >= 0) {
@@ -21,12 +21,12 @@ public class StringUtils {
     }
     
     /**
-     * Renvoie la chaine formée par les voyelles d'une chaine de caractères sans doublon
-     * @return Chaine avec uniquement des voyelles sans doublon
+     * Returns the string formed by the vowels of a character string without duplicate
+     * @return String with only vowels without duplicates
      */
     public static String uniqueVowels(String candidate) {
         String vowels = "";
-        if (candidate == null )throw new InvalidStringException ("Ca ne peut pas etre null");
+        if (candidate == null )throw new InvalidStringException ("It can't be null");
         char[] letters = candidate.toCharArray();
         for (int i = 0; i < candidate.length(); i++) {
             if (ALL_VOWELS.indexOf(letters[i]) >= 0) {
@@ -36,8 +36,8 @@ public class StringUtils {
         vowels = vowels.toLowerCase();
         letters = vowels.toCharArray();
         vowels = "";
-        for(int i = 0; i < letters.length; i++) {
-            if(vowels.indexOf(letters[i]) == -1) {
+        for (int i = 0; i < letters.length; i++) {
+            if (vowels.indexOf(letters[i]) == -1) {
             	vowels += letters[i];
             }
         }

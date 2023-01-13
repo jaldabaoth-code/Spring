@@ -3,7 +3,6 @@ package com.wildcodeschool.wildandwizard.model.api.api1;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Api1Planet {
-    // TODO : add attributes
     private String name;
     @JsonProperty("rotation_period")
     private String rotationPeriod;
@@ -22,11 +21,9 @@ public class Api1Planet {
     private String edited;
     private String url;
 
-    // TODO : add an empty constructor
     public Api1Planet() {
     }
 
-    // TODO : add getters and setters
     public String getName() {
         return name;
     }

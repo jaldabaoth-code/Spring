@@ -16,7 +16,7 @@
             <form method="POST" th:action="@{githuber}" th:object="${githuber}">
                 <input name="id" th:field="*{id}" type="hidden">
                 <label for="githubId">Github Id:</label>
-                <input id="githubId" name="githubId" placeholder="0" th:field="*{githubId}" type="number" required>
+                <input id="githubId" name="githubId" placeholder="1" th:field="*{githubId}" type="number" required>
                 <label for="name">Name :</label>
                 <input id="name" name="name" placeholder="Name" th:field="*{name}" type="text" required>
                 <label for="login">Login :</label>
@@ -26,7 +26,7 @@
                 <label for="email">Email :</label>
                 <input id="email" name="email" placeholder="Email" th:field="*{email}" type="text" required>
                 <label for="bio">Bio :</label>
-                <textarea id="bio" name="bio" placeholder="Bio" th:field="*{bio}" type="text" required></textarea>
+                <textarea id="bio" name="bio" placeholder="Bio" th:field="*{bio}" type="text"></textarea>
                 <label for="location">Location :</label>
                 <input id="location" name="location" placeholder="Location" th:field="*{location}" type="text" required>
                 <label for="avatarUrl">Avatar Url :</label>

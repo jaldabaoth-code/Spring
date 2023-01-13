@@ -15,9 +15,9 @@
             <h3 th:text="${person.id} ? 'Edit Person' : 'Create Person'">Person</h3>
             <form method="POST" th:action="@{/jdbc/introduction/person}" th:object="${person}">
                 <input name="id" th:field="*{id}" type="hidden">
-                <label for="firstName">First Name : </label>
+                <label for="firstName">First Name :</label>
                 <input id="firstName" name="firstName" placeholder="First Name" th:field="*{firstName}" type="text" required>
-                <label for="lastName">Last Name : </label>
+                <label for="lastName">Last Name :</label>
                 <input id="lastName" name="lastName" placeholder="Last Name" th:field="*{lastName}" type="text" required>
                 <label for="age">Age:</label>
                 <input id="age" name="age" placeholder="40" th:field="*{age}" type="number" required>
