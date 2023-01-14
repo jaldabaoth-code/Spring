@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+    <head>
+        <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+        <link rel="stylesheet" th:href="@{/css/style.css}">
+        <link rel="stylesheet" th:href="@{/css/permissions/permissions1.css}">
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+        <title>Permissions 1</title>
+    </head>
+    <body>
+        <header th:replace="header :: top">Your header/navbar here</header>
+        <h1>Spring Quest : Permissions</h1>
+        <h2>Permissions 1</h2>
+        <div class="container">
+            <ul>
+                <li><a href="/login">Sign In ---> (For Get Permissions)</a></li>
+                <li><a href="/permissions/1/welcome">Role : User ---> (Username=User - Password=password)</a></li>
+                <li><a href="/permissions/1/avengers/assemble">Role : CHAMPION ---> (Username=Steve - Password=captain)</a></li>
+                <li><a href="/permissions/1/secret-bases">Role : DIRECTOR ---> (Username=Nick - Password=flerken)</a></li>
+            </ul>
+        </div>
+    </body>
+    <footer th:replace="footer :: bottom">Your footer here</footer>
+</html>

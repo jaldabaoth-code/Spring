@@ -1,0 +1,20 @@
+/* Quest : Permissions 1 */
+.container {
+    margin-left: 20px;
+}
+
+.container ul {
+    list-style-type: none;
+}
+
+.container li a {
+    text-decoration: none;
+    color: #000000;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.container li a:hover {
+    text-decoration: underline;
+    color: #000000;
+}
