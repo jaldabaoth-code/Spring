@@ -23,7 +23,7 @@ public class JdbcInjectionWizardController {
     }
 
     @GetMapping("/jdbc/injection/wizard")
-    public String getWizard(Model model, @RequestParam(required = false) Long id) {
+    public String getById(Model model, @RequestParam(required = false) Long id) {
         Wizard wizard = new Wizard();
         if (id != null) {
             wizard = wizardDao.findById(id);
@@ -33,7 +33,7 @@ public class JdbcInjectionWizardController {
     }
 
     @PostMapping("/jdbc/injection/wizard")
-    public String postWizard(@ModelAttribute Wizard wizard) {
+    public String save(@ModelAttribute Wizard wizard) {
         if (wizard.getId() != null) {
             wizardDao.update(wizard);
         } else {
@@ -43,7 +43,7 @@ public class JdbcInjectionWizardController {
     }
 
     @GetMapping("/jdbc/injection/wizard/delete")
-    public String deleteWizard(@RequestParam Long id) {
+    public String delete(@RequestParam Long id) {
         wizardDao.deleteById(id);
         return "redirect:/jdbc/injection/wizards";
     }
