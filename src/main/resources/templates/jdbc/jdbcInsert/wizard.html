@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+    <head>
+        <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+        <link rel="stylesheet" th:href="@{/css/style.css}">
+        <link rel="stylesheet" th:href="@{/css/jdbc/jdbcInsert.css}">
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+        <title>JDBC Insert</title>
+    </head>
+    <body>
+        <header th:replace="header :: top">Your header/navbar here</header>
+        <h1>Spring Quest : JDBC</h1>
+        <h2>JDBC Insert</h2>
+        <div class="container">
+            <h3>Create a new wizard:</h3>
+            <form action="/jdbc/insert/wizard" method="POST">
+                <label for="first-name">First name :</label>
+                <input id="first-name" name="firstName" placeholder="Harry" required type="text">
+                <label for="last-name">Last name :</label>
+                <input id="last-name" name="lastName" placeholder="Potter" required type="text">
+                <label for="birthday">Birthday :</label>
+                <input id="birthday" name="birthday" placeholder="1980-07-31" required type="date">
+                <label for="birth-place">Birth Place :</label>
+                <input id="birth-place" name="birthPlace" placeholder="London" required type="text">
+                <label for="biography">Biography :</label>
+                <textarea id="biography" name="biography"></textarea>
+                <label for="is-muggle">Is Muggle ?</label>
+                <input id="is-muggle" name="muggle" type="checkbox" value="true">
+                <input type="submit" value="Send">
+            </form>
+        </div>
+    </body>
+</html>
