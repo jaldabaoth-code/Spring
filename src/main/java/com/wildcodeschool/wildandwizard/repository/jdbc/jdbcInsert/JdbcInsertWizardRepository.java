@@ -33,7 +33,7 @@ public class JdbcInsertWizardRepository {
             statement.setString(5, biography);
             statement.setBoolean(6, muggle);
             if (statement.executeUpdate() != 1) {
-                throw new SQLException("failed to insert data");
+                throw new SQLException("Failed to insert data");
             }
             generatedKeys = statement.getGeneratedKeys();
             if (generatedKeys.next()) {
@@ -41,7 +41,7 @@ public class JdbcInsertWizardRepository {
                 return new Wizard(id, firstName, lastName, birthday,
                         birthPlace, biography, muggle);
             } else {
-                throw new SQLException("failed to get inserted id");
+                throw new SQLException("Failed to get inserted id");
             }
         } catch (SQLException e) {
             e.printStackTrace();

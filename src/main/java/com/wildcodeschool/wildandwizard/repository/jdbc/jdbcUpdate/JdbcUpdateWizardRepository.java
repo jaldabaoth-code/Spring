@@ -62,7 +62,7 @@ public class JdbcUpdateWizardRepository {
             statement.setBoolean(6, muggle);
             statement.setLong(7, id);
             if (statement.executeUpdate() != 1) {
-                throw new SQLException("failed to update data");
+                throw new SQLException("Failed to update data");
             }
             return new Wizard(id, firstName, lastName, birthday, birthPlace, biography, muggle);
         } catch (SQLException e) {

@@ -27,14 +27,14 @@ public class JdbcInsertSchoolRepository {
             statement.setLong(2, capacity);
             statement.setString(3, country);
             if (statement.executeUpdate() != 1) {
-                throw new SQLException("failed to insert data");
+                throw new SQLException("Failed to insert data");
             }
             generatedKeys = statement.getGeneratedKeys();
             if (generatedKeys.next()) {
                 Long id = generatedKeys.getLong(1);
                 return new School(id, name, capacity, country);
             } else {
-                throw new SQLException("failed to get inserted id");
+                throw new SQLException("Failed to get inserted id");
             }
         } catch (SQLException e) {
             e.printStackTrace();

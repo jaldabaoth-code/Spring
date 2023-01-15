@@ -27,7 +27,7 @@ public class GetPropertiesBean {
         // Quest JDBC Update
         new JdbcUpdateSchoolRepository().getDataParameters(databaseUrl, databaseUsername, databasePassword);
         new JdbcUpdateWizardRepository().getDataParameters(databaseUrl, databaseUsername, databasePassword);
-        // Quest JDBC insert
+        // Quest JDBC Insert
         new JdbcInsertSchoolRepository().getDataParameters(databaseUrl, databaseUsername, databasePassword);
         new JdbcInsertWizardRepository().getDataParameters(databaseUrl, databaseUsername, databasePassword);
     }

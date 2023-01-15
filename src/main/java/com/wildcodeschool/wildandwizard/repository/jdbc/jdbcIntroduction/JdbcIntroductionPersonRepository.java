@@ -33,7 +33,7 @@ public class JdbcIntroductionPersonRepository implements JdbcIntroductionCrudDao
             statement.setString(2, person.getLastName());
             statement.setInt(3, person.getAge());
             if (statement.executeUpdate() != 1) {
-                throw new SQLException("failed to insert data");
+                throw new SQLException("Failed to insert data");
             }
             generatedKeys = statement.getGeneratedKeys();
             if (generatedKeys.next()) {
@@ -41,7 +41,7 @@ public class JdbcIntroductionPersonRepository implements JdbcIntroductionCrudDao
                 person.setId(id);
                 return person;
             } else {
-                throw new SQLException("failed to get inserted id");
+                throw new SQLException("Failed to get inserted id");
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -119,7 +119,7 @@ public class JdbcIntroductionPersonRepository implements JdbcIntroductionCrudDao
             statement.setInt(3, person.getAge());
             statement.setLong(4, person.getId());
             if (statement.executeUpdate() != 1) {
-                throw new SQLException("failed to update data");
+                throw new SQLException("Failed to update data");
             }
             return person;
         } catch (SQLException e) {
@@ -141,7 +141,7 @@ public class JdbcIntroductionPersonRepository implements JdbcIntroductionCrudDao
             statement = connection.prepareStatement("DELETE FROM person WHERE id=?");
             statement.setLong(1, id);
             if (statement.executeUpdate() != 1) {
-                throw new SQLException("failed to delete data");
+                throw new SQLException("Failed to delete data");
             }
         } catch (SQLException e) {
             e.printStackTrace();

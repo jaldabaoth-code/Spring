@@ -37,7 +37,7 @@ public class Jdbc1GithuberRepository implements Jdbc1GithuberDao<Githuber> {
             statement.setString(7, githuber.getLocation());
             statement.setString(8, githuber.getAvatarUrl());
             if (statement.executeUpdate() != 1) {
-                throw new SQLException("failed to insert data");
+                throw new SQLException("Failed to insert data");
             }
             generatedKeys = statement.getGeneratedKeys();
             if (generatedKeys.next()) {
@@ -45,7 +45,7 @@ public class Jdbc1GithuberRepository implements Jdbc1GithuberDao<Githuber> {
                 githuber.setId(id);
                 return githuber;
             } else {
-                throw new SQLException("failed to get inserted id");
+                throw new SQLException("Failed to get inserted id");
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -138,7 +138,7 @@ public class Jdbc1GithuberRepository implements Jdbc1GithuberDao<Githuber> {
             statement.setString(8, githuber.getAvatarUrl());
             statement.setLong(9, githuber.getId());
             if (statement.executeUpdate() != 1) {
-                throw new SQLException("failed to update data");
+                throw new SQLException("Failed to update data");
             }
             return githuber;
         } catch (SQLException e) {
@@ -160,7 +160,7 @@ public class Jdbc1GithuberRepository implements Jdbc1GithuberDao<Githuber> {
             statement = connection.prepareStatement("DELETE FROM githuber WHERE id=?");
             statement.setLong(1, id);
             if (statement.executeUpdate() != 1) {
-                throw new SQLException("failed to delete data");
+                throw new SQLException("Failed to delete data");
             }
         } catch (SQLException e) {
             e.printStackTrace();
