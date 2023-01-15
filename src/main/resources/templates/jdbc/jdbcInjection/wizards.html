@@ -37,8 +37,8 @@
                         <td th:text="${wizard.birthPlace}"></td>
                         <td th:text="${wizard.biography}"></td>
                         <td th:text="${wizard.muggle}"></td>
-                        <td><a th:href="@{/wizard(id=${wizard.id})}">Edit</a></td>
-                        <td><a th:href="@{/wizard/delete(id=${wizard.id})}">Remove</a></td>
+                        <td><a th:href="@{/jdbc/injection/wizard(id=${wizard.id})}">Edit</a></td>
+                        <td><a th:href="@{/jdbc/injection/wizard/delete(id=${wizard.id})}">Remove</a></td>
                     </tr>
                 </tbody>
             </table>

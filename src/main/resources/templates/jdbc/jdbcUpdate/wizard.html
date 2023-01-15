@@ -14,7 +14,7 @@
         <div class="container">
             <h3>Edit Wizard</h3>
             <form action="/jdbc/update/wizard" method="POST">
-                <input th:value="${wizard.id}" name="id">
+                <input th:value="${wizard.id}" name="id" type="hidden">
                 <label for="first-name">First name :</label>
                 <input th:value="${wizard.firstName}" id="first-name" name="firstName" placeholder="Harry" type="text" required>
                 <label for="last-name">Last name :</label>

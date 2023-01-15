@@ -5,7 +5,7 @@
         <link rel="stylesheet" th:href="@{/css/style.css}">
         <link rel="stylesheet" th:href="@{/css/jpa/jpaOneToMany.css}">
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-        <title>JPA 1</title>
+        <title>JPA One To Many</title>
     </head>
     <body>
         <header th:replace="header :: top">Your header/navbar here</header>
@@ -13,7 +13,7 @@
         <h2>JPA One To Many</h2>
         <div class="container">
             <h3 th:text="${wizard.id} ? 'Edit Wizard' : 'Create Wizard'">Wizard</h3>
-            <form method="POST" th:action="@{wizard}" th:object="${wizard}">
+            <form method="POST" th:action="@{/jpa/one-to-many/wizard}" th:object="${wizard}">
                 <input name="id" th:field="*{id}" type="hidden">
                 <label for="first-name">First Name :</label>
                 <input id="first-name" name="firstName" placeholder="Harry" th:field="*{firstName}" type="text" required>
