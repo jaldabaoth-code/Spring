@@ -3,17 +3,17 @@
     <head>
         <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
         <link rel="stylesheet" th:href="@{/css/style.css}">
-        <link rel="stylesheet" th:href="@{/css/jdbc/jdbcInjection.css}">
+        <link rel="stylesheet" th:href="@{/css/injection/injection1.css}">
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-        <title>JDBC Injection</title>
+        <title>Injection 1</title>
     </head>
     <body>
         <header th:replace="header :: top">Your header/navbar here</header>
-        <h1>Spring Quest : JDBC</h1>
-        <h2>JDBC Injection</h2>
+        <h1>Spring Quest : Injection</h1>
+        <h2>Injection 1</h2>
         <div class="container">
             <div class="add-new-wizard">
-                <a href="/jdbc/injection/wizard">Add New Wizard</a>
+                <a href="/injection/1/wizard">Add New Wizard</a>
             </div>
             <h3>All Wizards</h3>
             <table>
@@ -37,8 +37,8 @@
                         <td th:text="${wizard.birthPlace}"></td>
                         <td th:text="${wizard.biography}"></td>
                         <td th:text="${wizard.muggle}"></td>
-                        <td><a th:href="@{/jdbc/injection/wizard(id=${wizard.id})}">Edit</a></td>
-                        <td><a th:href="@{/jdbc/injection/wizard/delete(id=${wizard.id})}">Remove</a></td>
+                        <td><a th:href="@{/injection/1/wizard(id=${wizard.id})}">Edit</a></td>
+                        <td><a th:href="@{/injection/1/wizard/delete(id=${wizard.id})}">Remove</a></td>
                     </tr>
                 </tbody>
             </table>

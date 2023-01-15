@@ -1,4 +1,4 @@
-package com.wildcodeschool.wildandwizard.repository.jdbc.jdbcInjection;
+package com.wildcodeschool.wildandwizard.repository.injection.injection1;
 
 import com.wildcodeschool.wildandwizard.entity.Wizard;
 import org.springframework.stereotype.Repository;
@@ -7,9 +7,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-/* Quest : JDBC Injection */
+/* Quest : Injection 1 */
 @Repository
-public class WizardRepository implements WizardDao {
+public class Injection1WizardRepository implements Injection1WizardDao {
     private static List<Wizard> wizards = new ArrayList<>(
             Arrays.asList(new Wizard(1L, "Harry", "Potter", new Date(80, 6, 31), "London", "", false))
     );

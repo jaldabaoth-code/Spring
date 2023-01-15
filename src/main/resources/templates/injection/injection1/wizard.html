@@ -3,17 +3,17 @@
     <head>
         <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
         <link rel="stylesheet" th:href="@{/css/style.css}">
-        <link rel="stylesheet" th:href="@{/css/jdbc/jdbcInjection.css}">
+        <link rel="stylesheet" th:href="@{/css/injection/injection1.css}">
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-        <title>JDBC Injection</title>
+        <title>Injection 1</title>
     </head>
     <body>
         <header th:replace="header :: top">Your header/navbar here</header>
-        <h1>Spring Quest : JDBC</h1>
-        <h2>JDBC Injection</h2>
+        <h1>Spring Quest : Injection</h1>
+        <h2>Injection 1</h2>
         <div class="container">
             <h3 th:text="${wizard.id} ? 'Edit Wizard' : 'Create Wizard'">Wizard</h3>
-            <form method="POST" th:action="@{/jdbc/injection/wizard}" th:object="${wizard}">
+            <form method="POST" th:action="@{/injection/1/wizard}" th:object="${wizard}">
                 <input name="id" th:field="*{id}" type="hidden">
                 <label for="first-name">First name :</label>
                 <input id="first-name" name="firstName" placeholder="Harry" th:field="*{firstName}" type="text" required>
