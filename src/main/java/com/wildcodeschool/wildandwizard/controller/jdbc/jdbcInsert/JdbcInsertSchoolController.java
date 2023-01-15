@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 /* Quest : JDBC Insert */
 @Controller
 public class JdbcInsertSchoolController {
-    private JdbcInsertSchoolRepository repository = new JdbcInsertSchoolRepository();
+    private JdbcInsertSchoolRepository schoolRepository = new JdbcInsertSchoolRepository();
 
     @GetMapping("/jdbc/insert/school")
     public String createForm() {
@@ -19,7 +19,7 @@ public class JdbcInsertSchoolController {
 
     @PostMapping("/jdbc/insert/school")
     public String insert(Model model, @RequestParam String name, @RequestParam Long capacity, @RequestParam String country) {
-        model.addAttribute("school", repository.save(name, capacity, country));
+        model.addAttribute("school", schoolRepository.save(name, capacity, country));
         return "/jdbc/jdbcInsert/schoolInsertResult";
     }
 }

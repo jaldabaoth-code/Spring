@@ -12,11 +12,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 /* Quest : JDBC Introduction */
 @Controller
 public class JdbcIntroductionPersonController {
-    private JdbcIntroductionPersonRepository repository = new JdbcIntroductionPersonRepository();
+    private JdbcIntroductionPersonRepository personRepository = new JdbcIntroductionPersonRepository();
 
     @GetMapping("/jdbc/introduction/persons")
     public String getAll(Model model) {
-        model.addAttribute("persons", repository.findAll());
+        model.addAttribute("persons", personRepository.findAll());
         return "/jdbc/jdbcIntroduction/persons";
     }
 
@@ -24,7 +24,7 @@ public class JdbcIntroductionPersonController {
     public String getById(Model model, @RequestParam(required = false) Long id) {
         Person person = new Person();
         if (id != null) {
-            person = repository.findById(id);
+            person = personRepository.findById(id);
         }
         model.addAttribute("person", person);
         return "/jdbc/jdbcIntroduction/person";
@@ -33,16 +33,16 @@ public class JdbcIntroductionPersonController {
     @PostMapping("/jdbc/introduction/person")
     public String save(@ModelAttribute Person person) {
         if (person.getId() != null) {
-            repository.update(person);
+            personRepository.update(person);
         } else {
-            repository.save(person);
+            personRepository.save(person);
         }
         return "redirect:/jdbc/introduction/persons";
     }
 
     @GetMapping("/jdbc/introduction/person/delete")
     public String delete(@RequestParam Long id) {
-        repository.deleteById(id);
+        personRepository.deleteById(id);
         return "redirect:/jdbc/introduction/persons";
     }
 }

@@ -11,7 +11,7 @@ import java.sql.Date;
 /* Quest : JDBC Insert */
 @Controller
 public class JdbcInsertWizardController {
-    private JdbcInsertWizardRepository repository = new JdbcInsertWizardRepository();
+    private JdbcInsertWizardRepository wizardRepository = new JdbcInsertWizardRepository();
 
     @GetMapping("/jdbc/insert/wizard")
     public String createForm() {
@@ -24,7 +24,7 @@ public class JdbcInsertWizardController {
                                 @RequestParam(required = false, defaultValue = "") String biography,
                                 @RequestParam(required = false, defaultValue = "false") boolean muggle
     ) {
-        model.addAttribute("wizard", repository.save(firstName, lastName, birthday, birthPlace, biography, muggle));
+        model.addAttribute("wizard", wizardRepository.save(firstName, lastName, birthday, birthPlace, biography, muggle));
         return "/jdbc/jdbcInsert/wizardInsertResult";
     }
 }

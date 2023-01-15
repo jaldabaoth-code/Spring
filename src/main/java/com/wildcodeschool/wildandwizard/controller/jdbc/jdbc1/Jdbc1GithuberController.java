@@ -12,11 +12,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 /* Quest : JDBC 1 */
 @Controller
 public class Jdbc1GithuberController {
-    private Jdbc1GithuberRepository repository = new Jdbc1GithuberRepository();
+    private Jdbc1GithuberRepository githuberRepository = new Jdbc1GithuberRepository();
 
     @GetMapping("/jdbc/1/githubers")
     public String getAll(Model model) {
-        model.addAttribute("githubers", repository.findAll());
+        model.addAttribute("githubers", githuberRepository.findAll());
         return "/jdbc/jdbc1/githubers";
     }
 
@@ -24,7 +24,7 @@ public class Jdbc1GithuberController {
     public String getById(Model model, @RequestParam(required = false) Long id) {
         Githuber githuber = new Githuber();
         if (id != null) {
-            githuber = repository.findById(id);
+            githuber = githuberRepository.findById(id);
         }
         model.addAttribute("githuber", githuber);
         return "/jdbc/jdbc1/githuber";
@@ -33,16 +33,16 @@ public class Jdbc1GithuberController {
     @PostMapping("/jdbc/1/githuber")
     public String save(@ModelAttribute Githuber githuber) {
         if (githuber.getId() != null) {
-            repository.update(githuber);
+            githuberRepository.update(githuber);
         } else {
-            repository.save(githuber);
+            githuberRepository.save(githuber);
         }
         return "redirect:/jdbc/1/githubers";
     }
 
     @GetMapping("/jdbc/1/githuber/delete")
     public String delete(@RequestParam Long id) {
-        repository.deleteById(id);
+        githuberRepository.deleteById(id);
         return "redirect:/jdbc/1/githubers";
     }
 }
