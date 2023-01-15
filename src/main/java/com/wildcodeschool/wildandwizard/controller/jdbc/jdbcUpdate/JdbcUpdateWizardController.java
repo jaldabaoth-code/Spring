@@ -31,7 +31,6 @@ public class JdbcUpdateWizardController {
                             @RequestParam(required = false, defaultValue = "") String biography,
                             @RequestParam(required = false, defaultValue = "false") boolean muggle
     ) {
-        System.out.println(id);
         model.addAttribute("wizard", wizardRepository.update(id, firstName, lastName, birthday, birthPlace, biography, muggle));
         return "/jdbc/jdbcUpdate/wizardUpdateResult";
     }

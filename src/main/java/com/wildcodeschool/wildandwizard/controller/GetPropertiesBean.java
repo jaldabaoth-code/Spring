@@ -1,6 +1,7 @@
 package com.wildcodeschool.wildandwizard.controller;
 
 import com.wildcodeschool.wildandwizard.repository.jdbc.jdbc1.Jdbc1GithuberRepository;
+import com.wildcodeschool.wildandwizard.repository.jdbc.jdbcInsert.JdbcInsertSchoolRepository;
 import com.wildcodeschool.wildandwizard.repository.jdbc.jdbcInsert.JdbcInsertWizardRepository;
 import com.wildcodeschool.wildandwizard.repository.jdbc.jdbcIntroduction.JdbcIntroductionPersonRepository;
 import com.wildcodeschool.wildandwizard.repository.jdbc.jdbcUpdate.JdbcUpdateSchoolRepository;
@@ -27,7 +28,7 @@ public class GetPropertiesBean {
         new JdbcUpdateSchoolRepository().getDataParameters(databaseUrl, databaseUsername, databasePassword);
         new JdbcUpdateWizardRepository().getDataParameters(databaseUrl, databaseUsername, databasePassword);
         // Quest JDBC insert
-        new JdbcInsertWizardRepository().getDataParameters(databaseUrl, databaseUsername, databasePassword);
+        new JdbcInsertSchoolRepository().getDataParameters(databaseUrl, databaseUsername, databasePassword);
         new JdbcInsertWizardRepository().getDataParameters(databaseUrl, databaseUsername, databasePassword);
     }
 }

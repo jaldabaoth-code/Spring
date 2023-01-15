@@ -23,7 +23,7 @@ public class JdbcInsertWizardRepository {
         try {
             connection = DriverManager.getConnection(databaseUrl, databaseUsername, databasePassword);
             statement = connection.prepareStatement(
-                    "INSERT INTO wizard (first_name, last_name, birthday, birth_place, biography, is_muggle) VALUES (?, ?, ?, ?, ?, ?)",
+                    "INSERT INTO wizard (first_name, last_name, birthday, birth_place, biography, muggle) VALUES (?, ?, ?, ?, ?, ?)",
                     Statement.RETURN_GENERATED_KEYS
             );
             statement.setString(1, firstName);
@@ -36,7 +36,6 @@ public class JdbcInsertWizardRepository {
                 throw new SQLException("failed to insert data");
             }
             generatedKeys = statement.getGeneratedKeys();
-
             if (generatedKeys.next()) {
                 Long id = generatedKeys.getLong(1);
                 return new Wizard(id, firstName, lastName, birthday,

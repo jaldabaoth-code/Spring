@@ -10,9 +10,4 @@ public class JdbcInsertController {
     public String index() {
         return "/jdbc/jdbcInsert/index";
     }
-
-    @GetMapping("/jdbc/insert/school")
-    public String index2() {
-        return "/jdbc/jdbcInsert/school";
-    }
 }
