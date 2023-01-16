@@ -1,5 +1,6 @@
 package com.wildcodeschool.wildandwizard.model.root.root2;
 
+/* Quest : Root 2 */
 public class Root2Doctor {
     private int number;
     private String name;

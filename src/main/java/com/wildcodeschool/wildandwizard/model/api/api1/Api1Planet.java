@@ -2,6 +2,7 @@ package com.wildcodeschool.wildandwizard.model.api.api1;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+/* Quest : API 1 */
 public class Api1Planet {
     private String name;
     @JsonProperty("rotation_period")

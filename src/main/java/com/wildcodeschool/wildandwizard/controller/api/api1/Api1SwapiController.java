@@ -13,7 +13,7 @@ import reactor.core.publisher.Mono;
 
 /* Quest : API 1 */
 @Controller
-public class ApiSwapiController {
+public class Api1SwapiController {
     private static final String SWAPI_URL = "https://swapi.dev";
 
     @GetMapping("/api/1/star-wars")

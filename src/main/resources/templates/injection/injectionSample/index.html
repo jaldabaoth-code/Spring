@@ -3,18 +3,19 @@
     <head>
         <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
         <link rel="stylesheet" th:href="@{/css/style.css}">
+        <link rel="stylesheet" th:href="@{/css/injection/injectionSample.css}">
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-        <title>Injection</title>
+        <title>Injection Sample</title>
     </head>
     <body>
         <header th:replace="header :: top">Your header/navbar here</header>
-        <h1>Spring Quests : Injection</h1>
-        <h2>Quests List</h2>
-        <div class="quests-links-container">
-            <div class="quests-links">
-                <h3><a class="quest-link" href="/injection/1">Injection 1</a></h3>
-                <h3><a class="quest-link" href="/injection/sample">Injection Sample</a></h3>
-            </div>
+        <h1>Spring Quest : Injection Sample</h1>
+        <h2>Injection Sample</h2>
+        <div class="container">
+            <ul>
+                <li><a href="/injection/sample/article-review">Article Review</a></li>
+                <li><a href="/injection/sample/video-review">Video Review</a></li>
+            </ul>
         </div>
     </body>
     <footer th:replace="footer :: bottom">Your footer here</footer>
