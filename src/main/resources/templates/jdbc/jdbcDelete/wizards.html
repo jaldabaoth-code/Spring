@@ -1,23 +1,43 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="https://www.thymeleaf.org/">
-<head>
-    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
-    <link rel="stylesheet" th:href="@{/css/style.css}">
-    <link rel="stylesheet" th:href="@{/css/jdbc/jdbcDelete.css}">
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-    <title>JDBC Delete</title>
-</head>
-<body>
-<ul th:each="wizard : ${wizards}">
-    <li th:text="|Id: ${wizard.id}|"></li>
-    <li th:text="|First name: ${wizard.firstName}|"></li>
-    <li th:text="|Last name: ${wizard.lastName}|"></li>
-    <li th:text="|Birthday: ${wizard.birthday}|"></li>
-    <li th:text="|Birth place: ${wizard.birthPlace}|"></li>
-    <li th:text="|Biography: ${wizard.biography}|"></li>
-    <li th:text="|Is Muggle: ${wizard.muggle}|"></li>
-    <td><a th:href="@{/jdbc/delete/wizard(id=${wizard.id})}">Delete</a></td>
-</ul>
-<a href="/">Go back</a>
-</body>
+    <head>
+        <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+        <link rel="stylesheet" th:href="@{/css/style.css}">
+        <link rel="stylesheet" th:href="@{/css/jdbc/jdbcDelete.css}">
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+        <title>JDBC Delete</title>
+    </head>
+    <body>
+        <header th:replace="header :: top">Your header/navbar here</header>
+        <h1>Spring Quest : JDBC</h1>
+        <h2>JDBC Delete</h2>
+        <div class="container">
+            <h3>All Wizards</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>First name</th>
+                        <th>Last name</th>
+                        <th>Birthday</th>
+                        <th>Birth place</th>
+                        <th>Biography</th>
+                        <th>Muggle</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="wizard : ${wizards}">
+                        <td th:text="${wizard.id}"></td>
+                        <td th:text="${wizard.firstName}"></td>
+                        <td th:text="${wizard.lastName}"></td>
+                        <td th:text="${wizard.birthday}"></td>
+                        <td th:text="${wizard.birthPlace}"></td>
+                        <td th:text="${wizard.biography}"></td>
+                        <td th:text="${wizard.muggle}"></td>
+                        <td><a th:href="@{/jdbc/delete/wizard/delete(id=${wizard.id})}">Delete</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </body>
 </html>

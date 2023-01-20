@@ -18,26 +18,6 @@ public class JdbcDeleteSchoolRepository {
         this.databasePassword = databasePassword;
     }
 
-    public void deleteById(Long id) {
-        Connection connection = null;
-        PreparedStatement statement = null;
-        ResultSet resultSet = null;
-        try {
-            connection = DriverManager.getConnection(databaseUrl, databaseUsername, databasePassword);
-            statement = connection.prepareStatement("DELETE FROM school WHERE id=?");
-            statement.setLong(1, id);
-            if (statement.executeUpdate() != 1) {
-                throw new SQLException("failed to delete data");
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            JdbcDeleteUtils.closeResultSet(resultSet);
-            JdbcDeleteUtils.closeStatement(statement);
-            JdbcDeleteUtils.closeConnection(connection);
-        }
-    }
-
     public List<School> findAll() {
         Connection connection = null;
         PreparedStatement statement = null;
@@ -63,5 +43,23 @@ public class JdbcDeleteSchoolRepository {
             JdbcDeleteUtils.closeConnection(connection);
         }
         return null;
+    }
+
+    public void delete(Long id) {
+        Connection connection = null;
+        PreparedStatement statement = null;
+        try {
+            connection = DriverManager.getConnection(databaseUrl, databaseUsername, databasePassword);
+            statement = connection.prepareStatement("DELETE FROM school WHERE id=?");
+            statement.setLong(1, id);
+            if (statement.executeUpdate() != 1) {
+                throw new SQLException("failed to delete data");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            JdbcDeleteUtils.closeStatement(statement);
+            JdbcDeleteUtils.closeConnection(connection);
+        }
     }
 }

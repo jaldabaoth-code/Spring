@@ -11,15 +11,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class JdbcDeleteWizardController {
     private JdbcDeleteWizardRepository wizardRepository = new JdbcDeleteWizardRepository();
 
-    @GetMapping("/jdbc/delete/wizard/delete")
-    public String delete(@RequestParam Long id) {
-        wizardRepository.deleteById(id);
-        return "redirect:/jdbc/delete/wizards";
-    }
-
     @GetMapping("/jdbc/delete/wizards")
     public String getAll(Model model) {
         model.addAttribute("wizards", wizardRepository.findAll());
         return "/jdbc/jdbcDelete/wizards";
+    }
+
+    @GetMapping("/jdbc/delete/wizard/delete")
+    public String delete(@RequestParam Long id) {
+        wizardRepository.delete(id);
+        return "redirect:/jdbc/delete/wizards";
     }
 }

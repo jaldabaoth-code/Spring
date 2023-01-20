@@ -7,30 +7,30 @@ import java.sql.Statement;
 
 /* Quest : JDBC Delete */
 public class JdbcDeleteUtils {
-	public static void closeConnection(Connection con) {
-		if (con != null) {
+	public static void closeConnection(Connection connection) {
+		if (connection != null) {
 			try {
-				con.close();
+				connection.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
 		}
 	}
 
-	public static void closeResultSet(ResultSet rs) {
-		if (rs != null) {
+	public static void closeResultSet(ResultSet resultSet) {
+		if (resultSet != null) {
 			try {
-				rs.close();
+				resultSet.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
 		}
 	}
 
-	public static void closeStatement(Statement stmt) {
-		if (stmt != null) {
+	public static void closeStatement(Statement statement) {
+		if (statement != null) {
 			try {
-				stmt.close();
+				statement.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}

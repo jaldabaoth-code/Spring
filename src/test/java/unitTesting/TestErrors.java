@@ -5,7 +5,7 @@ import com.wildcodeschool.wildandwizard.unitTesting.StringUtils;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-/* Quests : Unit Testing */
+/* Quest : Unit Testing */
 public class TestErrors {
 	@Test
 	public void testNonPassant() {

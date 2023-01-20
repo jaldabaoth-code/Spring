@@ -18,26 +18,6 @@ public class JdbcDeleteWizardRepository {
         this.databasePassword = databasePassword;
     }
 
-    public void deleteById(Long id) {
-        Connection connection = null;
-        PreparedStatement statement = null;
-        ResultSet resultSet = null;
-        try {
-            connection = DriverManager.getConnection(databaseUrl, databaseUsername, databasePassword);
-            statement = connection.prepareStatement("DELETE FROM wizard WHERE id=?");
-            statement.setLong(1, id);
-            if (statement.executeUpdate() != 1) {
-                throw new SQLException("failed to delete data");
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            JdbcDeleteUtils.closeResultSet(resultSet);
-            JdbcDeleteUtils.closeStatement(statement);
-            JdbcDeleteUtils.closeConnection(connection);
-        }
-    }
-
     public List<Wizard> findAll() {
         Connection connection = null;
         PreparedStatement statement = null;
@@ -54,7 +34,7 @@ public class JdbcDeleteWizardRepository {
                 Date birthday = resultSet.getDate("birthday");
                 String birthPlace = resultSet.getString("birth_place");
                 String biography = resultSet.getString("biography");
-                boolean muggle = resultSet.getBoolean("is_muggle");
+                boolean muggle = resultSet.getBoolean("muggle");
                 wizards.add(new Wizard(id, firstName, lastName, birthday, birthPlace, biography, muggle));
             }
             return wizards;
@@ -66,5 +46,23 @@ public class JdbcDeleteWizardRepository {
             JdbcDeleteUtils.closeConnection(connection);
         }
         return null;
+    }
+
+    public void delete(Long id) {
+        Connection connection = null;
+        PreparedStatement statement = null;
+        try {
+            connection = DriverManager.getConnection(databaseUrl, databaseUsername, databasePassword);
+            statement = connection.prepareStatement("DELETE FROM wizard WHERE id=?");
+            statement.setLong(1, id);
+            if (statement.executeUpdate() != 1) {
+                throw new SQLException("failed to delete data");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            JdbcDeleteUtils.closeStatement(statement);
+            JdbcDeleteUtils.closeConnection(connection);
+        }
     }
 }

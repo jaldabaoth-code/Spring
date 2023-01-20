@@ -1,6 +1,6 @@
 package com.wildcodeschool.wildandwizard.unitTesting;
 
-/* Quests : Unit Testing */
+/* Quest : Unit Testing */
 public class StringUtils {
     private static final String ALL_VOWELS = "aeiouyAEIOUY";
 
