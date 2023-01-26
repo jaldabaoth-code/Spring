@@ -1,35 +1,32 @@
 package com.wildcodeschool.wildandwizard.repository.jdbc.jdbcSelect;
 
 import com.wildcodeschool.wildandwizard.entity.School;
-import com.wildcodeschool.wildandwizard.util.JdbcUtils;
-
+import org.springframework.jdbc.support.JdbcUtils;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SchoolRepository {
+/* Quest : JDBC Select */
+public class JdbcSelectSchoolRepository {
+    private static String databaseUrl;
+    private static String databaseUsername;
+    private static String databasePassword;
 
-    private final static String DB_URL = "jdbc:mysql://localhost:3306/spring_jdbc_quest?serverTimezone=GMT";
-    private final static String DB_USER = "h4rryp0tt3r";
-    private final static String DB_PASSWORD = "Horcrux4life!";
+    public void getDataParameters(String databaseUrl, String databaseUsername, String databasePassword) {
+        this.databaseUrl = databaseUrl;
+        this.databaseUsername = databaseUsername;
+        this.databasePassword = databasePassword;
+    }
 
     public List<School> findAll() {
-
-        // TODO : find all schools
         Connection connection = null;
         PreparedStatement statement = null;
         ResultSet resultSet = null;
         try {
-            connection = DriverManager.getConnection(
-                    DB_URL, DB_USER, DB_PASSWORD
-            );
-            statement = connection.prepareStatement(
-                    "SELECT * FROM school;"
-            );
+            connection = DriverManager.getConnection(databaseUrl, databaseUsername, databasePassword);
+            statement = connection.prepareStatement("SELECT * FROM school;");
             resultSet = statement.executeQuery();
-
             List<School> schools = new ArrayList<>();
-
             while (resultSet.next()) {
                 Long id = resultSet.getLong("id");
                 String name = resultSet.getString("name");
@@ -49,22 +46,14 @@ public class SchoolRepository {
     }
 
     public School findById(Long id) {
-
-        // TODO : find a school by id
-
         Connection connection = null;
         PreparedStatement statement = null;
         ResultSet resultSet = null;
         try {
-            connection = DriverManager.getConnection(
-                    DB_URL, DB_USER, DB_PASSWORD
-            );
-            statement = connection.prepareStatement(
-                    "SELECT * FROM school WHERE id = ?;"
-            );
+            connection = DriverManager.getConnection(databaseUrl, databaseUsername, databasePassword);
+            statement = connection.prepareStatement("SELECT * FROM school WHERE id = ?;");
             statement.setLong(1, id);
             resultSet = statement.executeQuery();
-
             if (resultSet.next()) {
                 String name = resultSet.getString("name");
                 Long capacity = resultSet.getLong("capacity");
@@ -82,23 +71,15 @@ public class SchoolRepository {
     }
 
     public List<School> findByCountry(String country) {
-
-        // TODO : search schools by country
         Connection connection = null;
         PreparedStatement statement = null;
         ResultSet resultSet = null;
         try {
-            connection = DriverManager.getConnection(
-                    DB_URL, DB_USER, DB_PASSWORD
-            );
-            statement = connection.prepareStatement(
-                    "SELECT * FROM school WHERE country LIKE ?;"
-            );
+            connection = DriverManager.getConnection(databaseUrl, databaseUsername, databasePassword);
+            statement = connection.prepareStatement("SELECT * FROM school WHERE country LIKE ?;");
             statement.setString(1, country);
             resultSet = statement.executeQuery();
-
             List<School> schools = new ArrayList<>();
-
             while (resultSet.next()) {
                 Long id = resultSet.getLong("id");
                 String name = resultSet.getString("name");

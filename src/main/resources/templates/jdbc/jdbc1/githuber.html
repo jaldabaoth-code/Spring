@@ -12,7 +12,7 @@
         <h1>Spring Quest : JDBC</h1>
         <h2>JDBC 1</h2>
         <div class="container">
-            <h3 th:text="${githuber.id} ? 'Edit Githuber' : 'Create Githuber'">Githuber</h3>
+            <h3 th:text="${githuber.id} ? 'Edit Githuber' : 'Create Githuber'"></h3>
             <form method="POST" th:action="@{/jdbc/1/githuber}" th:object="${githuber}">
                 <input name="id" th:field="*{id}" type="hidden">
                 <label for="githubId">Github Id:</label>

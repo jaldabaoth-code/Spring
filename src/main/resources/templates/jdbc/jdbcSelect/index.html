@@ -1,42 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Wild And Wizard</title>
-</head>
-<body>
-<h1>Wild And Wizard</h1>
-<section>
-    <h3>Search Wizards:</h3>
-    <a href="/wizards">Browse all wizards</a>
-    <br><br>
-    <form action="/wizard" method="get">
-        <label>Search by id:</label>
-        <input name="id" placeholder="1" required type="text">
-        <input type="submit" value="Send">
-    </form>
-    <br>
-    <form action="/wizards/search" method="get">
-        <label>Search by last name:</label>
-        <input name="lastName" placeholder="Weasley" required type="text">
-        <input type="submit" value="Send">
-    </form>
-</section>
-<section>
-    <h3>Search School:</h3>
-    <a href="/schools">Browse all schools</a>
-    <br><br>
-    <form action="/school" method="get">
-        <label>Search by id:</label>
-        <input name="id" placeholder="1" required type="text">
-        <input type="submit" value="Send">
-    </form>
-    <br>
-    <form action="/schools/search" method="get">
-        <label>Search by country:</label>
-        <input name="country" placeholder="USA" required type="text">
-        <input type="submit" value="Send">
-    </form>
-</section>
-</body>
+    <html lang="en" xmlns:th="https://www.thymeleaf.org">
+    <head>
+        <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+        <link rel="stylesheet" th:href="@{/css/style.css}">
+        <link rel="stylesheet" th:href="@{/css/jdbc/jdbcSelect.css}">
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+        <title>JDBC Select</title>
+    </head>
+    <body>
+        <header th:replace="header :: top">Your header/navbar here</header>
+        <h1>Spring Quest : JDBC</h1>
+        <h2>JDBC Select</h2>
+        <div class="container">
+            <ul>
+                <li><a href="/jdbc/select/schools">Show All Schools</a></li>
+                <li><a href="/jdbc/select/wizards">Show All Wizards</a></li>
+            </ul>
+        </div>
+    </body>
+    <footer th:replace="footer :: bottom">Your footer here</footer>
 </html>

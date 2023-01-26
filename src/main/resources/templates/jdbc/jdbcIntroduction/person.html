@@ -12,7 +12,7 @@
         <h1>Spring Quest : JDBC</h1>
         <h2>JDBC Introduction</h2>
         <div class="container">
-            <h3 th:text="${person.id} ? 'Edit Person' : 'Create Person'">Person</h3>
+            <h3 th:text="${person.id} ? 'Edit Person' : 'Create Person'"></h3>
             <form method="POST" th:action="@{/jdbc/introduction/person}" th:object="${person}">
                 <input name="id" th:field="*{id}" type="hidden">
                 <label for="firstName">First Name :</label>

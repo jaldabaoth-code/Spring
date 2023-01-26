@@ -1,34 +1,32 @@
 package com.wildcodeschool.wildandwizard.repository.jdbc.jdbcSelect;
 
 import com.wildcodeschool.wildandwizard.entity.Wizard;
-import com.wildcodeschool.wildandwizard.util.JdbcUtils;
-
+import org.springframework.jdbc.support.JdbcUtils;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class WizardRepository {
+/* Quest : JDBC Select */
+public class JdbcSelectWizardRepository {
+    private static String databaseUrl;
+    private static String databaseUsername;
+    private static String databasePassword;
 
-    private final static String DB_URL = "jdbc:mysql://localhost:3306/spring_jdbc_quest?serverTimezone=GMT";
-    private final static String DB_USER = "h4rryp0tt3r";
-    private final static String DB_PASSWORD = "Horcrux4life!";
+    public void getDataParameters(String databaseUrl, String databaseUsername, String databasePassword) {
+        this.databaseUrl = databaseUrl;
+        this.databaseUsername = databaseUsername;
+        this.databasePassword = databasePassword;
+    }
 
     public List<Wizard> findAll() {
-
         Connection connection = null;
         PreparedStatement statement = null;
         ResultSet resultSet = null;
         try {
-            connection = DriverManager.getConnection(
-                    DB_URL, DB_USER, DB_PASSWORD
-            );
-            statement = connection.prepareStatement(
-                    "SELECT * FROM wizard;"
-            );
+            connection = DriverManager.getConnection(databaseUrl, databaseUsername, databasePassword);
+            statement = connection.prepareStatement("SELECT * FROM wizard;");
             resultSet = statement.executeQuery();
-
             List<Wizard> wizards = new ArrayList<>();
-
             while (resultSet.next()) {
                 Long id = resultSet.getLong("id");
                 String firstName = resultSet.getString("first_name");
@@ -51,20 +49,14 @@ public class WizardRepository {
     }
 
     public Wizard findById(Long id) {
-
         Connection connection = null;
         PreparedStatement statement = null;
         ResultSet resultSet = null;
         try {
-            connection = DriverManager.getConnection(
-                    DB_URL, DB_USER, DB_PASSWORD
-            );
-            statement = connection.prepareStatement(
-                    "SELECT * FROM wizard WHERE id = ?;"
-            );
+            connection = DriverManager.getConnection(databaseUrl, databaseUsername, databasePassword);
+            statement = connection.prepareStatement("SELECT * FROM wizard WHERE id = ?;");
             statement.setLong(1, id);
             resultSet = statement.executeQuery();
-
             if (resultSet.next()) {
                 String firstName = resultSet.getString("first_name");
                 String lastName = resultSet.getString("last_name");
@@ -85,22 +77,15 @@ public class WizardRepository {
     }
 
     public List<Wizard> findByLastName(String lastName) {
-
         Connection connection = null;
         PreparedStatement statement = null;
         ResultSet resultSet = null;
         try {
-            connection = DriverManager.getConnection(
-                    DB_URL, DB_USER, DB_PASSWORD
-            );
-            statement = connection.prepareStatement(
-                    "SELECT * FROM wizard WHERE last_name LIKE ?;"
-            );
+            connection = DriverManager.getConnection(databaseUrl, databaseUsername, databasePassword);
+            statement = connection.prepareStatement("SELECT * FROM wizard WHERE last_name LIKE ?;");
             statement.setString(1, lastName);
             resultSet = statement.executeQuery();
-
             List<Wizard> wizards = new ArrayList<>();
-
             while (resultSet.next()) {
                 Long id = resultSet.getLong("id");
                 String firstName = resultSet.getString("first_name");

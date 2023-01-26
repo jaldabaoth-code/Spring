@@ -1,0 +1,58 @@
+/* Quest : JDBC Select */
+.container {
+    margin-left: 20px;
+}
+
+.container ul {
+    list-style-type: none;
+}
+
+.container li a {
+    text-decoration: none;
+    color: #000000;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.container li a:hover {
+    text-decoration: underline;
+    color: #000000;
+}
+
+.container table {
+    border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.container td a {
+    text-decoration: none;
+    color: #000000;
+    font-size: 1.15em;
+    font-weight: bold;
+    display: flex;
+}
+
+.container td a:hover {
+    text-decoration: underline;
+    color: #000000;
+}
+
+.container td img {
+    width: 30px;
+}
+
+.container th {
+    background-color: #4caf50;
+    color: #ffffff;
+}
+
+.container tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.container th, td {
+    border-bottom: 1px solid #ddd;
+    padding: 10px 5px;
+    text-align: left;
+}

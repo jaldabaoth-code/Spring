@@ -6,6 +6,8 @@ import com.wildcodeschool.wildandwizard.repository.jdbc.jdbcDelete.JdbcDeleteWiz
 import com.wildcodeschool.wildandwizard.repository.jdbc.jdbcInsert.JdbcInsertSchoolRepository;
 import com.wildcodeschool.wildandwizard.repository.jdbc.jdbcInsert.JdbcInsertWizardRepository;
 import com.wildcodeschool.wildandwizard.repository.jdbc.jdbcIntroduction.JdbcIntroductionPersonRepository;
+import com.wildcodeschool.wildandwizard.repository.jdbc.jdbcSelect.JdbcSelectSchoolRepository;
+import com.wildcodeschool.wildandwizard.repository.jdbc.jdbcSelect.JdbcSelectWizardRepository;
 import com.wildcodeschool.wildandwizard.repository.jdbc.jdbcUpdate.JdbcUpdateSchoolRepository;
 import com.wildcodeschool.wildandwizard.repository.jdbc.jdbcUpdate.JdbcUpdateWizardRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,18 +24,21 @@ public class GetPropertiesBean {
                              @Value("${spring.datasource.username}") String databaseUsername,
                              @Value("${spring.datasource.password}") String databasePassword
     ) {
-        // Quest JDBC 1
+        // Quest : JDBC 1
         new Jdbc1GithuberRepository().getDataParameters(databaseUrl, databaseUsername, databasePassword);
-        // Quest JDBC Introduction
+        // Quest : JDBC Introduction
         new JdbcIntroductionPersonRepository().getDataParameters(databaseUrl, databaseUsername, databasePassword);
-        // Quest JDBC Update
+        // Quest : JDBC Update
         new JdbcUpdateSchoolRepository().getDataParameters(databaseUrl, databaseUsername, databasePassword);
         new JdbcUpdateWizardRepository().getDataParameters(databaseUrl, databaseUsername, databasePassword);
-        // Quest JDBC Insert
+        // Quest : JDBC Insert
         new JdbcInsertSchoolRepository().getDataParameters(databaseUrl, databaseUsername, databasePassword);
         new JdbcInsertWizardRepository().getDataParameters(databaseUrl, databaseUsername, databasePassword);
-        // Quest JDBC Delete
+        // Quest : JDBC Delete
         new JdbcDeleteSchoolRepository().getDataParameters(databaseUrl, databaseUsername, databasePassword);
         new JdbcDeleteWizardRepository().getDataParameters(databaseUrl, databaseUsername, databasePassword);
+        // Quest : JDBC Select
+        new JdbcSelectSchoolRepository().getDataParameters(databaseUrl, databaseUsername, databasePassword);
+        new JdbcSelectWizardRepository().getDataParameters(databaseUrl, databaseUsername, databasePassword);
     }
 }

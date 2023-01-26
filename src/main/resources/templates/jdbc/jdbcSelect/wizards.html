@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+    <head>
+        <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+        <link rel="stylesheet" th:href="@{/css/style.css}">
+        <link rel="stylesheet" th:href="@{/css/jdbc/jdbcSelect.css}">
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+        <title>JDBC Select</title>
+    </head>
+    <body>
+        <header th:replace="header :: top">Your header/navbar here</header>
+        <h1>Spring Quest : JDBC</h1>
+        <h2>JDBC Select</h2>
+        <div class="container">
+            <h3>All Wizards</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>First name</th>
+                        <th>Last name</th>
+                        <th>Birthday</th>
+                        <th>Birth place</th>
+                        <th>Biography</th>
+                        <th>Muggle</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="wizard : ${wizards}">
+                        <td th:text="${wizard.id}"></td>
+                        <td th:text="${wizard.firstName}"></td>
+                        <td th:text="${wizard.lastName}"></td>
+                        <td th:text="${wizard.birthday}"></td>
+                        <td th:text="${wizard.birthPlace}"></td>
+                        <td th:text="${wizard.biography}"></td>
+                        <td th:text="${wizard.muggle}"></td>
+                        <td><a th:href="@{/jdbc/select/wizard/select(id=${wizard.id})}">Select</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <section>
+            <h3>Search Wizards:</h3>
+            <form action="/jdbc/select//wizard" method="get">
+                <label>Search by id:</label>
+                <input name="id" placeholder="1" required type="text">
+                <input type="submit" value="Send">
+            </form>
+            <br>
+            <form action="/jdbc/select/wizards/search" method="get">
+                <label>Search by last name:</label>
+                <input name="lastName" placeholder="Weasley" required type="text">
+                <input type="submit" value="Send">
+            </form>
+        </section>
+    </body>
+</html>

@@ -12,7 +12,7 @@
         <h1>Spring Quest : JPA</h1>
         <h2>JPA 1</h2>
         <div class="container">
-            <h3 th:text="${school.id} ? 'Edit School' : 'Create School'">School</h3>
+            <h3 th:text="${school.id} ? 'Edit School' : 'Create School'"></h3>
             <form method="POST" th:action="@{/jpa/1/school}" th:object="${school}">
                 <input name="id" th:field="*{id}" type="hidden">
                 <label for="name">Name :</label>
