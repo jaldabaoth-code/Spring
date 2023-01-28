@@ -17,15 +17,15 @@ public class JdbcSelectWizardController {
         return "/jdbc/jdbcSelect/wizards";
     }
 
-    @GetMapping("/jdbc/select/wizard")
+    @GetMapping("/jdbc/select/wizard/id/search")
     public String getById(Model model, @RequestParam Long id) {
         model.addAttribute("wizard", wizardRepository.findById(id));
-        return "/jdbc/jdbcSelect/wizard";
+        return "/jdbc/jdbcSelect/wizardSearchByIdResult";
     }
 
-    @GetMapping("/jdbc/select/wizards/search")
+    @GetMapping("/jdbc/select/wizards/last-name/search")
     public String getByLastName(Model model, @RequestParam String lastName) {
         model.addAttribute("wizards", wizardRepository.findByLastName(lastName));
-        return "/jdbc/jdbcSelect/wizards";
+        return "/jdbc/jdbcSelect/wizardsSearchByLastNameResult";
     }
 }

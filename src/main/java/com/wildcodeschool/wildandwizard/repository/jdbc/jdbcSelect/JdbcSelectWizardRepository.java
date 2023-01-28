@@ -34,7 +34,7 @@ public class JdbcSelectWizardRepository {
                 Date birthday = resultSet.getDate("birthday");
                 String birthPlace = resultSet.getString("birth_place");
                 String biography = resultSet.getString("biography");
-                boolean muggle = resultSet.getBoolean("is_muggle");
+                boolean muggle = resultSet.getBoolean("muggle");
                 wizards.add(new Wizard(id, firstName, lastName, birthday, birthPlace, biography, muggle));
             }
             return wizards;
@@ -63,7 +63,7 @@ public class JdbcSelectWizardRepository {
                 Date birthday = resultSet.getDate("birthday");
                 String birthPlace = resultSet.getString("birth_place");
                 String biography = resultSet.getString("biography");
-                boolean muggle = resultSet.getBoolean("is_muggle");
+                boolean muggle = resultSet.getBoolean("muggle");
                 return new Wizard(id, firstName, lastName, birthday, birthPlace, biography, muggle);
             }
         } catch (SQLException e) {
@@ -92,7 +92,7 @@ public class JdbcSelectWizardRepository {
                 Date birthday = resultSet.getDate("birthday");
                 String birthPlace = resultSet.getString("birth_place");
                 String biography = resultSet.getString("biography");
-                boolean muggle = resultSet.getBoolean("is_muggle");
+                boolean muggle = resultSet.getBoolean("muggle");
                 wizards.add(new Wizard(id, firstName, lastName, birthday, birthPlace, biography, muggle));
             }
             return wizards;

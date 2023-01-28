@@ -12,7 +12,7 @@
         <h1>Spring Quest : JDBC</h1>
         <h2>JDBC Select</h2>
         <div class="container">
-            <h3>Selected Wizard</h3>
+            <h3>The Searched Wizards</h3>
             <table>
                 <thead>
                     <tr>
@@ -26,7 +26,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    <tr th:each="wizard : ${wizards}">
                         <td th:text="${wizard.id}"></td>
                         <td th:text="${wizard.firstName}"></td>
                         <td th:text="${wizard.lastName}"></td>
@@ -39,4 +39,5 @@
             </table>
         </div>
     </body>
+    <footer th:replace="footer :: bottom">Your footer here</footer>
 </html>

@@ -12,18 +12,7 @@
         <h1>Spring Quest : JDBC</h1>
         <h2>JDBC Select</h2>
         <div class="container">
-            <h3>Search School</h3>
-            <form action="/jdbc/select/school/id/search" method="get">
-                <label>Search School by Id</label>
-                <input name="id" placeholder="1" required type="text">
-                <input type="submit" value="Send">
-            </form>
-            <form action="/jdbc/select/schools/country/search" method="get">
-                <label>Search Schools by Country</label>
-                <input name="country" placeholder="France" type="text" required>
-                <input type="submit" value="Send">
-            </form>
-            <h3>All Schools</h3>
+            <h3>The Searched School</h3>
             <table>
                 <thead>
                     <tr>
@@ -34,7 +23,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr th:each="school : ${schools}">
+                    <tr>
                         <td th:text="${school.id}"></td>
                         <td th:text="${school.name}"></td>
                         <td th:text="${school.capacity}"></td>

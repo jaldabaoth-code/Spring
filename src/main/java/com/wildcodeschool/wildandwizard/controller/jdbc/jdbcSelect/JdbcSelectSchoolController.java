@@ -17,15 +17,15 @@ public class JdbcSelectSchoolController {
         return "/jdbc/jdbcSelect/schools";
     }
 
-    @GetMapping("/jdbc/select/school")
+    @GetMapping("/jdbc/select/school/id/search")
     public String getById(Model model, @RequestParam Long id) {
         model.addAttribute("school", schoolRepository.findById(id));
-        return "/jdbc/jdbcSelect/school";
+        return "/jdbc/jdbcSelect/schoolSearchByIdResult";
     }
 
-    @GetMapping("/jdbc/select/schools/search")
+    @GetMapping("/jdbc/select/schools/country/search")
     public String getByCountry(Model model, @RequestParam String country) {
         model.addAttribute("schools", schoolRepository.findByCountry(country));
-        return "/jdbc/jdbcSelect/schools";
+        return "/jdbc/jdbcSelect/schoolsSearchByCountryResult";
     }
 }

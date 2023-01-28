@@ -12,18 +12,7 @@
         <h1>Spring Quest : JDBC</h1>
         <h2>JDBC Select</h2>
         <div class="container">
-            <h3>Search Wizards</h3>
-            <form action="/jdbc/select/wizard/id/search" method="get">
-                <label>Search Wizard by Id</label>
-                <input name="id" placeholder="1" required type="text">
-                <input type="submit" value="Send">
-            </form>
-            <form action="/jdbc/select/wizards/last-name/search" method="get">
-                <label>Search Wizards by Last Name</label>
-                <input name="lastName" placeholder="Potter" type="text" required>
-                <input type="submit" value="Send">
-            </form>
-            <h3>All Wizards</h3>
+            <h3>The Searched Wizard</h3>
             <table>
                 <thead>
                     <tr>
@@ -37,7 +26,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr th:each="wizard : ${wizards}">
+                    <tr>
                         <td th:text="${wizard.id}"></td>
                         <td th:text="${wizard.firstName}"></td>
                         <td th:text="${wizard.lastName}"></td>

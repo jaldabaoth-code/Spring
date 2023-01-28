@@ -12,7 +12,7 @@
         <h1>Spring Quest : JDBC</h1>
         <h2>JDBC Select</h2>
         <div class="container">
-            <h3>Selected School</h3>
+            <h3>The Searched Schools</h3>
             <table>
                 <thead>
                     <tr>
@@ -23,7 +23,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    <tr th:each="school : ${schools}">
                         <td th:text="${school.id}"></td>
                         <td th:text="${school.name}"></td>
                         <td th:text="${school.capacity}"></td>
@@ -33,4 +33,5 @@
             </table>
         </div>
     </body>
+    <footer th:replace="footer :: bottom">Your footer here</footer>
 </html>
