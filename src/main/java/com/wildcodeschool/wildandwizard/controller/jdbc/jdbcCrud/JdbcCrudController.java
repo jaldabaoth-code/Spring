@@ -8,6 +8,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class JdbcCrudController {
     @GetMapping("/jdbc/crud")
     public String index() {
-        return "/jdbc/jdbcCrud/index";
+        return "index2";
     }
 }
