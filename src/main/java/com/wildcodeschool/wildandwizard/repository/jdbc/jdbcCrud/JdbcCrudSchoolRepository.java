@@ -1,7 +1,7 @@
 package com.wildcodeschool.wildandwizard.repository.jdbc.jdbcCrud;
 
 import com.wildcodeschool.wildandwizard.entity.School;
-import com.wildcodeschool.wildandwizard.util.JdbcUtils;
+import com.wildcodeschool.wildandwizard.util.jdbc.jdbcCrud.JdbcCrudUtils;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -47,9 +47,9 @@ public class JdbcCrudSchoolRepository implements JdbcCrudCrudDao<School> {
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            JdbcUtils.closeResultSet(generatedKeys);
-            JdbcUtils.closeStatement(statement);
-            JdbcUtils.closeConnection(connection);
+            JdbcCrudUtils.closeResultSet(generatedKeys);
+            JdbcCrudUtils.closeStatement(statement);
+            JdbcCrudUtils.closeConnection(connection);
         }
         return null;
     }
@@ -79,9 +79,9 @@ public class JdbcCrudSchoolRepository implements JdbcCrudCrudDao<School> {
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            JdbcUtils.closeResultSet(resultSet);
-            JdbcUtils.closeStatement(statement);
-            JdbcUtils.closeConnection(connection);
+            JdbcCrudUtils.closeResultSet(resultSet);
+            JdbcCrudUtils.closeStatement(statement);
+            JdbcCrudUtils.closeConnection(connection);
         }
         return null;
     }
@@ -114,9 +114,9 @@ public class JdbcCrudSchoolRepository implements JdbcCrudCrudDao<School> {
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            JdbcUtils.closeResultSet(resultSet);
-            JdbcUtils.closeStatement(statement);
-            JdbcUtils.closeConnection(connection);
+            JdbcCrudUtils.closeResultSet(resultSet);
+            JdbcCrudUtils.closeStatement(statement);
+            JdbcCrudUtils.closeConnection(connection);
         }
         return null;
     }
@@ -145,8 +145,8 @@ public class JdbcCrudSchoolRepository implements JdbcCrudCrudDao<School> {
             e.printStackTrace();
         }
         finally {
-            JdbcUtils.closeStatement(statement);
-            JdbcUtils.closeConnection(connection);
+            JdbcCrudUtils.closeStatement(statement);
+            JdbcCrudUtils.closeConnection(connection);
         }
         return null;
     }
@@ -171,8 +171,8 @@ public class JdbcCrudSchoolRepository implements JdbcCrudCrudDao<School> {
             e.printStackTrace();
         }
         finally {
-            JdbcUtils.closeStatement(statement);
-            JdbcUtils.closeConnection(connection);
+            JdbcCrudUtils.closeStatement(statement);
+            JdbcCrudUtils.closeConnection(connection);
         }
     }
 }
