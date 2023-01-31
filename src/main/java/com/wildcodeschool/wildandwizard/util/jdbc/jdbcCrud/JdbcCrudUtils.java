@@ -11,7 +11,7 @@ import java.sql.Statement;
  * https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/jdbc/support/JdbcUtils.html
  * https://www.selikoff.net/2008/07/30/finally-closing-jdbc-resources/
  */
-public class JdbcUtils {
+public class JdbcCrudUtils {
 
 	public static void closeConnection(Connection con) {
 		if (con != null) {

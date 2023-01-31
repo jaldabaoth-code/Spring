@@ -2,7 +2,7 @@ package com.wildcodeschool.wildandwizard.repository.jdbc.jdbcCrud;
 
 import java.util.List;
 
-public interface CrudDao<T> {
+public interface JdbcCrudCrudDao<T> {
 
     T save(T entity);
 

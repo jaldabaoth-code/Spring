@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-public class WizardController {
+public class JdbcCrudWizardController {
 
     private WizardRepository repository = new WizardRepository();
 

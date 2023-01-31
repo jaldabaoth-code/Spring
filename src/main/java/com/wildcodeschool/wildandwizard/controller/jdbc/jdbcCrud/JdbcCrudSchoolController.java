@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-public class SchoolController {
+public class JdbcCrudSchoolController {
 
     private SchoolRepository repository = new SchoolRepository();
 

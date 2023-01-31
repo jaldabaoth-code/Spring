@@ -7,7 +7,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SchoolRepository implements CrudDao<School> {
+public class JdbcCrudSchoolRepository implements JdbcCrudCrudDao<School> {
 
     private final static String DB_URL = "jdbc:mysql://localhost:3306/spring_jdbc_quest?serverTimezone=GMT";
     private final static String DB_USER = "h4rryp0tt3r";
