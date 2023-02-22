@@ -1,17 +1,23 @@
 package com.wildcodeschool.wildandwizard.repository.jdbc.jdbcCrud;
 
 import com.wildcodeschool.wildandwizard.entity.Wizard;
-import com.wildcodeschool.wildandwizard.util.JdbcUtils;
-
+import com.wildcodeschool.wildandwizard.util.jdbc.jdbcCrud.JdbcCrudUtils;
+import org.springframework.jdbc.support.JdbcUtils;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class JdbcCrudWizardRepository implements JdbcCrudCrudDao<Wizard> {
 
-    private final static String DB_URL = "jdbc:mysql://localhost:3306/spring_jdbc_quest?serverTimezone=GMT";
-    private final static String DB_USER = "h4rryp0tt3r";
-    private final static String DB_PASSWORD = "Horcrux4life!";
+    private static String databaseUrl;
+    private static String databaseUsername;
+    private static String databasePassword;
+
+    public void getDataParameters(String databaseUrl, String databaseUsername, String databasePassword) {
+        this.databaseUrl = databaseUrl;
+        this.databaseUsername = databaseUsername;
+        this.databasePassword = databasePassword;
+    }
 
     @Override
     public Wizard save(Wizard wizard) {
@@ -20,9 +26,7 @@ public class JdbcCrudWizardRepository implements JdbcCrudCrudDao<Wizard> {
 		PreparedStatement statement = null;
 		ResultSet generatedKeys = null;
         try {
-            connection = DriverManager.getConnection(
-            		DB_URL, DB_USER, DB_PASSWORD
-            );
+            connection = DriverManager.getConnection(databaseUrl, databaseUsername, databasePassword);
             statement = connection.prepareStatement(
             		"INSERT INTO wizard (first_name, last_name, birthday, birth_place, biography, is_muggle) VALUES (?, ?, ?, ?, ?, ?)",
             		Statement.RETURN_GENERATED_KEYS
@@ -64,9 +68,7 @@ public class JdbcCrudWizardRepository implements JdbcCrudCrudDao<Wizard> {
 		PreparedStatement statement = null;
 		ResultSet resultSet = null;
         try {
-            connection = DriverManager.getConnection(
-                    DB_URL, DB_USER, DB_PASSWORD
-            );
+            connection = DriverManager.getConnection(databaseUrl, databaseUsername, databasePassword);
             statement = connection.prepareStatement(
                     "SELECT * FROM wizard WHERE id = ?;"
             );
@@ -99,9 +101,7 @@ public class JdbcCrudWizardRepository implements JdbcCrudCrudDao<Wizard> {
 		PreparedStatement statement = null;
 		ResultSet resultSet = null;
         try {
-            connection = DriverManager.getConnection(
-                    DB_URL, DB_USER, DB_PASSWORD
-            );
+            connection = DriverManager.getConnection(databaseUrl, databaseUsername, databasePassword);
             statement = connection.prepareStatement(
                     "SELECT * FROM wizard;"
             );
@@ -135,9 +135,7 @@ public class JdbcCrudWizardRepository implements JdbcCrudCrudDao<Wizard> {
 		Connection connection = null;
 		PreparedStatement statement = null;
         try {
-            connection = DriverManager.getConnection(
-                    DB_URL, DB_USER, DB_PASSWORD
-            );
+            connection = DriverManager.getConnection(databaseUrl, databaseUsername, databasePassword);
             statement = connection.prepareStatement(
                     "UPDATE wizard SET first_name=?, last_name=?, birthday=?, birth_place=?, biography=?, is_muggle=? WHERE id=?"
             );
@@ -168,9 +166,7 @@ public class JdbcCrudWizardRepository implements JdbcCrudCrudDao<Wizard> {
 		Connection connection = null;
 		PreparedStatement statement = null;
         try {
-            connection = DriverManager.getConnection(
-                    DB_URL, DB_USER, DB_PASSWORD
-            );
+            connection = DriverManager.getConnection(databaseUrl, databaseUsername, databasePassword);
             statement = connection.prepareStatement(
                     "DELETE FROM wizard WHERE id=?"
             );

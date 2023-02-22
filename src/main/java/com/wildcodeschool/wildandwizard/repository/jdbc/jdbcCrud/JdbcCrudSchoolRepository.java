@@ -9,9 +9,15 @@ import java.util.List;
 
 public class JdbcCrudSchoolRepository implements JdbcCrudCrudDao<School> {
 
-    private final static String DB_URL = "jdbc:mysql://localhost:3306/spring_jdbc_quest?serverTimezone=GMT";
-    private final static String DB_USER = "h4rryp0tt3r";
-    private final static String DB_PASSWORD = "Horcrux4life!";
+    private static String databaseUrl;
+    private static String databaseUsername;
+    private static String databasePassword;
+
+    public void getDataParameters(String databaseUrl, String databaseUsername, String databasePassword) {
+        this.databaseUrl = databaseUrl;
+        this.databaseUsername = databaseUsername;
+        this.databasePassword = databasePassword;
+    }
 
     @Override
     public School save(School school) {
@@ -20,9 +26,7 @@ public class JdbcCrudSchoolRepository implements JdbcCrudCrudDao<School> {
         PreparedStatement statement = null;
         ResultSet generatedKeys = null;
         try {
-            connection = DriverManager.getConnection(
-                    DB_URL, DB_USER, DB_PASSWORD
-            );
+            connection = DriverManager.getConnection(databaseUrl, databaseUsername, databasePassword);
             statement = connection.prepareStatement(
                     "INSERT INTO school (name, capacity, country) VALUES (?, ?, ?)",
                     Statement.RETURN_GENERATED_KEYS
@@ -61,9 +65,7 @@ public class JdbcCrudSchoolRepository implements JdbcCrudCrudDao<School> {
         PreparedStatement statement = null;
         ResultSet resultSet = null;
         try {
-            connection = DriverManager.getConnection(
-                    DB_URL, DB_USER, DB_PASSWORD
-            );
+            connection = DriverManager.getConnection(databaseUrl, databaseUsername, databasePassword);
             statement = connection.prepareStatement(
                     "SELECT * FROM school WHERE id = ?;"
             );
@@ -93,9 +95,7 @@ public class JdbcCrudSchoolRepository implements JdbcCrudCrudDao<School> {
         PreparedStatement statement = null;
         ResultSet resultSet = null;
         try {
-            connection = DriverManager.getConnection(
-                    DB_URL, DB_USER, DB_PASSWORD
-            );
+            connection = DriverManager.getConnection(databaseUrl, databaseUsername, databasePassword);
             statement = connection.prepareStatement(
                     "SELECT * FROM school;"
             );
@@ -126,9 +126,7 @@ public class JdbcCrudSchoolRepository implements JdbcCrudCrudDao<School> {
         Connection connection = null;
         PreparedStatement statement = null;
         try {
-            connection = DriverManager.getConnection(
-                    DB_URL, DB_USER, DB_PASSWORD
-            );
+            connection = DriverManager.getConnection(databaseUrl, databaseUsername, databasePassword);
             statement = connection.prepareStatement(
                     "UPDATE school SET name=?, capacity=?, country=? WHERE id=?"
             );
@@ -156,9 +154,7 @@ public class JdbcCrudSchoolRepository implements JdbcCrudCrudDao<School> {
         Connection connection = null;
         PreparedStatement statement = null;
         try {
-            connection = DriverManager.getConnection(
-                    DB_URL, DB_USER, DB_PASSWORD
-            );
+            connection = DriverManager.getConnection(databaseUrl, databaseUsername, databasePassword);
             statement = connection.prepareStatement(
                     "DELETE FROM school WHERE id=?"
             );

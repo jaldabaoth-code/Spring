@@ -1,7 +1,7 @@
 package com.wildcodeschool.wildandwizard.controller.jdbc.jdbcCrud;
 
 import com.wildcodeschool.wildandwizard.entity.School;
-import com.wildcodeschool.wildandwizard.repository.SchoolRepository;
+import com.wildcodeschool.wildandwizard.repository.jdbc.jdbcCrud.JdbcCrudSchoolRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,45 +12,45 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class JdbcCrudSchoolController {
 
-    private SchoolRepository repository = new SchoolRepository();
+    private JdbcCrudSchoolRepository schoolRepository = new JdbcCrudSchoolRepository();
 
-    @GetMapping("/schools")
+    @GetMapping("/jdbc/crud/schools")
     public String getAll(Model model) {
 
-        model.addAttribute("schools", repository.findAll());
+        model.addAttribute("schools", schoolRepository.findAll());
 
-        return "schools";
+        return "/jdbc/jdbcCrud/schools";
     }
 
-    @GetMapping("/school")
+    @GetMapping("/jdbc/crud/school")
     public String getSchool(Model model,
                             @RequestParam(required = false) Long id) {
 
         School school = new School();
         if (id != null) {
-            school = repository.findById(id);
+            school = schoolRepository.findById(id);
         }
         model.addAttribute("school", school);
 
-        return "school";
+        return "/jdbc/jdbcCrud/school";
     }
 
-    @PostMapping("/school")
+    @PostMapping("/jdbc/crud/school")
     public String postSchool(@ModelAttribute School school) {
 
         if (school.getId() != null) {
-            repository.update(school);
+            schoolRepository.update(school);
         } else {
-            repository.save(school);
+            schoolRepository.save(school);
         }
-        return "redirect:/schools";
+        return "redirect:/jdbc/crud/schools";
     }
 
-    @GetMapping("/school/delete")
+    @GetMapping("/jdbc/crud/school/delete")
     public String deleteSchool(@RequestParam Long id) {
 
-        repository.deleteById(id);
+        schoolRepository.deleteById(id);
 
-        return "redirect:/schools";
+        return "redirect:/jdbc/crud/schools";
     }
 }

@@ -5,42 +5,35 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-/**
- * Utility methods for closing JDBC resources.
- * 
- * https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/jdbc/support/JdbcUtils.html
- * https://www.selikoff.net/2008/07/30/finally-closing-jdbc-resources/
- */
+/* Quest : JDBC Insert */
 public class JdbcCrudUtils {
-
-	public static void closeConnection(Connection con) {
-		if (con != null) {
+	public static void closeConnection(Connection connection) {
+		if (connection != null) {
 			try {
-				con.close();
+				connection.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
 		}
 	}
 
-	public static void closeResultSet(ResultSet rs) {
-		if (rs != null) {
+	public static void closeResultSet(ResultSet resultSet) {
+		if (resultSet != null) {
 			try {
-				rs.close();
+				resultSet.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
 		}
 	}
 
-	public static void closeStatement(Statement stmt) {
-		if (stmt != null) {
+	public static void closeStatement(Statement statement) {
+		if (statement != null) {
 			try {
-				stmt.close();
+				statement.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
 		}
 	}
-
 }

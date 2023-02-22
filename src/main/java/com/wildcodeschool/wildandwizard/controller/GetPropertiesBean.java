@@ -1,6 +1,8 @@
 package com.wildcodeschool.wildandwizard.controller;
 
 import com.wildcodeschool.wildandwizard.repository.jdbc.jdbc1.Jdbc1GithuberRepository;
+import com.wildcodeschool.wildandwizard.repository.jdbc.jdbcCrud.JdbcCrudSchoolRepository;
+import com.wildcodeschool.wildandwizard.repository.jdbc.jdbcCrud.JdbcCrudWizardRepository;
 import com.wildcodeschool.wildandwizard.repository.jdbc.jdbcDelete.JdbcDeleteSchoolRepository;
 import com.wildcodeschool.wildandwizard.repository.jdbc.jdbcDelete.JdbcDeleteWizardRepository;
 import com.wildcodeschool.wildandwizard.repository.jdbc.jdbcInsert.JdbcInsertSchoolRepository;
@@ -40,5 +42,8 @@ public class GetPropertiesBean {
         // Quest : JDBC Select
         new JdbcSelectSchoolRepository().getDataParameters(databaseUrl, databaseUsername, databasePassword);
         new JdbcSelectWizardRepository().getDataParameters(databaseUrl, databaseUsername, databasePassword);
+        // Quest : JDBC Crud
+        new JdbcCrudSchoolRepository().getDataParameters(databaseUrl, databaseUsername, databasePassword);
+        new JdbcCrudWizardRepository().getDataParameters(databaseUrl, databaseUsername, databasePassword);
     }
 }

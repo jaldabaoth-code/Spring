@@ -3,11 +3,11 @@ package com.wildcodeschool.wildandwizard.controller.jdbc.jdbcCrud;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
-/* Quest : JDBC CRUD */
+/* Quest : JDBC Crud */
 @Controller
 public class JdbcCrudController {
     @GetMapping("/jdbc/crud")
     public String index() {
-        return "index2";
+        return "/jdbc/jdbcCrud/index";
     }
 }

@@ -1,7 +1,7 @@
 package com.wildcodeschool.wildandwizard.controller.jdbc.jdbcCrud;
 
 import com.wildcodeschool.wildandwizard.entity.Wizard;
-import com.wildcodeschool.wildandwizard.repository.WizardRepository;
+import com.wildcodeschool.wildandwizard.repository.jdbc.jdbcCrud.JdbcCrudWizardRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,45 +12,45 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class JdbcCrudWizardController {
 
-    private WizardRepository repository = new WizardRepository();
+    private JdbcCrudWizardRepository wizardRepository = new JdbcCrudWizardRepository();
 
-    @GetMapping("/wizards")
+    @GetMapping("/jdbc/crud/wizards")
     public String getAll(Model model) {
 
-        model.addAttribute("wizards", repository.findAll());
+        model.addAttribute("wizards", wizardRepository.findAll());
 
-        return "wizards";
+        return "/jdbc/jdbcCrud/wizards";
     }
 
-    @GetMapping("/wizard")
+    @GetMapping("/jdbc/crud/wizard")
     public String getWizard(Model model,
                             @RequestParam(required = false) Long id) {
 
         Wizard wizard = new Wizard();
         if (id != null) {
-            wizard = repository.findById(id);
+            wizard = wizardRepository.findById(id);
         }
         model.addAttribute("wizard", wizard);
 
-        return "wizard";
+        return "/jdbc/jdbcCrud/wizard";
     }
 
-    @PostMapping("/wizard")
+    @PostMapping("/jdbc/crud/wizard")
     public String postWizard(@ModelAttribute Wizard wizard) {
 
         if (wizard.getId() != null) {
-            repository.update(wizard);
+            wizardRepository.update(wizard);
         } else {
-            repository.save(wizard);
+            wizardRepository.save(wizard);
         }
-        return "redirect:/wizards";
+        return "redirect:/jdbc/crud/wizards";
     }
 
-    @GetMapping("/wizard/delete")
+    @GetMapping("/jdbc/crud/wizard/delete")
     public String deleteWizard(@RequestParam Long id) {
 
-        repository.deleteById(id);
+        wizardRepository.deleteById(id);
 
-        return "redirect:/wizards";
+        return "redirect:/jdbc/crud/wizards";
     }
 }
