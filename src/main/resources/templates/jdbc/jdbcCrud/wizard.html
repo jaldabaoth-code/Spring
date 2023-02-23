@@ -6,7 +6,7 @@
 </head>
 <body>
 <h3 th:text="${wizard.id} ? 'Edit Wizard' : 'Create Wizard'">Wizard</h3>
-<form method="post" th:action="@{/wizard}" th:object="${wizard}">
+<form method="post" th:action="@{/jdbc/jdbcCrud/wizard}" th:object="${wizard}">
     <input name="id" th:field="*{id}" type="hidden">
     <label for="wizard-first-name">First name:</label>
     <input id="wizard-first-name" name="firstName" placeholder="Harry" required th:field="*{firstName}" type="text">

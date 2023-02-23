@@ -4,26 +4,6 @@
     <meta charset="UTF-8">
     <title>Wizard List</title>
 </head>
-<style>
-    table {
-        border-collapse: collapse;
-    }
-
-    th {
-        background-color: #4CAF50;
-        color: white;
-    }
-
-    tr:nth-child(even) {
-        background-color: #f2f2f2;
-    }
-
-    th, td {
-        border-bottom: 1px solid #ddd;
-        padding: 10px 5px;
-        text-align: left;
-    }
-</style>
 <body>
 <h3>Wizards</h3>
 <a href="/wizard">Add a new wizard !</a>
@@ -51,8 +31,8 @@
         <td th:text="${wizard.birthPlace}">birth place</td>
         <td th:text="${wizard.biography}">biography</td>
         <td th:text="${wizard.muggle}">muggle</td>
-        <td><a th:href="@{/wizard(id=${wizard.id})}">Edit</a></td>
-        <td><a th:href="@{/wizard/delete(id=${wizard.id})}">Remove</a></td>
+        <td><a th:href="@{/jdbc/jdbcCrud/wizard(id=${wizard.id})}">Edit</a></td>
+        <td><a th:href="@{/jdbc/jdbcCrud/wizard/delete(id=${wizard.id})}">Remove</a></td>
     </tr>
     </tbody>
 </table>
