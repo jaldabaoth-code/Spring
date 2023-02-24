@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
     <head>
         <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
         <link rel="stylesheet" th:href="@{/css/style.css}">
-        <link rel="stylesheet" th:href="@{/css/jdbc/jdbcSelect.css}">
+        <link rel="stylesheet" th:href="@{/css/jdbc/jdbcCrud.css}">
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
         <title>JDBC Crud</title>
     </head>
@@ -11,30 +11,33 @@
         <header th:replace="header :: top">Your header/navbar here</header>
         <h1>Spring Quest : JDBC</h1>
         <h2>JDBC Crud</h2>
-        <table>
-            <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Capacity</th>
-                <th>Country</th>
-                <th></th>
-                <th></th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr th:each="school : ${schools}">
-                <td th:text="${school.id}">id</td>
-                <td th:text="${school.name}">name</td>
-                <td th:text="${school.capacity}">capacity</td>
-                <td th:text="${school.country}">country</td>
-                <td><a th:href="@{/jdbc/jdbcCrud/school(id=${school.id})}">Edit</a></td>
-                <td><a th:href="@{/jdbc/jdbcCrud/school/delete(id=${school.id})}">Remove</a></td>
-            </tr>
-            </tbody>
-        </table>
-        <a href="/school">Add a new school !</a>
-        <a href="/">Return to the index</a>
+        <div class="container">
+            <div class="add-new-person">
+                <a href="/jdbc/crud/school">Add New School</a>
+            </div>
+            <h3>All Schools</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Capacity</th>
+                        <th>Country</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="school : ${schools}">
+                        <td th:text="${school.id}"></td>
+                        <td th:text="${school.name}"></td>
+                        <td th:text="${school.capacity}"></td>
+                        <td th:text="${school.country}"></td>
+                        <td><a th:href="@{/jdbc/jdbcCrud/school(id=${school.id})}">Edit</a></td>
+                        <td><a th:href="@{/jdbc/jdbcCrud/school/delete(id=${school.id})}">Remove</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </body>
 </html>
 

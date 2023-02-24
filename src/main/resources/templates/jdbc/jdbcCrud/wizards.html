@@ -1,42 +1,47 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Wizard List</title>
-</head>
-<body>
-<h3>Wizards</h3>
-<a href="/wizard">Add a new wizard !</a>
-<br><br>
-<table>
-    <thead>
-    <tr>
-        <th>Id</th>
-        <th>First name</th>
-        <th>Last name</th>
-        <th>Birthday</th>
-        <th>Birth place</th>
-        <th>Biography</th>
-        <th>Muggle</th>
-        <th></th>
-        <th></th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="wizard : ${wizards}">
-        <td th:text="${wizard.id}">id</td>
-        <td th:text="${wizard.firstName}">first name</td>
-        <td th:text="${wizard.lastName}">last name</td>
-        <td th:text="${wizard.birthday}">birthday</td>
-        <td th:text="${wizard.birthPlace}">birth place</td>
-        <td th:text="${wizard.biography}">biography</td>
-        <td th:text="${wizard.muggle}">muggle</td>
-        <td><a th:href="@{/jdbc/jdbcCrud/wizard(id=${wizard.id})}">Edit</a></td>
-        <td><a th:href="@{/jdbc/jdbcCrud/wizard/delete(id=${wizard.id})}">Remove</a></td>
-    </tr>
-    </tbody>
-</table>
-<br>
-<a href="/">Return to the index</a>
-</body>
+    <head>
+        <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+        <link rel="stylesheet" th:href="@{/css/style.css}">
+        <link rel="stylesheet" th:href="@{/css/jdbc/jdbcSelect.css}">
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+        <title>JDBC Crud</title>
+    </head>
+    <body>
+        <header th:replace="header :: top">Your header/navbar here</header>
+        <h1>Spring Quest : JDBC</h1>
+        <h2>JDBC Crud</h2>
+
+        <a href="/wizard">Add a new wizard !</a>
+
+        <table>
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>First name</th>
+                <th>Last name</th>
+                <th>Birthday</th>
+                <th>Birth place</th>
+                <th>Biography</th>
+                <th>Muggle</th>
+                <th></th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="wizard : ${wizards}">
+                <td th:text="${wizard.id}">id</td>
+                <td th:text="${wizard.firstName}">first name</td>
+                <td th:text="${wizard.lastName}">last name</td>
+                <td th:text="${wizard.birthday}">birthday</td>
+                <td th:text="${wizard.birthPlace}">birth place</td>
+                <td th:text="${wizard.biography}">biography</td>
+                <td th:text="${wizard.muggle}">muggle</td>
+                <td><a th:href="@{/jdbc/jdbcCrud/wizard(id=${wizard.id})}">Edit</a></td>
+                <td><a th:href="@{/jdbc/jdbcCrud/wizard/delete(id=${wizard.id})}">Remove</a></td>
+            </tr>
+            </tbody>
+        </table>
+        <a href="/">Return to the index</a>
+    </body>
 </html>
